@@ -12,19 +12,21 @@
 </head>
 
 
-<body ng-controller="MainCtrl">
-    <h1>KPSmart</h1>
-    <h2> - Postal Management System - </h2>
-        <p>Username: </p>
-        <input type="username" id="username" name="Username" ng-model="username">
-        <p>Password: </p>
-        <input type="password" id="password" name="password" ng-model="password">
-        <p>Account Type: </p>
-        <select ng-model="usertype">
-            <option ng-repeat="u in	userTypes">{{u}}</option>
-        </select>
+    <body ng-controller="MainCtrl">
+        <h1>KPSmart</h1>
+        <h2> - Postal Management System - </h2>
+            <p>Username: </p>
+            <input type="username" id="username" name="Username" ng-model="username">
+            <p>Password: </p>
+            <input type="password" id="password" name="Password" ng-model="password">
+            <p>Account Type: </p>
+            <select>
+                <option ng-repeat = "users in userTypes">{{users}}</option>
+            </select>
+            <button class = "button" ng-click="checkLogin()">Log in</button>
+            <button class = "button" ng-click="cancelLogin()">Cancel</button>
 
+            <p ng-bind="output"></p>
 
-        <button class = "button">Log in</button>
-</body>
+    </body>
 </html>
