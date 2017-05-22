@@ -21,6 +21,7 @@ app.controller('MainCtrl', function($scope) {
             $scope.print="Please input a valid password";
         }else if($scope.username == $scope.testUser && $scope.password == $scope.testPwd){
             alert("Logged in successfully as " + testUser);
+            $scope.cancelLogin();
         }else{
             $scope.print="Incorrect username or password";
         }

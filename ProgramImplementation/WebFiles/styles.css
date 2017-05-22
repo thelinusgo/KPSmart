@@ -1,0 +1,61 @@
+/*Fonts*/
+@font-face {
+    font-family: CoffeeAndTea;
+    src: url("fonts/coffee+teademo-Regular.woff") format('woff'),
+    url("fonts/coffee+teademo-Regular.ttf")  format('truetype');
+}
+
+html, body{
+    height: 100%;
+    font-size: 20px;
+}
+
+/*Body*/
+body{
+    margin: 0;
+    padding:0;
+    font-family: CoffeeAndTea;
+}
+
+/*Main container*/
+#maincontainer{
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*Login*/
+#login{
+    width: 30%;
+    margin: 0 auto;
+    border: 2px solid black;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+
+#login #header{
+    text-align: center;
+    padding: 20px;
+}
+
+#login #loginContainer{
+    width: 300px;
+    margin: 0 auto;
+}
+
+#login #loginContainer #username{
+    margin-top: 20px;
+}
+
+#login #loginContainer #password input, #login #loginContainer #username input{
+    width: 175px;
+}
+
+#login #loginContainer #password, #login #loginContainer #accType{
+    margin-top: 10px;
+}
+
+#login #loginContainer #accType select{
+    padding: 1px;
+    width: 179px;
+}
