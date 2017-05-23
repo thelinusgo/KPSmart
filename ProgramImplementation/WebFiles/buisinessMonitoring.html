@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Update Customer Price - KPSmart System</title>
+    <title>Buisiness Monitoring - KPSmart System</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <link rel="stylesheet" href="styles.css" />
     <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
@@ -24,42 +25,31 @@
         <a href="index.html" ng-click="cancelLogin()">Logout</a>
     </div>
 
-<span onclick="openNav()"><img src="images/hamburger.png" width="40" height="35"/></span>
+    <span onclick="openNav()"><img src="images/hamburger.png" width="40" height="35"/></span>
 
-<div id="main">
-    <h2>Request Delivery:</h2>
+    <h1>-Overall Buisiness Statistics -</h1>
 
-    <table class = "deliveryTable">
-    <tr>
-        <th>Origin:</th>
-        <th>Destination:</th>
-    </tr>
-    <tr>
-        <td><input class = "text"></td>
-        <td><input class = "text"></td>
-    </tr>
-    <tr>
-        <th>Mail Priority:</th>
-        <th>Weight of Package:</th>
-    </tr>
-    <tr>
-        <td>
-        <select>
-            <option ng-repeat = "pri in priority">{{pri}}</option>
-        </select>
-        </td>
-        <td><input class = "text"></td>
-    </tr>
-    <tr>
-        <th>Volume of Package:</th>
-    </tr>
-    <tr>
-        <td><input class = "text"></td>
-    </tr>
+    <table class="buisinessFigures">
+        <tr>
+            <th>Total Revenue</th>
+            <th>Total Expenditure</th>
+            <th>Total Count of Events</th>
+        </tr>
+        <tr>
+            <td>$1,000,000</td>
+            <td>$500,000</td>
+            <td>1234</td>
+        </tr>
+        <tr>
+            <th>Amount of Mail Delivered:</th>
+            <th>Average Delivery Time:</th>
+            <th>Critical Routes:</th>
+        </tr>
+        <tr>
+            <td>1,234</td>
+            <td>5:06 (hh:mm)</td>
+            <td>AKL -> SYD</td>
+        </tr>
     </table>
-
-    <button class="button" ng-click="">Request Delivery</button>
-
-</div>
 </body>
 </html>
