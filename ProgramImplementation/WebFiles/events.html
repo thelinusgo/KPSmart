@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Event Homepage - KPSmart System</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="styles.css" />
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+    <!--Code for the sidebar of the table -->
+    <div id="mySidenav" class="sidenav">
+        <span>Current User: <br></span>
+        <span>{{currentUser}}</span>
+
+        <div class = "logo">
+            <img src="images/logo.png" width="150" height="150" style="width:90%"/>
+        </div>
+        <a href="javascript:void(1)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="events.html">View Events</a>
+        <a href="processevents.html">Process Events</a>
+        <a href="updateCustomerPrice.html">Update Customer Price</a>
+        <a href="requestDelivery.html">Request Delivery</a>
+        <a href="index.html" ng-click="cancelLogin()">Logout</a>
+    </div>
+
+    <span onclick="openNav()"><img src="images/hamburger.png" width="40" height="35"/></span>
+
+    <div id="main">
+
+    <h2>Event Logs</h2>
+        <table class = "eventTable">
+            <tr>
+                <th>Event ID</th>
+                <th>Event Name</th>
+                <th>Date Posted</th>
+                <th>View</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Mail Delivery</td>
+                <td>Date Posted</td>
+                <td><button class = "button">View</button></td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
