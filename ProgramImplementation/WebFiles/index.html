@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--KPSmart Front-End -->
+<html lang="en" ng-app="plunker">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>KPSmart Postal Management System</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="styles.css" />
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
+    <script src="app.js"></script>
+</head>
+
+
+    <body ng-controller="MainCtrl">
+        <div id="maincontainer">
+            <div id="login">
+                <div id="header">
+                    <img src="images/logo.png"/>
+                </div>
+                <div id="loginContainer">
+                    <div id="username">
+                        <label>Username</label>
+                        <input type="text" id="username" name="username" ng-model="username">
+                    </div>
+                    <div id="password">
+                        <label>Password</label>
+                        <input type="password" id="password" name="Password" ng-model="password">
+                    </div>
+                    <div id="accType">
+                        <label>Account Type</label>
+                        <select>
+                            <option ng-repeat = "users in userTypes">{{users}}</option>
+                        </select>
+                    </div>
+
+                    <button class = "button" ng-click="checkLogin()">Log in</button>
+                    <button class = "button" ng-click="cancelLogin()">Cancel</button>
+
+                    <p ng-bind="print"></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
