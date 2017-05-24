@@ -30,7 +30,6 @@ app.controller('MainCtrl', function($scope, $http) {
     $http.get($scope.userlist)
         .then(function sucessCall(response)	{
                 $scope.userlist = response.data.users;
-                alert($scope.userlist.length);
             },function errorCall()	{
                 alert("Error reading users list.");
             }
@@ -56,12 +55,10 @@ app.controller('MainCtrl', function($scope, $http) {
 
             for(i = 0; i < $scope.userlist.length; i++){
                 if($scope.userlist[i].LoginName == userInput){
-                    alert("username is correct");
                     $scope.validUserName = true;
                 }
 
                 if($scope.userlist[i].UPassword == passwordInput){
-                    alert("password is correct");
                     $scope.validPassword = true;
                 }
             }
