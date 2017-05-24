@@ -19,6 +19,7 @@
         <a href="events.html">View Events</a>
         <a href="processevents.html">Process Events</a>
         <a id = "highlighted" href="updateCustomerPrice.html">Update Customer Price</a>
+        <a href="updateTransportCost.html">Update Transport Cost</a>
         <a href="requestDelivery.html">Request Delivery</a>
         <a href="buisinessMonitoring.html">Buisiness Monitoring</a>
         <a href="index.html" ng-click="cancelLogin()">Logout</a>
@@ -32,27 +33,30 @@
         <table class="updatePriceTable">
             <tr>
                 <th>Origin</th>
-                <th>Destination</th>
-                <th>Mail Priority:</th>
+                <td><input class = "text"></td>
             </tr>
             <tr>
+                <th>Destination</th>
                 <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>New Price per gram:</th>
                 <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>New Price per cubic cm:</th>
+                <td><input class = "text"></td>
+            </tr>
+                <tr>
+                <th>Mail Priority</th>
                 <td>
                     <select>
-                        <option ng-repeat = "pri in priority">{{pri}}</option>
+                        <option ng-repeat = "prior in priority">{{prior}}</option>
                     </select>
                 </td>
             </tr>
-            <tr>
-                <th>New price p/gram:</th>
-                <th>New price p/cubic cm:</th>
-            </tr>
-            <tr>
-                <td><input class = "text"></td>
-                <td><input class = "text"></td>
-            </tr>
         </table>
+
         <button class="button" ng-click="">Update</button>
     </div>
 </body>
