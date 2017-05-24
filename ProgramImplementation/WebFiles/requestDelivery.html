@@ -19,6 +19,7 @@
         <a href="events.html">View Events</a>
         <a href="processevents.html">Process Events</a>
         <a href="updateCustomerPrice.html">Update Customer Price</a>
+        <a href="updateTransportCost.html">Update Transport Cost</a>
         <a id = "highlighted"  href="requestDelivery.html">Request Delivery</a>
         <a href="buisinessMonitoring.html">Buisiness Monitoring</a>
         <a href="index.html" ng-click="cancelLogin()">Logout</a>
@@ -26,37 +27,36 @@
 
 <span onclick="openNav()"><img src="images/hamburger.png" width="40" height="35"/></span>
 
-<div id="mainContainer">
+<div id="main">
     <div id="requestDelivery">
         <h2>Request Delivery:</h2>
 
-        <table class = "deliveryTable">
-        <tr>
-            <th>Origin:</th>
-            <th>Destination:</th>
-        </tr>
-        <tr>
-            <td><input class = "text"></td>
-            <td><input class = "text"></td>
-        </tr>
-        <tr>
-            <th>Mail Priority:</th>
-            <th>Weight of Package:</th>
-        </tr>
-        <tr>
-            <td>
-            <select>
-                <option ng-repeat = "prior in priority">{{prior}}</option>
-            </select>
-            </td>
-            <td><input class = "text"></td>
-        </tr>
-        <tr>
-            <th>Volume of Package:</th>
-        </tr>
-        <tr>
-            <td><input class = "text"></td>
-        </tr>
+
+        <table class="deliveryTable">
+            <tr>
+                <th>Origin</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Mail Priority</th>
+                <td>
+                <select>
+                    <option ng-repeat = "prior in priority">{{prior}}</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Weight of Package</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Volume of Package:</th>
+                <td><input class = "text"></td>
+            </tr>
         </table>
 
         <button class="button" ng-click="">Request Delivery</button>
