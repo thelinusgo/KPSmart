@@ -23,6 +23,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.priority = ['InternAir', 'InternStd', 'DomestAir', 'DomestStd']; //define the different types of priority
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
+    $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
+
 
     var testUser = "userman";
     var testPwd = "password1";
