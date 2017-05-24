@@ -17,7 +17,7 @@ function closeNav() {
 }
 
 
-app.controller('MainCtrl', function($scope, $http) {
+app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.userlist = "userlist.json"; //the list of different users
 
@@ -64,18 +64,13 @@ app.controller('MainCtrl', function($scope, $http) {
             }
         if($scope.validUserName && $scope.validPassword){
             alert("Welcome " + userInput +", you have logged in successfully.");
+            $location.href = 'processevents.html';
             $scope.cancelLogin();
+
         }else{
             $scope.print = "Incorrect userame or password";
         }
         }
-        /*if(userInput == testUser && passwordInput == testPwd){
-            alert("Welcome " + userInput +", you have logged in successfully.");
-            $window.location.href = '/processevents.html';
-            $scope.cancelLogin();
-        }else{
-            $scope.print="Incorrect username or password";
-        }*/
     };
 
     $scope.cancelLogin = function(){
