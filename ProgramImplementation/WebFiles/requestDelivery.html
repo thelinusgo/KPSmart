@@ -26,40 +26,41 @@
 
 <span onclick="openNav()"><img src="images/hamburger.png" width="40" height="35"/></span>
 
-<div id="main">
-    <h2>Request Delivery:</h2>
+<div id="mainContainer">
+    <div>
+        <h2>Request Delivery:</h2>
 
-    <table class = "deliveryTable">
-    <tr>
-        <th>Origin:</th>
-        <th>Destination:</th>
-    </tr>
-    <tr>
-        <td><input class = "text"></td>
-        <td><input class = "text"></td>
-    </tr>
-    <tr>
-        <th>Mail Priority:</th>
-        <th>Weight of Package:</th>
-    </tr>
-    <tr>
-        <td>
-        <select>
-            <option ng-repeat = "prior in priority">{{prior}}</option>
-        </select>
-        </td>
-        <td><input class = "text"></td>
-    </tr>
-    <tr>
-        <th>Volume of Package:</th>
-    </tr>
-    <tr>
-        <td><input class = "text"></td>
-    </tr>
-    </table>
+        <table class = "deliveryTable">
+        <tr>
+            <th>Origin:</th>
+            <th>Destination:</th>
+        </tr>
+        <tr>
+            <td><input class = "text"></td>
+            <td><input class = "text"></td>
+        </tr>
+        <tr>
+            <th>Mail Priority:</th>
+            <th>Weight of Package:</th>
+        </tr>
+        <tr>
+            <td>
+            <select>
+                <option ng-repeat = "prior in priority">{{prior}}</option>
+            </select>
+            </td>
+            <td><input class = "text"></td>
+        </tr>
+        <tr>
+            <th>Volume of Package:</th>
+        </tr>
+        <tr>
+            <td><input class = "text"></td>
+        </tr>
+        </table>
 
-    <button class="button" ng-click="">Request Delivery</button>
-
+        <button class="button" ng-click="">Request Delivery</button>
+    </div>
 </div>
 </body>
 </html>
