@@ -34,11 +34,11 @@ body{
 }
 
 #login{
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
     position: absolute;
     top: 25%;
-    left: 35%;
+    left: 30%;
 }
 
 #login #header{
@@ -47,7 +47,7 @@ body{
 }
 
 #login #header .logo{
-    width: 95%;
+    /*! width: 95%; */
 }
 
 /*Login Container*/
@@ -89,7 +89,14 @@ body{
 }
 
 /*Logic to deal with the sidebar */
+#mySidenav #logo{
+    margin: 0 auto;
+    padding: 10px;
+}
 
+#mySidenav #logo img{
+    width: 100%;
+}
 
 /* The side navigation menu */
 .sidenav {
@@ -103,6 +110,10 @@ body{
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    
+    -webkit-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
 }
 
 /* The navigation menu links */
