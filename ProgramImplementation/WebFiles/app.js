@@ -66,6 +66,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             }
         if($scope.validUserName && $scope.validPassword){
             alert("Welcome " + userInput +", you have logged in successfully.");
+            location.href='processevents.html';
             $scope.cancelLogin();
 
         }else{
