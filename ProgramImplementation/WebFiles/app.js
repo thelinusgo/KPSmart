@@ -153,6 +153,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.sendDiscontinueRoute = function(){
 
+
     if($scope.discontinueRouteFields.origin == ""){
         alert("Please fill out the origin field");
         return;
@@ -162,7 +163,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     }else if($scope.discontinueRouteFields.transportFirm == ""){
         alert("Please fill out the transport 'firm' field for your mail");
         return;
+    }else if(hasNumber($scope.discontinueRouteFields.origin) || hasNumber($scope.discontinueRouteFields.destination) ||  hasNumber($scope.discontinueRouteFields.transportFirm) ){
+        alert("The field must not have numerals inside of them");
+        return;
     }
+
      var JSONObject = {
          "MsgType": "discontinueRoute", "origin" : $scope.discontinueRouteFields.origin, "destination" : $scope.discontinueRouteFields.destination,
          "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType
@@ -201,3 +206,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     }
 
 });
+
+
+function hasNumber(myString) {
+    return /\d/.test(myString);
+}
