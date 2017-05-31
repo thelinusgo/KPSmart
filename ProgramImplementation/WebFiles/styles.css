@@ -17,10 +17,100 @@ body{
     font-family: CoffeeAndTea;
 }
 
+/*Header*/
+header{
+    background-color: white;
+    width:100%;
+    height: 100px;
+    text-align: center;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+header img{
+    float: left;
+    height: 110px;
+    margin: 0px;
+}
+
+/*Header Div*/
+#header{
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*Navigation*/
+nav{
+    display: inline-block;
+    float: right;
+}
+
+nav ul{
+    font-size: 18px;
+    padding: 0px;
+    list-style-type: none;
+    float: right;
+    margin-top: 40px;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+nav li a{
+    color: black;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+nav li a:hover{
+    color: #77bbbb;
+    transition: all 0.5s ease;
+}
+
+/*Dropdown*/
+nav ul li ul {
+    padding: 0;
+    margin-top: 35px;
+    position: absolute;
+    left: 0;
+    width: 200px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    -webkit-transiton: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    -transition: opacity 0.2s;
+}
+
+nav ul li ul li {
+    background: #d9d9d9;
+    display: block;
+}
+
+nav ul li ul li:hover {
+    background: #f2f2f2;
+    color: #ff1a1a;
+}
+
+nav ul li:hover ul{
+    display: block;
+}
+
 /*Main Container*/
 #mainContainer{
     width: 90%;
     margin: 0 auto;
+    margin-top: 150px;
 }
 
 /*Login*/
@@ -88,77 +178,7 @@ body{
     margin-left: 10px;
 }
 
-/*Logic to deal with the sidebar */
-#mySidenav #logo{
-    margin: 0 auto;
-    padding: 10px;
-}
-
-#mySidenav #logo img{
-    width: 100%;
-}
-
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
-    
-    -webkit-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: all 0.5s ease;
-}
-
-.sidenav a#highlighted{
-    background-color: #9d97b4;
-    color: white;
-    transition: all 0.5s ease;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
-    color: #9d97b4;
-    transition: all 0.5s ease;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-
+/*Form*/
 input, select, textarea, option{
     font-family: CoffeeAndTea;
     font-size: 25px;
