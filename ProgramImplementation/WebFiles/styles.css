@@ -95,8 +95,8 @@ nav ul li ul {
 }
 
 nav ul li ul li {
-    background: #d9d9d9;
     display: block;
+    margin: 0;
 }
 
 nav ul li ul li:hover {
@@ -128,16 +128,21 @@ nav ul li:hover ul{
     margin-top: 30px;
 }
 
-.dropdown{
+.dropdown p{
     margin-top: 13px;
+    margin-right: 10px;
 }
-
 .dropdown-menu{
     border: none;
+    padding: 0;
 }
 
 .navbar-inverse .navbar-nav > li > a{
     color: black;
+}
+
+.dropdown-menu > li > a{
+    padding: 10px 20px;
 }
 
 /*Main Container*/
