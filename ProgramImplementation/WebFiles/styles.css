@@ -7,7 +7,7 @@
 
 html, body{
     height: 100%;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /*Body*/
@@ -17,20 +17,28 @@ body{
     font-family: CoffeeAndTea;
 }
 
-/*Main container*/
-#maincontainer{
+/*Main Container*/
+#mainContainer{
     width: 90%;
     margin: 0 auto;
 }
 
 /*Login*/
+#loginMain{
+    font-size: 30px;
+    background-image: url(images/background.jpg);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
 #login{
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
-    border: 2px solid black;
     position: absolute;
-    top: 35%;
-    left: 35%;
+    top: 25%;
+    left: 30%;
 }
 
 #login #header{
@@ -38,37 +46,57 @@ body{
     padding: 20px;
 }
 
-#logo{
-    display: block;
-    /*margin: auto; */
-    padding: 10px;
+#login #header .logo{
+    /*! width: 95%; */
 }
 
+/*Login Container*/
 #login #loginContainer{
-    width: 300px;
+    width: 350px;
     margin: 0 auto;
 }
 
-#login #loginContainer #username{
-    margin-top: 20px;
+#login #loginContainer #subContainer{
+    margin-bottom: 10px;
+    white-space: nowrap;
 }
 
-#login #loginContainer #password input, #login #loginContainer #username input{
+#login #loginContainer #subContainer input{
     width: 175px;
 }
 
-#login #loginContainer #password, #login #loginContainer #accType{
-    margin-top: 10px;
+#login #loginContainer #subContainer select{
+    padding: 2px;
+    width: 181px;
 }
 
-#login #loginContainer #accType select{
-    padding: 1px;
-    width: 179px;
+#loginLabel{
+    float: left;   
 }
 
+#loginInput{
+    text-align: right;
+}
+
+/*Login Buttons*/
+#login #loginContainer #button{
+    float: right;
+    margin-top: 20px;
+}
+
+#login #loginContainer #button button{
+    margin-left: 10px;
+}
 
 /*Logic to deal with the sidebar */
+#mySidenav #logo{
+    margin: 0 auto;
+    padding: 10px;
+}
 
+#mySidenav #logo img{
+    width: 100%;
+}
 
 /* The side navigation menu */
 .sidenav {
@@ -78,10 +106,14 @@ body{
     z-index: 1; /* Stay on top */
     top: 0;
     left: 0;
-    background-color: #000000; /* Black*/
+    background-color: white;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    
+    -webkit-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 1px 10px 0px rgba(0,0,0,0.75);
 }
 
 /* The navigation menu links */
@@ -89,19 +121,21 @@ body{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-
-    color: #515151;
+    color: black;
     display: block;
-    transition: 0.3s
+    transition: all 0.5s ease;
 }
 
 .sidenav a#highlighted{
-    background-color: yellow;
+    background-color: #9d97b4;
+    color: white;
+    transition: all 0.5s ease;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+    color: #9d97b4;
+    transition: all 0.5s ease;
 }
 
 /* Position and style the close button (top right corner) */
@@ -123,4 +157,26 @@ body{
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+input, select, textarea, option{
+    font-family: CoffeeAndTea;
+    font-size: 25px;
+}
+
+/*Button*/
+.button{
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    border: 2px solid #f2f2f2;
+    font-family: CoffeeAndTea;
+    transition: all 0.5s ease;
+}
+
+.button:hover{
+    border: 2px solid #6bbaa7;
+    color: #6bbaa7;
+    transition: all 0.5s ease;
 }

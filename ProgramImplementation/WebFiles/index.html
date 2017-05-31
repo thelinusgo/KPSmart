@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--KPSmart Front-End -->
-<html lang="en" ng-app="plunker">
+<html lang="en" ng-app="kps">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,34 +11,45 @@
     <script src="app.js"></script>
 </head>
 
-
     <body ng-controller="MainCtrl">
-        <div id="maincontainer">
+        <div id="loginMain">
             <div id="login">
                 <div id="header">
-                    <img src="images/logo.png"/>
+                    <img class="logo" src="images/logov3.png"/>
                 </div>
                 <div id="loginContainer">
-                    <div id="username">
-                        <label>Username</label>
-                        <input type="text" id="username" name="username" ng-model="username">
+                    <div id="subContainer">
+                        <div id="loginLabel">
+                            <label>Username</label>
+                        </div>
+                        <div id="loginInput">
+                            <input type="text" id="username" name="username" ng-model="username">
+                        </div>
                     </div>
-                    <div id="password">
-                        <label>Password</label>
-                        <input type="password" id="password" name="Password" ng-model="password">
+                    <div id="subContainer">
+                        <div id="loginLabel">
+                            <label>Password</label>
+                        </div>
+                        <div id="loginInput">
+                            <input type="password" id="password" name="Password" ng-model="password">
+                        </div>
                     </div>
-                    <div id="accType">
-                        <label>Account Type</label>
-                        <select>
-                            <option ng-repeat = "users in userTypes">{{users}}</option>
-                        </select>
+                    <div id="subContainer">
+                        <div id="loginLabel">
+                            <label>Account Type</label>
+                        </div>
+                        <div id="loginInput">
+                            <select>
+                                <option ng-repeat = "users in userTypes">{{users}}</option>
+                            </select>
+                        </div>
                     </div>
-
-                    <button class = "button" ng-click="checkLogin()">Log in</button>
-                    <button class = "button" ng-click="cancelLogin()">Cancel</button>
-
-                    <p ng-bind="print"></p>
+                    <div id="button">
+                        <button class = "button" ng-click="checkLogin()">Log in</button>
+                        <button class = "button" ng-click="cancelLogin()">Cancel</button>
+                    </div>
                 </div>
+                <p ng-bind="print"></p>
             </div>
         </div>
     </body>
