@@ -33,13 +33,13 @@ header{
 
 header img{
     float: left;
-    height: 110px;
+    height: 150px;
     margin: 0px;
 }
 
 /*Header Div*/
 #header{
-    width: 80%;
+    width: 65%;
     margin: 0 auto;
     background-color: transparent;
     padding-left: 50px;
@@ -129,16 +129,27 @@ nav ul li:hover ul{
 }
 
 .dropdown p{
-    margin-top: 13px;
-    margin-right: 10px;
+    margin: 0 10px;
+    margin-top: 12px;
 }
+
+.dropdown p:hover{
+    color: #6bbaa7;
+}
+
 .dropdown-menu{
     border: none;
     padding: 0;
+    font-size: 16px;
 }
 
 .navbar-inverse .navbar-nav > li > a{
     color: black;
+    transition: all 0.5s ease;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #6bbaa7;
 }
 
 .dropdown-menu > li > a{
@@ -147,9 +158,9 @@ nav ul li:hover ul{
 
 /*Main Container*/
 #mainContainer{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 /*Login*/
@@ -173,10 +184,6 @@ nav ul li:hover ul{
 #login #header{
     text-align: center;
     padding: 20px;
-}
-
-#login #header .logo{
-    /*! width: 95%; */
 }
 
 /*Login Container*/
@@ -216,6 +223,53 @@ nav ul li:hover ul{
 #login #loginContainer #button button{
     margin-left: 10px;
 }
+
+/*Container1*/
+#container1{
+    width: 100%;
+    height: 20vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+#container1 h2{
+    font-size: 7em;
+    color: white;
+    vertical-align: middle;
+    line-height: 20vw;
+}
+
+.business{
+    background-image: url(images/business.jpg);
+}
+
+.request{
+    background-image: url(images/requestDelivery.jpg);
+}
+
+.updateCP{
+    background-image: url(images/updateCP.jpg);
+}
+
+.updateTC{
+    background-image: url(images/updateTC.jpg);
+}
+
+.view{
+    background-image: url(images/viewEvents.jpg);
+}
+
+.route{
+    background-image: url(images/route.jpg);
+}
+
+/*Container2*/
+ #container2{
+     width: 50%;
+     margin: 0 auto;
+     margin-top: 30px;
+ }
 
 /*Form*/
 input, select, textarea, option{

@@ -23,9 +23,11 @@
 <body ng-controller="MainCtrl">
         <div w3-include-html="header.html"></div>
         <div id="mainContainer">
-            <div id="requestDelivery">
-                <h2>Request Delivery:</h2>
-                <table class="deliveryTable">
+            <div id="container1" class="request">
+                <h2>Request Delivery</h2>
+            </div>
+            <div id="container2">
+                <table>
                     <tr>
                         <th>Origin</th>
                         <td><input class = "text"></td>
@@ -37,9 +39,9 @@
                     <tr>
                         <th>Mail Priority</th>
                         <td>
-                        <select>
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
-                        </select>
+                            <select>
+                                <option ng-repeat = "prior in priority">{{prior}}</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>

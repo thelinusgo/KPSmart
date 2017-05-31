@@ -21,51 +21,55 @@
         <div w3-include-html="header.html"></div>
 
         <div id="mainContainer">
-            <h2>Update Transport Cost</h2>
+            <div id="container1" class="updateTC">
+                <h2>Update Transport Cost</h2>
+            </div>
 
-            <table class="updatePriceTable">
-                <tr>
-                    <th>Origin</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Destination</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Transport Firm</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Type of Transport</th>
-                    <td>
-                        <select>
-                            <option ng-repeat = "transport in transportTypes">{{transport}}</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Price per gram</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Price per cubic cm</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Departure Day</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Departs Every</th>
-                    <td><input class = "text"> hours</td>
-                </tr>
-                <tr>
-                    <th>Trip Duration</th>
-                    <td><input class = "text"> hours</td>
-                </tr>
-            </table>
-            <button class="button" ng-click="">Update</button>
+            <div id="container2">
+                <table>
+                    <tr>
+                        <th>Origin</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Transport Firm</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Type of Transport</th>
+                        <td>
+                            <select>
+                                <option ng-repeat = "transport in transportTypes">{{transport}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Price per gram</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Price per cubic cm</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Departure Day</th>
+                        <td><input class = "text"></td>
+                    </tr>
+                    <tr>
+                        <th>Departs Every</th>
+                        <td><input class = "text"> hours</td>
+                    </tr>
+                    <tr>
+                        <th>Trip Duration</th>
+                        <td><input class = "text"> hours</td>
+                    </tr>
+                </table>
+                <button class="button" ng-click="">Update</button>
+            </div>
         </div>
 
         <script>
