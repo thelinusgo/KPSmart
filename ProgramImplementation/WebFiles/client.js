@@ -10,7 +10,7 @@
  * @param message
  */
 function sendData(json_message){
-    if(message == null){
+    if(json_message == null){
         alert("There must be a message to pass in");
     }
 

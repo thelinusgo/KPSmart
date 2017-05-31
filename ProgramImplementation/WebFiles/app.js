@@ -25,7 +25,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
     $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
     $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
-    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
+    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
+        pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
 
     var testUser = "userman";
     var testPwd = "password1";
@@ -82,19 +83,23 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     }
 
     $scope.sendRequestDelivery = function() {
-        if (deliveryFields.origin == "") {
+        if ($scope.deliveryFields.origin == "") {
             alert("Please fill out the origin field");
-        } else if (deliveryFields.destination == "") {
+            return;
+        } else if ($scope.deliveryFields.destination == "") {
             alert("Please fill out the destination field");
-        } else if (deliveryFields.volume == "") {
+            return;
+        } else if ($scope.deliveryFields.volume == "") {
             alert("Please choose a volume amount for your mail.");
-        } else if (deliveryFields.weight == "") {
+            return;
+        } else if ($scope.deliveryFields.weight == "") {
             alert("Please choose a volume amount for your mail.");
+            return;
         }
 
         var reqObject = {
-            "msgType": "requestDelivery", "origin": deliveryFields.origin, "destination": deliveryFields.destination,
-            "priority": deliveryFields.priority, "weight": deliveryFields.weight, "volume":deliveryFields.volume
+            "msgType": "requestDelivery", "origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
+            "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume
         }
 
         sendData(reqObject);
