@@ -7,8 +7,8 @@ var app = angular.module('kps', []);
 
 /*Code for the sidebar opening-closing logic */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-    document.getElementById("main").style.marginLeft = "200px";
+    document.getElementById("mySidenav").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
 }
 
 function closeNav() {
@@ -66,6 +66,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             }
         if($scope.validUserName && $scope.validPassword){
             alert("Welcome " + userInput +", you have logged in successfully.");
+            location.href='processevents.html';
             $scope.cancelLogin();
 
         }else{
