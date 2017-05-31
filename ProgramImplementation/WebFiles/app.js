@@ -27,7 +27,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
     $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
         pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
-    $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: ""};
+    $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: 'InternAir'};
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
     $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
         mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"};
@@ -174,22 +174,27 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.sendUpdatedCustomerPrice = function() {
 
-        if (customerPriceFields.origin == null) {
+        if ($scope.customerPriceFields.origin == null) {
             alert("Please fill out the origin field");
-        } else if (customerPriceFields.destination == null) {
+            return;
+        } else if ($scope.customerPriceFields.destination == null) {
             alert("Please fill out the destination field");
-        } else if (customerPriceFields.pricePerGram == null) {
+            return;
+        } else if ($scope.customerPriceFields.pricePerGram == null) {
             alert("Please fill out the price per gram field.");
-        } else if (customerPriceFields.pricePerCubic == null) {
+            return;
+        } else if ($scope.customerPriceFields.pricePerCubic == null) {
             alert("Please fill out the price per cubic field.");
-        } else if (customerPriceFields.mailPriority == null) {
+            return;
+        } else if ($scope.customerPriceFields.mailPriority == null) {
             alert("Please choose a mail priority.");
+            return;
         }
 
         var regObject = {
-            "MsgType": "updateCustomerPrice", "Origin": customerPriceFields.origin, "Destination": customerPriceFields.destination,
-            "pricePerGram": customerPriceFields.pricePerGram, "pricePerCubic": customerPriceFields.pricePerCubic,
-            "mailPriority": customerPriceFields.mailPriority
+            "MsgType": "updateCustomerPrice", "Origin": $scope.customerPriceFields.origin, "Destination": $scope.customerPriceFields.destination,
+            "pricePerGram": $scope.customerPriceFields.pricePerGram, "pricePerCubic": $scope.customerPriceFields.pricePerCubic,
+            "mailPriority": $scope.customerPriceFields.mailPriority
         }
 
         sendData(regObject);
