@@ -20,40 +20,44 @@
     </head>
     <body ng-controller="MainCtrl">
 
-    <div w3-include-html="header.html"></div>
+        <div w3-include-html="header.html"></div>
 
-    <div id="mainContainer">
-        <h2>Overall Buisiness Statistics </h2>
+        <div id="mainContainer">
+            <div id="container1" class="business">
+                <h2>Overall Buisiness Statistics</h2>
+            </div>
 
-        <table class="buisinessFigures">
-            <tr>
-                <th>Total Revenue</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.totalRevenue"></textarea></td>
-            </tr>
-            <tr>
-                <th>Total Expenditure</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.totalExpenditure"></textarea></td>
-            </tr>
-            <tr>
-                <th>Total Count of Events</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.eventCount"></textarea></td>
-            </tr>
-            <tr>
-                <th>Amount of Mail Delivered:</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.mailDelivered"></textarea></td>
-            </tr>
-            <tr>
-                <th>Average Delivery Time:</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.avgDeliveryTimes"></textarea></td>
-            </tr>
-            <tr>
-                <th>Critical Routes:</th>
-                <td><textarea readonly class = "text" ng-model="buisinessFigs.criticalRoutes"></textarea></td>
-            </tr>
-        </table>
-    </div>
-    <script>
-        w3.includeHTML();
-    </script>
+            <div id="container2">
+                <table>
+                    <tr>
+                        <th>Total Revenue</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.totalRevenue"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Total Expenditure</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.totalExpenditure"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Total Count of Events</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.eventCount"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Amount of Mail Delivered:</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.mailDelivered"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Average Delivery Time:</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.avgDeliveryTimes"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>Critical Routes:</th>
+                        <td><textarea readonly class = "text" ng-model="buisinessFigs.criticalRoutes"></textarea></td>
+                    </tr>
+                </table>
+            </div>
+            <script>
+                w3.includeHTML();
+            </script>
+        </div>
     </body>
 </html>

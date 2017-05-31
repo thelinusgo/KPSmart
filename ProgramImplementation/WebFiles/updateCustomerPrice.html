@@ -20,40 +20,40 @@
     </head>
     <body ng-controller="MainCtrl">
         <div w3-include-html="header.html"></div>
-
         <div id="mainContainer">
-            <h2>Update Customer Price:</h2>
-
-            <table class="updatePriceTable">
-                <tr>
-                    <th>Origin</th>
-                    <td><input class = "text" ng-model="customerPriceFields.origin"></td>
-                </tr>
-                <tr>
-                    <th>Destination</th>
-                    <td><input class = "text" ng-model="customerPriceFields.destination"></td>
-                </tr>
-                <tr>
-                    <th>New Price per gram:</th>
-                    <td><input class = "text" ng-model="customerPriceFields.pricePerGram"></td>
-                </tr>
-                <tr>
-                    <th>New Price per cubic cm:</th>
-                    <td><input class = "text" ng-model="customerPriceFields.pricePerCubic"></td>
-                </tr>
+            <div id="container1" class="updateCP">
+                <h2>Update Customer Price</h2>
+            </div>
+            <div id="container2">
+                <table>
                     <tr>
-                    <th>Mail Priority</th>
-                    <td>
-                        <select ng-model="customerPriceFields.mailPriority">
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-
-            <button class="button" ng-click="sendUpdatedCustomerPrice()">Update</button>
+                        <th>Origin</th>
+                        <td><input class = "text" ng-model="customerPriceFields.origin"></td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td><input class = "text" ng-model="customerPriceFields.destination"></td>
+                    </tr>
+                    <tr>
+                        <th>New Price per gram:</th>
+                        <td><input class = "text" ng-model="customerPriceFields.pricePerGram"></td>
+                    </tr>
+                    <tr>
+                        <th>New Price per cubic cm:</th>
+                        <td><input class = "text" ng-model="customerPriceFields.pricePerCubic"></td>
+                    </tr>
+                        <tr>
+                        <th>Mail Priority</th>
+                        <td>
+                            <select ng-model="customerPriceFields.mailPriority">
+                                <option ng-repeat = "prior in priority">{{prior}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button class="button" ng-click="sendUpdatedCustomerPrice()">Update</button>
+            </div>
         </div>
-
         <script>
             w3.includeHTML();
         </script>
