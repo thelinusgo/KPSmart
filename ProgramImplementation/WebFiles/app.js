@@ -6,7 +6,7 @@ var app = angular.module('kps', []);
 
 
 /*Code for the sidebar opening-closing logic */
-function openNav() {
+/*function openNav() {
     document.getElementById("mySidenav").style.width = "300px";
     document.getElementById("main").style.marginLeft = "300px";
 }
@@ -14,7 +14,7 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
-}
+}*/
 
 
 app.controller('MainCtrl', function($scope, $http, $location) {
