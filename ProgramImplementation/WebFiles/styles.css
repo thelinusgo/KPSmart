@@ -234,10 +234,11 @@ nav ul li:hover ul{
 }
 
 #container1 h2{
-    font-size: 7em;
+    font-size: 5em;
     color: white;
     vertical-align: middle;
     line-height: 20vw;
+    text-transform: uppercase;
 }
 
 .business{
