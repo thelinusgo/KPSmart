@@ -25,6 +25,9 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
     $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
 
+    $scope.discontinueRouteField = {origin:"", destination:"", transportFirm:"", transportType:"", };
+
+
 
     var testUser = "userman";
     var testPwd = "password1";
@@ -98,5 +101,27 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(reqObject);
     };
+
+    $scope.sendDiscontinueRoute = function(){
+
+    if(discontinueRoute.origin == null){
+        alert("Please fill out the origin field");
+    }else if(discontinueRoute.destination == null){
+        alert("Please fill out the destination field");
+    }else if(discontinueRoute.transportFirm == null){
+        alert("Please fill out the transport firm field");
+    }else if(discontinueRoute.transportType == null){
+        alert("Please fill out the transport type field");
+    }
+     var JSONObject = {
+         "MsgType": "discontinueRoute", "Origin" : discontinueRoute.origin, "Destination" : discontinueRoute.destination,
+         "Transport Firm": discontinueRoute.transportFirm, "Transport Type": discontinueRoute.transportType
+     }
+
+     if(JSONObject != null) alert("created: " + JSONObject);
+
+     sendData(JSONObject);
+    }
+
 
 });
