@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="kps">
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8" />
     <title>Update Customer Price - KPSmart System</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
-    <script src="client.js"></script>
     <script src="app.js"></script>
+    <script src="client.js"></script>
     <!-- W3Schools Lib-->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Bootstrap jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
@@ -28,30 +27,30 @@
                 <table class="deliveryTable">
                     <tr>
                         <th>Origin</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.origin"></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.destination"></td>
                     </tr>
                     <tr>
                         <th>Mail Priority</th>
                         <td>
-                        <select>
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
+                        <select ng-model="deliveryFields.mailPriority">
+                            <option ng-repeat = "prior in priority" >{{prior}}</option>
                         </select>
                         </td>
                     </tr>
                     <tr>
                         <th>Weight of Package</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.weight"></td>
                     </tr>
                     <tr>
                         <th>Volume of Package:</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.volume"></td>
                     </tr>
                 </table>
-                <button class="button" ng-click="">Request Delivery</button>
+                <button class="button" ng-click="sendRequestDelivery()">Request Delivery</button>
             </div>
         </div>
 

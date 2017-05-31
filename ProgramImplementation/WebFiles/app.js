@@ -24,13 +24,14 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.priority = ['InternAir', 'InternStd', 'DomestAir', 'DomestStd']; //define the different types of priority
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
     $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
+    $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
+    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
+        pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
+    $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: ""};
+    $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
 
-    $scope.discontinueRouteField = {origin:"", destination:"", transportFirm:"", transportType:"", };
 
 
-
-    var testUser = "userman";
-    var testPwd = "password1";
 
     $http.get($scope.userlist)
         .then(function sucessCall(response)	{
@@ -69,7 +70,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             }
         if($scope.validUserName && $scope.validPassword){
             alert("Welcome " + userInput +", you have logged in successfully.");
-            location.href='processevents.html';
+            location.href='viewEvents.html';
             $scope.cancelLogin();
 
         }else{
@@ -83,20 +84,24 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.password = "";
     }
 
-    $scope.sendEvent = function() {
-        if ($scope.originField == null) {
+    $scope.sendRequestDelivery = function() {
+        if ($scope.deliveryFields.origin == "") {
             alert("Please fill out the origin field");
-        } else if ($scope.destinationField == null) {
+            return;
+        } else if ($scope.deliveryFields.destination == "") {
             alert("Please fill out the destination field");
-        } else if ($scope.volumePackageField == null) {
+            return;
+        } else if ($scope.deliveryFields.volume == "") {
             alert("Please choose a volume amount for your mail.");
-        } else if ($scope.packageWeightField == null) {
+            return;
+        } else if ($scope.deliveryFields.weight == "") {
             alert("Please choose a volume amount for your mail.");
+            return;
         }
 
         var reqObject = {
-            "MsgType": "requestDelivery", "Origin": $scope.originField, "Destination": $scope.destinationField,
-            "Mail Priority": $scope.priorityField, "Weight of Package": $scope.volumePackageField
+            "msgType": "requestDelivery", "origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
+            "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume
         }
 
         sendData(reqObject);
@@ -104,24 +109,46 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.sendDiscontinueRoute = function(){
 
-    if(discontinueRoute.origin == null){
+    if($scope.discontinueRouteFields.origin == ""){
         alert("Please fill out the origin field");
-    }else if(discontinueRoute.destination == null){
+        return;
+    }else if($scope.discontinueRouteFields.destination == ""){
         alert("Please fill out the destination field");
-    }else if(discontinueRoute.transportFirm == null){
-        alert("Please fill out the transport firm field");
-    }else if(discontinueRoute.transportType == null){
-        alert("Please fill out the transport type field");
+        return;
+    }else if($scope.discontinueRouteFields.transportFirm == ""){
+        alert("Please fill out the transport 'firm' field for your mail");
+        return;
     }
      var JSONObject = {
-         "MsgType": "discontinueRoute", "Origin" : discontinueRoute.origin, "Destination" : discontinueRoute.destination,
-         "Transport Firm": discontinueRoute.transportFirm, "Transport Type": discontinueRoute.transportType
+         "MsgType": "discontinueRoute", "origin" : $scope.discontinueRouteFields.origin, "destination" : $scope.discontinueRouteFields.destination,
+         "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType
      }
 
-     if(JSONObject != null) alert("created: " + JSONObject);
+    sendData(JSONObject);
+    };
 
-     sendData(JSONObject);
+
+    $scope.sendUpdatedCustomerPrice = function() {
+
+        if (customerPriceFields.origin == null) {
+            alert("Please fill out the origin field");
+        } else if (customerPriceFields.destination == null) {
+            alert("Please fill out the destination field");
+        } else if (customerPriceFields.pricePerGram == null) {
+            alert("Please fill out the price per gram field.");
+        } else if (customerPriceFields.pricePerCubic == null) {
+            alert("Please fill out the price per cubic field.");
+        } else if (customerPriceFields.mailPriority == null) {
+            alert("Please choose a mail priority.");
+        }
+
+        var regObject = {
+            "MsgType": "updateCustomerPrice", "Origin": customerPriceFields.origin, "Destination": customerPriceFields.destination,
+            "pricePerGram": customerPriceFields.pricePerGram, "pricePerCubic": customerPriceFields.pricePerCubic,
+            "mailPriority": customerPriceFields.mailPriority
+        }
+
+        sendData(regObject);
     }
-
 
 });

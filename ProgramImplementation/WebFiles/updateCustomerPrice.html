@@ -9,7 +9,7 @@
         <!-- W3Schools Lib-->
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Bootstrap jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
@@ -26,25 +26,25 @@
             <table class="updatePriceTable">
                 <tr>
                     <th>Origin</th>
-                    <td><input class = "text"></td>
+                    <td><input class = "text" ng-model="customerPriceFields.origin"></td>
                 </tr>
                 <tr>
                     <th>Destination</th>
-                    <td><input class = "text"></td>
+                    <td><input class = "text" ng-model="customerPriceFields.destination"></td>
                 </tr>
                 <tr>
                     <th>New Price per gram:</th>
-                    <td><input class = "text"></td>
+                    <td><input class = "text" ng-model="customerPriceFields.pricePerGram"></td>
                 </tr>
                 <tr>
                     <th>New Price per cubic cm:</th>
-                    <td><input class = "text"></td>
+                    <td><input class = "text" ng-model="customerPriceFields.pricePerCubic"></td>
                 </tr>
                     <tr>
                     <th>Mail Priority</th>
                     <td>
                         <select>
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
+                            <option ng-repeat = "prior in priority" ng-model="customerPriceFields.mailPriority">{{prior}}</option>
                         </select>
                     </td>
                 </tr>

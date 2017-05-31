@@ -2,7 +2,7 @@
  * Created by linus on 31/05/17.
  */
 /**
- * This JS file is responsible for sending and recieving data from the server as JS files.
+ * This JS file is responsible for sending and receiving data from the server as JS files.
  */
 
 /**
@@ -10,7 +10,7 @@
  * @param message
  */
 function sendData(json_message){
-    if(message == null){
+    if(json_message == null){
         alert("There must be a message to pass in");
     }
 
