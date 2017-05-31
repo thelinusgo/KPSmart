@@ -27,6 +27,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
     $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
         pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
+    $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: ""};
+
 
     var testUser = "userman";
     var testPwd = "password1";
@@ -68,7 +70,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             }
         if($scope.validUserName && $scope.validPassword){
             alert("Welcome " + userInput +", you have logged in successfully.");
-            location.href='processevents.html';
+            location.href='viewEvents.html';
             $scope.cancelLogin();
 
         }else{
@@ -104,5 +106,28 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(reqObject);
     };
+
+    $scope.sendUpdatedCustomerPrice = function() {
+
+        if (customerPriceFields.origin == null) {
+            alert("Please fill out the origin field");
+        } else if (customerPriceFields.destination == null) {
+            alert("Please fill out the destination field");
+        } else if (customerPriceFields.pricePerGram == null) {
+            alert("Please fill out the price per gram field.");
+        } else if (customerPriceFields.pricePerCubic == null) {
+            alert("Please fill out the price per cubic field.");
+        } else if (customerPriceFields.mailPriority == null) {
+            alert("Please choose a mail priority.");
+        }
+
+        var regObject = {
+            "MsgType": "updateCustomerPrice", "Origin": customerPriceFields.origin, "Destination": customerPriceFields.destination,
+            "pricePerGram": customerPriceFields.pricePerGram, "pricePerCubic": customerPriceFields.pricePerCubic,
+            "mailPriority": customerPriceFields.mailPriority
+        }
+
+        sendData(regObject)
+    }
 
 });
