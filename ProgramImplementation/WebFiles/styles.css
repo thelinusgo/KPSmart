@@ -15,6 +15,7 @@ body{
     margin: 0;
     padding:0;
     font-family: CoffeeAndTea;
+    color: black;
 }
 
 /*Header*/
@@ -40,12 +41,13 @@ header img{
 #header{
     width: 80%;
     margin: 0 auto;
+    background-color: transparent;
+    padding-left: 50px;
 }
 
 /*Navigation*/
 nav{
-    display: inline-block;
-    float: right;
+    margin: 0 auto;
 }
 
 nav ul{
@@ -104,6 +106,38 @@ nav ul li ul li:hover {
 
 nav ul li:hover ul{
     display: block;
+}
+
+/*Navbar-BootStrap*/
+.navbar-inverse{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar{
+    min-height: 100px;
+}
+
+.navbar-brand{
+    height: 100px;
+    padding: 0;
+}
+
+.navbar-nav{
+    float: right;
+    margin-top: 30px;
+}
+
+.dropdown{
+    margin-top: 13px;
+}
+
+.dropdown-menu{
+    border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: black;
 }
 
 /*Main Container*/
