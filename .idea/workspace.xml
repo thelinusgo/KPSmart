@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e8255c5-c48a-4aa1-91af-f487c80ba623" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/buisinessMonitoring.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/buisinessMonitoring.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/events.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/processevents.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/processevents.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/requestDelivery.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/requestDelivery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/updateCustomerPrice.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/updateCustomerPrice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProgramImplementation/WebFiles/updateTransportCost.html" afterPath="$PROJECT_DIR$/ProgramImplementation/WebFiles/updateTransportCost.html" />
-    </list>
+    <list default="true" id="0e8255c5-c48a-4aa1-91af-f487c80ba623" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -58,8 +50,8 @@
           <file leaf-file-name="updateTransportCost.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ProgramImplementation/WebFiles/updateTransportCost.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-131">
-                  <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+                <state relative-caret-position="226">
+                  <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
@@ -340,16 +332,15 @@
       <updated>1495591764475</updated>
       <workItem from="1495591770273" duration="12104000" />
       <workItem from="1495677383280" duration="1069000" />
-      <workItem from="1496186147269" duration="2611000" />
+      <workItem from="1496186147269" duration="2864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15784000" />
+    <option name="totallyTimeSpent" value="16037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14568081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -532,8 +523,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgramImplementation/WebFiles/updateTransportCost.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state relative-caret-position="226">
+          <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
           <folding />
         </state>
       </provider>
