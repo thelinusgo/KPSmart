@@ -2,7 +2,7 @@
  * Created by linus on 31/05/17.
  */
 /**
- * This JS file is responsible for sending and recieving data from the server as JS files.
+ * This JS file is responsible for sending and receiving data from the server as JS files.
  */
 
 /**

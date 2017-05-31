@@ -28,10 +28,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
         pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
     $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: ""};
+    $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
+    $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
+        mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"};
+    //dummy values.. please change this later.
 
-
-    var testUser = "userman";
-    var testPwd = "password1";
 
     $http.get($scope.userlist)
         .then(function sucessCall(response)	{
@@ -109,7 +110,6 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(reqObject);
     };
-
     /**
      * Sends updated transport cost info to client.js in JSON format
      */
@@ -151,6 +151,27 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(reqObject);
     };
 
+    $scope.sendDiscontinueRoute = function(){
+
+    if($scope.discontinueRouteFields.origin == ""){
+        alert("Please fill out the origin field");
+        return;
+    }else if($scope.discontinueRouteFields.destination == ""){
+        alert("Please fill out the destination field");
+        return;
+    }else if($scope.discontinueRouteFields.transportFirm == ""){
+        alert("Please fill out the transport 'firm' field for your mail");
+        return;
+    }
+     var JSONObject = {
+         "MsgType": "discontinueRoute", "origin" : $scope.discontinueRouteFields.origin, "destination" : $scope.discontinueRouteFields.destination,
+         "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType
+     }
+
+    sendData(JSONObject);
+    };
+
+
     $scope.sendUpdatedCustomerPrice = function() {
 
         if (customerPriceFields.origin == null) {
@@ -171,7 +192,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             "mailPriority": customerPriceFields.mailPriority
         }
 
-        sendData(regObject)
+        sendData(regObject);
     }
 
 });
