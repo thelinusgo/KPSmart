@@ -29,8 +29,9 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
     $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: ""};
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
-
-
+    $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
+        mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"};
+    //dummy values.. please change this later.
 
 
     $http.get($scope.userlist)

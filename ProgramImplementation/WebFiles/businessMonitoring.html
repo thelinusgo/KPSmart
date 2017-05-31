@@ -6,6 +6,7 @@
         <script>document.write('<base href="' + document.location + '" />');</script>
         <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
         <script src="app.js"></script>
+        <script src="client.js"></script>
         <!-- W3Schools Lib-->
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <!-- Bootstrap CSS -->
@@ -27,27 +28,27 @@
         <table class="buisinessFigures">
             <tr>
                 <th>Total Revenue</th>
-                <td>$1,000,000</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.totalRevenue"></textarea></td>
             </tr>
             <tr>
                 <th>Total Expenditure</th>
-                <td>$500,000</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.totalExpenditure"></textarea></td>
             </tr>
             <tr>
                 <th>Total Count of Events</th>
-                <td>1234</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.eventCount"></textarea></td>
             </tr>
             <tr>
                 <th>Amount of Mail Delivered:</th>
-                <td>1,234</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.mailDelivered"></textarea></td>
             </tr>
             <tr>
                 <th>Average Delivery Time:</th>
-                <td>5:06 (hh:mm)</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.avgDeliveryTimes"></textarea></td>
             </tr>
             <tr>
                 <th>Critical Routes:</th>
-                <td>AKL -> SYD</td>
+                <td><textarea readonly class = "text" ng-model="buisinessFigs.criticalRoutes"></textarea></td>
             </tr>
         </table>
     </div>
