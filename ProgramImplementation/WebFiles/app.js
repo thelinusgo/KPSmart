@@ -80,5 +80,23 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.password = "";
     }
 
+    $scope.sendEvent = function() {
+        if ($scope.originField == null) {
+            alert("Please fill out the origin field");
+        } else if ($scope.destinationField == null) {
+            alert("Please fill out the destination field");
+        } else if ($scope.volumePackageField == null) {
+            alert("Please choose a volume amount for your mail.");
+        } else if ($scope.packageWeightField == null) {
+            alert("Please choose a volume amount for your mail.");
+        }
+
+        var reqObject = {
+            "MsgType": "requestDelivery", "Origin": $scope.originField, "Destination": $scope.destinationField,
+            "Mail Priority": $scope.priorityField, "Weight of Package": $scope.volumePackageField
+        }
+
+        sendData(reqObject);
+    };
 
 });
