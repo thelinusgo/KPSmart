@@ -84,6 +84,9 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.password = "";
     }
 
+    /**
+     * Sends delivery request info to client.js in JSON format
+     */
     $scope.sendRequestDelivery = function() {
         if ($scope.deliveryFields.origin == "") {
             alert("Please fill out the origin field");
@@ -102,6 +105,47 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         var reqObject = {
             "msgType": "requestDelivery", "origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
             "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume
+        }
+
+        sendData(reqObject);
+    };
+
+    /**
+     * Sends updated transport cost info to client.js in JSON format
+     */
+    $scope.sendUpdatedTransportCost = function() {
+        if ($scope.transportFields.origin == "") {
+            alert("Please fill out the origin field");
+            return;
+        } else if ($scope.transportFields.destination == "") {
+            alert("Please fill out the destination field");
+            return;
+        } else if ($scope.transportFields.transportFirm == "") {
+            alert("Please enter a transport firm.");
+            return;
+        } else if ($scope.transportFields.pricePerGram == "") {
+            alert("Please enter a price per gram.");
+            return;
+        } else if ($scope.transportFields.pricePerCC == "") {
+            alert("Please enter a price per cubic centimetre.");
+            return;
+        } else if ($scope.transportFields.departureDay == "") {
+            alert("Please enter a departure day.");
+            return;
+        } else if ($scope.transportFields.departsEvery == "") {
+            alert("Please enter a departure frequency");
+            return;
+        } else if ($scope.transportFields.duration == "") {
+            alert("Please enter a duration.");
+            return;
+        }
+
+        var reqObject = {
+            "msgType": "updatedTransportCost", "origin": $scope.transportFields.origin, "destination": $scope.transportFields.destination,
+            "transportFirm":$scope.transportFields.transportFirm, "transportType":$scope.transportFields.transportType,
+            "pricePerGram":$scope.transportFields.pricePerGram, "pricePerCC":$scope.transportFields.pricePerCC,
+            "departureDay":$scope.transportFields.departureDay, "departsEvery":$scope.transportFields.departsEvery,
+            "duration":$scope.transportFields.duration
         }
 
         sendData(reqObject);
