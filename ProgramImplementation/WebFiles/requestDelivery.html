@@ -28,30 +28,30 @@
                 <table class="deliveryTable">
                     <tr>
                         <th>Origin</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.origin"></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.destination"></td>
                     </tr>
                     <tr>
                         <th>Mail Priority</th>
                         <td>
                         <select>
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
+                            <option ng-repeat = "prior in priority" ng-model="deliveryFields.mailPriority">{{prior}}</option>
                         </select>
                         </td>
                     </tr>
                     <tr>
                         <th>Weight of Package</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.weight"></td>
                     </tr>
                     <tr>
                         <th>Volume of Package:</th>
-                        <td><input class = "text"></td>
+                        <td><input class = "text" ng-model="deliveryFields.volume"></td>
                     </tr>
                 </table>
-                <button class="button" ng-click="">Request Delivery</button>
+                <button class="button" ng-click="sendRequestDelivery">Request Delivery</button>
             </div>
         </div>
 

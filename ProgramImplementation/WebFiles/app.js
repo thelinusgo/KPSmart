@@ -24,7 +24,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.priority = ['InternAir', 'InternStd', 'DomestAir', 'DomestStd']; //define the different types of priority
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
     $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
-
+    $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
+    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",pricePerCC:"",departureDay:"",departsEvery:"",duration:""}
 
     var testUser = "userman";
     var testPwd = "password1";
@@ -80,20 +81,20 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.password = "";
     }
 
-    $scope.sendEvent = function() {
-        if ($scope.originField == null) {
+    $scope.sendRequestDelivery = function() {
+        if (deliveryFields.origin == "") {
             alert("Please fill out the origin field");
-        } else if ($scope.destinationField == null) {
+        } else if (deliveryFields.destination == "") {
             alert("Please fill out the destination field");
-        } else if ($scope.volumePackageField == null) {
+        } else if (deliveryFields.volume == "") {
             alert("Please choose a volume amount for your mail.");
-        } else if ($scope.packageWeightField == null) {
+        } else if (deliveryFields.weight == "") {
             alert("Please choose a volume amount for your mail.");
         }
 
         var reqObject = {
-            "MsgType": "requestDelivery", "Origin": $scope.originField, "Destination": $scope.destinationField,
-            "Mail Priority": $scope.priorityField, "Weight of Package": $scope.volumePackageField
+            "msgType": "requestDelivery", "origin": deliveryFields.origin, "destination": deliveryFields.destination,
+            "priority": deliveryFields.priority, "weight": deliveryFields.weight, "volume":deliveryFields.volume
         }
 
         sendData(reqObject);
