@@ -95,11 +95,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         } else if ($scope.deliveryFields.destination == "") {
             alert("Please fill out the destination field");
             return;
-        } else if ($scope.deliveryFields.volume == "") {
-            alert("Please choose a volume amount for your mail.");
+        } else if ($scope.deliveryFields.volume == "" || !hasNumber($scope.deliveryFields.volume)) {
+            alert("Please enter a valid volume number.");
             return;
-        } else if ($scope.deliveryFields.weight == "") {
-            alert("Please choose a volume amount for your mail.");
+        } else if ($scope.deliveryFields.weight == "" || !hasNumber($scope.deliveryFields.weight)) {
+            alert("Please enter a valid weight number");
             return;
         }
 
@@ -123,20 +123,20 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         } else if ($scope.transportFields.transportFirm == "") {
             alert("Please enter a transport firm.");
             return;
-        } else if ($scope.transportFields.pricePerGram == "") {
-            alert("Please enter a price per gram.");
+        } else if ($scope.transportFields.pricePerGram == "" || !hasNumber($scope.deliveryFields.pricePerGram)) {
+            alert("Please enter a valid price per gram.");
             return;
-        } else if ($scope.transportFields.pricePerCC == "") {
-            alert("Please enter a price per cubic centimetre.");
+        } else if ($scope.transportFields.pricePerCC == "" || !hasNumber($scope.deliveryFields.pricePerCC)) {
+            alert("Please enter a valid price per cubic centimetre.");
             return;
         } else if ($scope.transportFields.departureDay == "") {
             alert("Please enter a departure day.");
             return;
-        } else if ($scope.transportFields.departsEvery == "") {
-            alert("Please enter a departure frequency");
+        } else if ($scope.transportFields.departsEvery == "" || !hasNumber($scope.deliveryFields.departsEvery)) {
+            alert("Please enter a valid departure frequency");
             return;
-        } else if ($scope.transportFields.duration == "") {
-            alert("Please enter a duration.");
+        } else if ($scope.transportFields.duration == "" || !hasNumber($scope.deliveryFields.duration)) {
+            alert("Please enter a valid duration.");
             return;
         }
 
