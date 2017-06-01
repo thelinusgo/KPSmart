@@ -180,10 +180,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.sendUpdatedCustomerPrice = function() {
 
-        if ($scope.customerPriceFields.origin == "" || hasNumbersandIllegals($scope.customerPriceFields.origin) {
+        if ($scope.customerPriceFields.origin == "" || hasNumbersandIllegals($scope.customerPriceFields.origin)) {
             alert("Please fill out the origin field");
             return;
-        } else if ($scope.customerPriceFields.destination == "" || hasNumbersandIllegals($scope.customerPriceFields.destination) {
+        } else if ($scope.customerPriceFields.destination == "" || hasNumbersandIllegals($scope.customerPriceFields.destination)) {
             alert("Please fill out the destination field");
             return;
         } else if ($scope.customerPriceFields.mailPriority == null) {
