@@ -161,8 +161,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     }else if($scope.discontinueRouteFields.transportFirm == ""){
         alert("Please fill out the transport 'firm' field for your mail");
         return;
-    }else if(hasNumber($scope.discontinueRouteFields.origin) || hasNumber($scope.discontinueRouteFields.destination) ||  hasNumber($scope.discontinueRouteFields.transportFirm) ){
-        alert("The field must not have numerals inside of them");
+    }else if(hasNumbersandIllegals($scope.discontinueRouteFields.origin) || hasNumbersandIllegals($scope.discontinueRouteFields.destination) ||  hasNumbersandIllegals($scope.discontinueRouteFields.transportFirm) ){
+        alert("The field must not have numerals or illegal characters inside of them");
         return;
     }
 
@@ -206,6 +206,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 });
 
 
-function hasNumber(myString) {
-    return /\d/.test(myString);
+function hasNumbersandIllegals(myString) {
+    var regex = /^[A-Za-z]+$/; //regex pattern that we must match
+    var sht = regex.test(myString); //checks if the string matches the regex pattern
+    return !sht;
 }
+
+
