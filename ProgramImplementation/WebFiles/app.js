@@ -90,11 +90,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
      * Sends delivery request info to client.js in JSON format
      */
     $scope.sendRequestDelivery = function() {
-        if ($scope.deliveryFields.origin == "") {
-            alert("Please fill out the origin field");
+        if ($scope.deliveryFields.origin == "" || hasNumbersandIllegals($scope.deliveryFields.origin)) {
+            alert("Please enter a valid origin");
             return;
-        } else if ($scope.deliveryFields.destination == "") {
-            alert("Please fill out the destination field");
+        } else if ($scope.deliveryFields.destination == "" || hasNumbersandIllegals($scope.deliveryFields.destination)) {
+            alert("Please enter a valid destination");
             return;
         } else if ($scope.deliveryFields.volume == "" || !hasNumber($scope.deliveryFields.volume)) {
             alert("Please enter a valid volume number.");
@@ -115,11 +115,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
      * Sends updated transport cost info to client.js in JSON format
      */
     $scope.sendUpdatedTransportCost = function() {
-        if ($scope.transportFields.origin == "") {
-            alert("Please fill out the origin field");
+        if ($scope.transportFields.origin == "" || hasNumbersandIllegals($scope.transportFields.origin)) {
+            alert("Please enter a valid origin");
             return;
-        } else if ($scope.transportFields.destination == "") {
-            alert("Please fill out the destination field");
+        } else if ($scope.transportFields.destination == "" || hasNumbersandIllegals($scope.transportFields.destination)) {
+            alert("Please enter a valid destination");
             return;
         } else if ($scope.transportFields.transportFirm == "") {
             alert("Please enter a transport firm.");
@@ -212,4 +212,6 @@ function hasNumbersandIllegals(myString) {
     return !sht;
 }
 
-
+function hasNumber(string) {
+    return /\d/.test(string);
+}
