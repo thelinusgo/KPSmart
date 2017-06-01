@@ -5,8 +5,7 @@
  * This JS file is responsible for sending and receiving data from the server as JS files.
  */
 
-var JSONObj = null; //initialize an empty JSONObj
-
+var JSONObj = null; //initialize an empty JSONObj that can be accessed. It is set once a message is being passed in.
 
 /**
  * Sends data from the website and converts it into a Json file.
@@ -32,15 +31,10 @@ function receiveData(message){
         alert("There must be a message to pass in");
     }
     message = JSON.parse(message);
-    if (message.messageType.includes("event")){
-        addNewEvent(message);
-    }
 
-    if(message.messageType == "businessFigures"){
-        //set the JSON object.
-        this.JSONObj = message;
+    alert("message: " + message.toString());
 
-    }
+    this.JSONObj = message;
 
 
     //TODO need to implement the rest of this part.

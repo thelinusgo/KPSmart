@@ -31,9 +31,9 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         pricePerCC:"",departureDay:'Monday',departsEvery:"",duration:""}
     $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: 'InternAir'};
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
-    $scope.buisinessFigs = {totalRevenue: "", totalExpenditure:"", totalExpenditure:"",eventCount: "",
+    $scope.buisinessFigs = {totalRevenue: "", totalExpenditure:"",eventCount: "",
         mailDelivered: "", avgDeliveryTimes:"", criticalRoutes: ""};
-    $scope.stringBuisinessFigs = '{totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333", mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"}';
+    $scope.stringBuisinessFigs = '{"totalRevenue": "435,545", "totalExpenditure" :"82,304,503","eventCount" : "3333", "mailDelivered" : "9876", "avgDeliveryTimes":"3984", "criticalRoutes" : "Auckland -> Incheon"}';
 
     //dummy values.. please change this later.
 
@@ -206,9 +206,12 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(regObject);
     }
 
+    /**
+     * Method that sets the business figures data from the file.
+     */
     $scope.setBusinessFigs = function(){
         receiveData($scope.stringBuisinessFigs);
-        var jsonobject = getJSONObject(buisinessFigs);
+        var jsonobject = getJSONObject();
 
         if(jsonobject == null){
             alert("The JSON object being passed in from getJSONObject is null");
