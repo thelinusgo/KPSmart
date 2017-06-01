@@ -17,6 +17,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!--Styles-->
         <link rel="stylesheet" href="styles.css" />
+
+        <script src="http://cdn.com/jquery.js"></script>
     </head>
     <body ng-controller="MainCtrl">
 
@@ -31,33 +33,36 @@
                 <table>
                     <tr>
                         <th>Total Revenue</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.totalRevenue"></textarea></td>
+                        <td><input ng-model="buisinessFigs.totalRevenue" readonly></td>
                     </tr>
                     <tr>
                         <th>Total Expenditure</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.totalExpenditure"></textarea></td>
+                        <td><input ng-model="buisinessFigs.totalExpenditure" readonly></td>
                     </tr>
                     <tr>
                         <th>Total Count of Events</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.eventCount"></textarea></td>
+                        <td><input ng-model="buisinessFigs.eventCount" readonly></td>
                     </tr>
                     <tr>
                         <th>Amount of Mail Delivered:</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.mailDelivered"></textarea></td>
+                        <td><input ng-model="buisinessFigs.mailDelivered" readonly></td>
                     </tr>
                     <tr>
                         <th>Average Delivery Time:</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.avgDeliveryTimes"></textarea></td>
+                        <td><input ng-model="buisinessFigs.avgDeliveryTimes" readonly></td>
                     </tr>
                     <tr>
                         <th>Critical Routes:</th>
-                        <td><textarea readonly class = "text" ng-model="buisinessFigs.criticalRoutes"></textarea></td>
+                        <td><input ng-model="buisinessFigs.criticalRoutes" readonly></td>
                     </tr>
                 </table>
             </div>
-            <script>
-                w3.includeHTML();
-            </script>
         </div>
+
+        <div w3-include-html="footer.html"></div>
+
+        <script>
+            w3.includeHTML();
+        </script>
     </body>
 </html>
