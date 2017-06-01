@@ -49,11 +49,13 @@
                     </tr>
                     <tr>
                         <th>Price per gram </th>
-                        <td><input class = "text" ng-model="transportFields.pricePerGram"></td>
+                        <td>$<input class = "text" ng-model="transportFields.pricePerGram.dollars"></td>
+                        <td>.<input class = "text" ng-model="transportFields.pricePerGram.cents"></td>
                     </tr>
                     <tr>
                         <th>Price per cubic cm </th>
-                        <td><input class = "text" ng-model="transportFields.pricePerCC"></td>
+                        <td>$<input class = "text" ng-model="transportFields.pricePerCC.dollars"></td>
+                        <td>.<input class = "text" ng-model="transportFields.pricePerCC.cents"></td>
                     </tr>
                     <tr>
                         <th>Departure Day</th>

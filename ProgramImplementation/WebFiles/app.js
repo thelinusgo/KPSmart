@@ -25,9 +25,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
     $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
     $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
     $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
-    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:"",
-        pricePerCC:"",departureDay:'Monday',departsEvery:"",duration:""}
+    $scope.transportFields = {origin:"",destination:"",transportFirm:"",transportType:'Land',pricePerGram:{dollars:0,cents:0},
+        pricePerCC:{dollars:0,cents:0},departureDay:'Monday',departsEvery:"",duration:""}
     $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: 'InternAir'};
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
     $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
@@ -124,11 +125,17 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         } else if ($scope.transportFields.transportFirm == "") {
             alert("Please enter a transport firm.");
             return;
-        } else if ($scope.transportFields.pricePerGram == "" || !hasNumber($scope.transportFields.pricePerGram)) {
+        } else if ($scope.transportFields.pricePerGram.dollars == "" || !hasNumber($scope.transportFields.pricePerGram.dollars)) {
             alert("Please enter a valid price per gram.");
             return;
-        } else if ($scope.transportFields.pricePerCC == "" || !hasNumber($scope.transportFields.pricePerCC)) {
-            alert("Please enter a valid price per cubic centimetre.");
+        } else if ($scope.transportFields.pricePerGram.cents == "" || !hasNumber($scope.transportFields.pricePerGram.cents)) {
+            alert("Please enter a valid price per gram.");
+            return;
+        } else if ($scope.transportFields.pricePerCC.dollars == "" || !hasNumber($scope.transportFields.pricePerCC.dollars)) {
+            alert("Please enter a valid price per cubic cm.");
+            return;
+        } else if ($scope.transportFields.pricePerCC.cents == "" || !hasNumber($scope.transportFields.pricePerCC.cents)) {
+            alert("Please enter a valid price per cubic cm.");
             return;
         } else if ($scope.transportFields.departsEvery == "" || !hasNumber($scope.transportFields.departsEvery)) {
             alert("Please enter a valid departure frequency");
