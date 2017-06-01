@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kps">
+<head>
+    <meta charset="UTF-8">
+    <title>Discontinue Route - KPSmart System</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
+    <script src="app.js"></script>
+    <!-- W3Schools Lib-->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Bootstrap jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Styles-->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body ng-controller="MainCtrl">
+    <div w3-include-html="header.html"></div>
+
+    <div id="mainContainer">
+        <h2>Discontinue Route</h2>
+
+        <table class="updatePriceTable">
+            <tr>
+                <th>Origin</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Transport Firm</th>
+                <td><input class = "text"></td>
+            </tr>
+            <tr>
+                <th>Type of Transport</th>
+                <td>
+                    <select>
+                        <option ng-repeat = "transport in transportTypes">{{transport}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button class="button" ng-click="">Discontinue</button>
+    </div>
+
+    <script>
+        w3.includeHTML();
+    </script>
+</body>
+</html>
