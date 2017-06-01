@@ -33,13 +33,13 @@ header{
 
 header img{
     float: left;
-    height: 150px;
+    height: 120px;
     margin: 0px;
 }
 
 /*Header Div*/
 #header{
-    width: 65%;
+    width: 80%;
     margin: 0 auto;
     background-color: transparent;
     padding-left: 50px;
@@ -234,7 +234,7 @@ nav ul li:hover ul{
 }
 
 #container1 h2{
-    font-size: 5em;
+    font-size: 4em;
     color: white;
     vertical-align: middle;
     line-height: 20vw;
@@ -266,11 +266,30 @@ nav ul li:hover ul{
 }
 
 /*Container2*/
- #container2{
+#container2{
      width: 50%;
      margin: 0 auto;
      margin-top: 30px;
- }
+}
+
+#container2 table tr td, #container2 table tr th{
+    width: 5%;
+    padding: 2px;
+}
+
+#container2 .eventTable{
+    table-layout: fixed;
+    text-align: center;
+}
+
+#container2 .eventTable th{
+    text-align: center;
+    font-size: 30px;
+}
+
+#container2 .eventTable tr td{
+    width: 10%;
+}
 
 /*Form*/
 input, select, textarea, option{
@@ -293,4 +312,9 @@ input, select, textarea, option{
     border: 2px solid #6bbaa7;
     color: #6bbaa7;
     transition: all 0.5s ease;
+}
+
+#button{
+    margin-top: 10px;
+    text-align: center;
 }
