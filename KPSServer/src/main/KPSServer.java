@@ -1,8 +1,8 @@
 package main;
 
 import rabe_studios.components.resources.BaseResource;
-import server.controllers.PanelController;
 import util.resources.Resource;
+import views.controllers.PanelController;
 import views.window.PanelWindow;
 
 public class KPSServer {

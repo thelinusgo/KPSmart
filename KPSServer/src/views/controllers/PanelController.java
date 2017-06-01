@@ -1,4 +1,4 @@
-package server.controllers;
+package views.controllers;
 
 import java.util.HashMap;
 import java.util.Map;

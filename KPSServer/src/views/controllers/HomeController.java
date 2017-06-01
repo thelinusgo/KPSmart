@@ -1,4 +1,4 @@
-package server.controllers;
+package views.controllers;
 
 import rabe_studios.components.resources.BaseResource;
 import rabe_studios.mvc.controllers.BaseViewController;
