@@ -306,19 +306,15 @@ footer{
     width: 100%;
     background-color: #8f89a9;
     text-align: center;
-    height: 80px;
+    height: 100px;
+    position: relative;
 }
 
-footer p {
-    font-size: 20px;
-    vertical-align: middle;
-    line-height: 80px;
+footer p{
+    font-size: 25px;
+    line-height: 100px;
     color: white;
     margin: 0;
-}
-
-footer p .sunshine{
-    font-family: CoveredByYourGrace;
 }
 
 footer p .signature{
