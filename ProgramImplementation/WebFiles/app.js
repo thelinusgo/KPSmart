@@ -180,25 +180,19 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.sendUpdatedCustomerPrice = function() {
 
-        if ($scope.customerPriceFields.origin == null) {
+        if ($scope.customerPriceFields.origin == "" || hasNumbersandIllegals($scope.customerPriceFields.origin) {
             alert("Please fill out the origin field");
             return;
-        } else if ($scope.customerPriceFields.destination == null) {
+        } else if ($scope.customerPriceFields.destination == "" || hasNumbersandIllegals($scope.customerPriceFields.destination) {
             alert("Please fill out the destination field");
-            return;
-        } else if ($scope.customerPriceFields.pricePerGram == null) {
-            alert("Please fill out the price per gram field.");
-            return;
-        } else if ($scope.customerPriceFields.pricePerCubic == null) {
-            alert("Please fill out the price per cubic field.");
             return;
         } else if ($scope.customerPriceFields.mailPriority == null) {
             alert("Please choose a mail priority.");
             return;
-        }else if(!hasNumber($scope.customerPriceFields.pricePerGram)){
+        }else if($scope.customerPriceFields.pricePerGram == "" || !hasNumber($scope.customerPriceFields.pricePerGram)){
             alert("Price per gram must be numerals only.");
             return;
-        }else if(!hasNumber($scope.customerPriceFields.pricePerCubic)){
+        }else if($scope.customerPriceFields.pricePerCubic == "" || !hasNumber($scope.customerPriceFields.pricePerCubic)){
             alert("Price per cubic must be numerals only.");
             return;
         }
