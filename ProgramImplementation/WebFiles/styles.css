@@ -5,6 +5,18 @@
     url("fonts/coffee+teademo-Regular.ttf")  format('truetype');
 }
 
+@font-face {
+    font-family: ALittleSunshine;
+    src: url("fonts/A_little_sunshine.woff") format('woff'),
+    url("fonts/A_little_sunshine.ttf")  format('truetype');
+}
+
+@font-face {
+    font-family: LemonTuesday;
+    src: url("fonts/LemonTuesday.woff") format('woff'),
+    url("fonts/LemonTuesday.ttf")  format('truetype');
+}
+
 html, body{
     height: 100%;
     font-size: 25px;
@@ -13,7 +25,7 @@ html, body{
 /*Body*/
 body{
     margin: 0;
-    padding:0;
+    padding: 0;
     font-family: CoffeeAndTea;
     color: black;
 }
@@ -140,7 +152,7 @@ nav ul li:hover ul{
 .dropdown-menu{
     border: none;
     padding: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .navbar-inverse .navbar-nav > li > a{
@@ -161,6 +173,7 @@ nav ul li:hover ul{
     width: 100%;
     margin: 0 auto;
     margin-top: 100px;
+    height: 100%;
 }
 
 /*Login*/
@@ -270,6 +283,7 @@ nav ul li:hover ul{
      width: 50%;
      margin: 0 auto;
      margin-top: 30px;
+     margin-bottom: 30px;
 }
 
 #container2 table tr td, #container2 table tr th{
@@ -289,6 +303,30 @@ nav ul li:hover ul{
 
 #container2 .eventTable tr td{
     width: 10%;
+}
+
+/*Footer*/
+footer{
+    width: 100%;
+    background-color: #8f89a9;
+    text-align: center;
+    height: 80px;
+}
+
+footer p {
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 80px;
+    color: white;
+    margin: 0;
+}
+
+footer p .sunshine{
+    font-family: ALittleSunshine;
+}
+
+footer p .signature{
+    font-family: LemonTuesday;
 }
 
 /*Form*/
