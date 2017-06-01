@@ -199,6 +199,12 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         } else if ($scope.customerPriceFields.mailPriority == null) {
             alert("Please choose a mail priority.");
             return;
+        }else if(!hasNumber($scope.customerPriceFields.pricePerGram)){
+            alert("Price per gram must be numerals only.");
+            return;
+        }else if(!hasNumber($scope.customerPriceFields.pricePerCubic)){
+            alert("Price per cubic must be numerals only.");
+            return;
         }
 
         var regObject = {
