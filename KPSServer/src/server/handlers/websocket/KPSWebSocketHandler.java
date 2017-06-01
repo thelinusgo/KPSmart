@@ -1,6 +1,7 @@
-package main;
+package server.handlers.websocket;
 
 import java.io.IOException;
+
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
@@ -9,8 +10,8 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
 @WebSocket
-public class MyWebSocketHandler {
-	
+public class KPSWebSocketHandler {
+
 	@OnWebSocketClose
 	public void onClose(int statusCode, String reason){
 		System.out.println("Close: statusCode=" + statusCode + ", reason=" + reason	);
