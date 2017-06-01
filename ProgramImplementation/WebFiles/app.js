@@ -33,6 +33,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
     $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
         mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"};
+    $scope.events = eventsArray;
     //dummy values.. please change this later.
 
 
@@ -106,11 +107,13 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         }
 
         var reqObject = {
-            "msgType": "requestDelivery", "origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
+            "messageType":"event", "event":{"eventType":"delivery","origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
             "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume
-        }
+        }}
 
         sendData(reqObject);
+        addNewEvent(reqObject);
+        console.log($scope.events.length);
     };
     /**
      * Sends updated transport cost info to client.js in JSON format

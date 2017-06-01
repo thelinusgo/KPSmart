@@ -30,7 +30,7 @@ function receiveData(message){
     }
     message = JSON.parse(message);
 
-    if (message.messageType.includes("event")){
+    if (message.messageType.includes("Event")){
         addNewEvent(message);
     }
 
@@ -42,8 +42,6 @@ function receiveData(message){
 
 }
 
-function addNewEvent(event){
 
-}
 
 

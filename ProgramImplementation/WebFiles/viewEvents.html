@@ -6,6 +6,7 @@
         <script>document.write('<base href="' + document.location + '" />');</script>
         <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
         <script src="app.js"></script>
+        <script src="events.js"></script>
         <!-- W3Schools Lib-->
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <!-- Bootstrap CSS -->
@@ -32,13 +33,13 @@
                         <th>Date Posted</th>
                         <th></th>
                     </tr>
-                    <tr>
+                    <tr ng-repeat = "event in events">
                         <td>1</td>
-                        <td>Mail Delivery</td>
-                        <td>Date Posted</td>
+                        <td>{{event.eventType}}</td>
+                        <td>date</td>
                         <td><button class="button">View</button></td>
                     </tr>
-
+                    <td>{{events.length}}</td>
                 </table>
             </div>
         </div>
