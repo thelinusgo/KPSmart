@@ -28,12 +28,22 @@ function receiveData(message){
     if(message == null){
         alert("There must be a message to pass in");
     }
+    message = JSON.parse(message);
+
+    if (message.messageType.includes("event")){
+        addNewEvent(message);
+    }
+
+    //if message.messageType == "businessFigures"
+
 
     //TODO need to implement the rest of this part.
 
 
 }
 
+function addNewEvent(event){
 
+}
 
 
