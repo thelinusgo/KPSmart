@@ -1,32 +1,28 @@
 /*Fonts*/
 @font-face {
-    font-family: CoffeeAndTea;
-    src: url("fonts/coffee+teademo-Regular.woff") format('woff'),
-    url("fonts/coffee+teademo-Regular.ttf")  format('truetype');
-}
-
-@font-face {
-    font-family: ALittleSunshine;
-    src: url("fonts/A_little_sunshine.woff") format('woff'),
-    url("fonts/A_little_sunshine.ttf")  format('truetype');
+    font-family: CoveredByYourGrace;
+    src: url("fonts/CoveredByYourGrace.woff") format('woff'),
+    url("fonts/CoveredByYourGrace.ttf")  format('truetype'),
+    url("fonts/CoveredByYourGrace.otf") format('opentype');
 }
 
 @font-face {
     font-family: LemonTuesday;
     src: url("fonts/LemonTuesday.woff") format('woff'),
-    url("fonts/LemonTuesday.ttf")  format('truetype');
+    url("fonts/LemonTuesday.ttf")  format('truetype'),
+    url("fonts/LemonTuesday.otf") format('opentype');
 }
 
 html, body{
     height: 100%;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 /*Body*/
 body{
     margin: 0;
     padding: 0;
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     color: black;
 }
 
@@ -63,7 +59,7 @@ nav{
 }
 
 nav ul{
-    font-size: 18px;
+    font-size: 20px;
     padding: 0px;
     list-style-type: none;
     float: right;
@@ -322,7 +318,7 @@ footer p {
 }
 
 footer p .sunshine{
-    font-family: ALittleSunshine;
+    font-family: CoveredByYourGrace;
 }
 
 footer p .signature{
@@ -331,7 +327,7 @@ footer p .signature{
 
 /*Form*/
 input, select, textarea, option{
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     font-size: 25px;
 }
 
@@ -342,7 +338,7 @@ input, select, textarea, option{
     text-decoration: none;
     background-color: #f2f2f2;
     border: 2px solid #f2f2f2;
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     transition: all 0.5s ease;
 }
 
