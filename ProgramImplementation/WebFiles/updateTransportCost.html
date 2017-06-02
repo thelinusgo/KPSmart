@@ -26,50 +26,68 @@
                 <h2>Update Transport Cost</h2>
             </div>
             <div id="container2">
-                <table>
+                <table class="updateTable">
                     <tr>
                         <th>Origin</th>
+                        <td></td>
                         <td><input class = "text" ng-model="transportFields.origin"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
+                        <td></td>
                         <td><input ng-model="transportFields.destination"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Transport Firm</th>
+                        <td></td>
                         <td><input ng-model="transportFields.transportFirm"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Type of Transport</th>
+                        <td></td>
                         <td>
                             <select ng-model="transportFields.transportType">
                                 <option ng-repeat = "transport in transportTypes">{{transport}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Price per gram </th>
-                        <td>$<input class = "text" ng-model="transportFields.pricePerGram"></td>
+                        <td>$</td>
+                        <td><input class = "text" ng-model="transportFields.pricePerGram"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Price per cubic cm </th>
-                        <td>$<input class = "text" ng-model="transportFields.pricePerCC"></td>
+                        <td>$</td>
+                        <td><input class = "text" ng-model="transportFields.pricePerCC"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Departure Day</th>
+                        <td></td>
                         <td>
                             <select ng-model="transportFields.departureDay">
                                 <option ng-repeat = "day in days">{{day}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Departs Every</th>
-                        <td><input ng-model="transportFields.departsEvery"> hours</td>
+                        <td></td>
+                        <td><input ng-model="transportFields.departsEvery"></td>
+                        <td>hours</td>
                     </tr>
                     <tr>
                         <th>Trip Duration</th>
-                        <td><input ng-model="transportFields.duration"> hours</td>
+                        <td></td>
+                        <td><input ng-model="transportFields.duration"></td>
+                        <td>hours</td>
                     </tr>
                 </table>
                 <div id="button">

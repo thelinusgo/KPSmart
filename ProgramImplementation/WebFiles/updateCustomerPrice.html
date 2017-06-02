@@ -25,25 +25,30 @@
                 <h2>Update Customer Price</h2>
             </div>
             <div id="container2">
-                <table>
+                <table class="updateTable">
                     <tr>
                         <th>Origin</th>
+                        <td></td>
                         <td><input ng-model="customerPriceFields.origin"></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
+                        <td></td>
                         <td><input ng-model="customerPriceFields.destination"></td>
                     </tr>
                     <tr>
                         <th>New Price per gram:</th>
+                        <td>$</td>
                         <td><input ng-model="customerPriceFields.pricePerGram"></td>
                     </tr>
                     <tr>
                         <th>New Price per cubic cm:</th>
+                        <td>$</td>
                         <td><input ng-model="customerPriceFields.pricePerCubic"></td>
                     </tr>
-                        <tr>
+                    <tr>
                         <th>Mail Priority</th>
+                        <td></td>
                         <td>
                             <select ng-model="customerPriceFields.mailPriority">
                                 <option ng-repeat = "prior in priority">{{prior}}</option>
