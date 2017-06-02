@@ -275,7 +275,7 @@ nav ul li:hover ul{
 
 /*Container2*/
 #container2{
-     width: 50%;
+     width: 45%;
      margin: 0 auto;
      margin-top: 30px;
      margin-bottom: 30px;
@@ -298,6 +298,11 @@ nav ul li:hover ul{
 
 #container2 .eventTable tr td{
     width: 10%;
+}
+
+#container2 .updateTable tr td:nth-child(2), #container2 .updateTable tr td:nth-child(4){
+    width: 0.01%;
+    text-align: right;
 }
 
 /*Footer*/
@@ -350,6 +355,11 @@ select{
 }
 
 #button{
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
+}
+
+#button .button{
+    font-size: 20px;
+    padding: 5px;
 }
