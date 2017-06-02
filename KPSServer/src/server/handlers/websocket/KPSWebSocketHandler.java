@@ -1,7 +1,5 @@
 package server.handlers.websocket;
 
-import java.io.IOException;
-
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
@@ -9,32 +7,38 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketError;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
+import server.handlers.operations.Operations;
+
+/**
+ * This class is the web socket class. It contains four operations:
+ * 
+ * - close
+ * - error
+ * - connect
+ * - message
+ * 
+ * @author Chris
+ */
 @WebSocket
 public class KPSWebSocketHandler {
 
 	@OnWebSocketClose
 	public void onClose(int statusCode, String reason){
-		System.out.println("Close: statusCode=" + statusCode + ", reason=" + reason	);
+		Operations.getCloseHandler().handle(statusCode, reason);
 	}
 	
 	@OnWebSocketError
 	public void onError(Throwable t){
-		System.out.println("Error: " + t.getMessage());
+		Operations.getErrorHandler().handle(t);
 	}
 	
 	@OnWebSocketConnect
 	public void onConnect(Session session){
-		System.out.println("Connect: " + session.getRemoteAddress().getAddress());
-		
-		try {
-			session.getRemote().sendString("Welcome to KPSMart");
-		} catch (IOException e) {	
-			e.printStackTrace();
-		}
+		Operations.getConnectHandler().handle(session);
 	}
 	
 	@OnWebSocketMessage
 	public void onMessage(String message){
-		System.out.println("Message: " + message);
+		Operations.getMessageHandler().handle(message);
 	}
 }
