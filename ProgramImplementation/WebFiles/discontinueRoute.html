@@ -17,16 +17,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Styles-->
     <link rel="stylesheet" href="styles/styles.css" />
-
-    <script src="jquery.js"></script>
-    <script>
-        $(function(){
-            $("#header").load("header.html");
-        });
-    </script>
+    <!--Media-->
+    <link rel="stylesheet" href="styles/media.css" />
 </head>
 <body ng-controller="MainCtrl">
-    <div w3-include-html="header.html" id="header"></div>
+    <div w3-include-html="header.html"></div>
 
     <div id="mainContainer">
         <div id="container1" class="route">

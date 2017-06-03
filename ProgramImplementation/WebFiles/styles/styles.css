@@ -169,7 +169,6 @@ nav ul li:hover ul{
     width: 100%;
     margin: 0 auto;
     margin-top: 100px;
-    height: 100%;
 }
 
 /*Login*/
@@ -278,7 +277,7 @@ nav ul li:hover ul{
 #container2{
      width: 45%;
      margin: 0 auto;
-     margin-top: 30px;
+     margin-top: 50px;
      margin-bottom: 30px;
 }
 
