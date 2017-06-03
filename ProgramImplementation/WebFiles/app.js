@@ -33,7 +33,14 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
     $scope.buisinessFigs = {totalRevenue: "435,545", totalExpenditure:"2,334,343", totalExpenditure:"82,304,503",eventCount: "3333",
         mailDelivered: "9876", avgDeliveryTimes:"3984", criticalRoutes: "Auckland -> Incheon"};
-    $scope.events = eventsArray;
+
+    if (JSON.parse(sessionStorage.getItem("events")==null)){
+        //no events variable created yet, occurs only when system opened for first time of session
+        sessionStorage.setItem("events",'[]');
+    }
+    $scope.processedEvents = JSON.parse(sessionStorage.getItem("events"));
+
+
     //dummy values.. please change this later.
 
 
@@ -106,14 +113,17 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             return;
         }
 
-        var reqObject = {
-            "messageType":"event", "event":{"eventType":"delivery","origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
-            "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume
+        var d = new Date();
+        var JSONObject = {
+            "messageType":"event", "event":{"eventType":"Delivery Request","origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
+            "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume,
+            "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
         }}
 
-        sendData(reqObject);
-        addNewEvent(reqObject);
-        console.log($scope.events.length);
+        sendData(JSONObject);
+        addNewEvent(JSONObject.event);
+        //receiveData(JSON.stringify(JSONObject)); // for testing only
+
     };
     /**
      * Sends updated transport cost info to client.js in JSON format
@@ -142,40 +152,43 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             return;
         }
 
-        var reqObject = {
-            "msgType": "updatedTransportCost", "origin": $scope.transportFields.origin, "destination": $scope.transportFields.destination,
+        var d = new Date();
+        var JSONObject = {
+            "messageType": "event", "event":{"eventType":"Transport Cost Update", "origin": $scope.transportFields.origin, "destination": $scope.transportFields.destination,
             "transportFirm":$scope.transportFields.transportFirm, "transportType":$scope.transportFields.transportType,
             "pricePerGram":$scope.transportFields.pricePerGram, "pricePerCC":$scope.transportFields.pricePerCC,
             "departureDay":$scope.transportFields.departureDay, "departsEvery":$scope.transportFields.departsEvery,
-            "duration":$scope.transportFields.duration
-        }
+            "duration":$scope.transportFields.duration, "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
+        }}
 
-        sendData(reqObject);
+        sendData(JSONObject);
+        addNewEvent(JSONObject.event);
     };
 
     $scope.sendDiscontinueRoute = function(){
+        if($scope.discontinueRouteFields.origin == ""){
+            alert("Please fill out the origin field");
+            return;
+        }else if($scope.discontinueRouteFields.destination == ""){
+            alert("Please fill out the destination field");
+            return;
+        }else if($scope.discontinueRouteFields.transportFirm == ""){
+            alert("Please fill out the transport 'firm' field for your mail");
+            return;
+        }else if(hasNumbersandIllegals($scope.discontinueRouteFields.origin) || hasNumbersandIllegals($scope.discontinueRouteFields.destination) ||  hasNumbersandIllegals($scope.discontinueRouteFields.transportFirm) ){
+            alert("The field must not have numerals or illegal characters inside of them");
+            return;
+        }
 
+        var d = new Date();
+        var JSONObject = {
+             "messageType": "event", "event":{"eventType":"Discontinue Route", "origin" : $scope.discontinueRouteFields.origin, "destination" : $scope.discontinueRouteFields.destination,
+             "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType,
+             "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
+        }}
 
-    if($scope.discontinueRouteFields.origin == ""){
-        alert("Please fill out the origin field");
-        return;
-    }else if($scope.discontinueRouteFields.destination == ""){
-        alert("Please fill out the destination field");
-        return;
-    }else if($scope.discontinueRouteFields.transportFirm == ""){
-        alert("Please fill out the transport 'firm' field for your mail");
-        return;
-    }else if(hasNumbersandIllegals($scope.discontinueRouteFields.origin) || hasNumbersandIllegals($scope.discontinueRouteFields.destination) ||  hasNumbersandIllegals($scope.discontinueRouteFields.transportFirm) ){
-        alert("The field must not have numerals or illegal characters inside of them");
-        return;
-    }
-
-     var JSONObject = {
-         "MsgType": "discontinueRoute", "origin" : $scope.discontinueRouteFields.origin, "destination" : $scope.discontinueRouteFields.destination,
-         "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType
-     }
-
-    sendData(JSONObject);
+        sendData(JSONObject);
+        addNewEvent(JSONObject.event);
     };
 
 
@@ -204,13 +217,15 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             return;
         }
 
-        var regObject = {
-            "MsgType": "updateCustomerPrice", "Origin": $scope.customerPriceFields.origin, "Destination": $scope.customerPriceFields.destination,
+        var d = new Date();
+        var JSONObject = {
+            "messageType": "event", "event":{"eventType":"Customer Price Update", "origin":$scope.customerPriceFields.origin, "destination": $scope.customerPriceFields.destination,
             "pricePerGram": $scope.customerPriceFields.pricePerGram, "pricePerCubic": $scope.customerPriceFields.pricePerCubic,
-            "mailPriority": $scope.customerPriceFields.mailPriority
-        }
+            "mailPriority": $scope.customerPriceFields.mailPriority, "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
+        }}
 
-        sendData(regObject);
+        sendData(JSONObject);
+        addNewEvent(JSONObject.event);
     }
 
 });

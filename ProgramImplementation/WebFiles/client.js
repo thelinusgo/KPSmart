@@ -21,7 +21,7 @@ function sendData(json_message){
 
 }
 /**
- * Recieves data from the server and places it back into the website.
+ * Receives data from the server and places it back into the website.
  * @param message
  */
 function receiveData(message){
@@ -30,8 +30,8 @@ function receiveData(message){
     }
     message = JSON.parse(message);
 
-    if (message.messageType.includes("Event")){
-        addNewEvent(message);
+    if (message.messageType == "event"){
+        addNewEvent(message.event);
     }
 
     //if message.messageType == "businessFigures"
