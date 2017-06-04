@@ -5,6 +5,8 @@
  * This JS file is responsible for sending and receiving data from the server as JS files.
  */
 
+var JSONObj = null; //initialize an empty JSONObj that can be accessed. It is set once a message is being passed in.
+
 /**
  * Sends data from the website and converts it into a Json file.
  * @param message
@@ -34,14 +36,22 @@ function receiveData(message){
         addNewEvent(message.event);
     }
 
-    //if message.messageType == "businessFigures"
+    alert("message: " + message.toString());
+
+    this.JSONObj = message;
 
 
     //TODO need to implement the rest of this part.
-
-
 }
 
 
+
+/**
+ * Returns the JSON object that is stored from receiveData.
+ * @returns {*}
+ */
+function getJSONObject(){
+    return this.JSONObj;
+}
 
 

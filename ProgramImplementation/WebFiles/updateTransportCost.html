@@ -17,7 +17,9 @@
         <!-- Bootstrap JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!--Styles-->
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles/styles.css" />
+        <!--Media-->
+        <link rel="stylesheet" href="styles/media.css" />
     </head>
     <body ng-controller="MainCtrl">
         <div w3-include-html="header.html"></div>
@@ -27,50 +29,68 @@
                 <h2>Update Transport Cost</h2>
             </div>
             <div id="container2">
-                <table>
+                <table class="updateTable">
                     <tr>
                         <th>Origin</th>
+                        <td></td>
                         <td><input class = "text" ng-model="transportFields.origin"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><input class = "text" ng-model="transportFields.destination"></td>
+                        <td></td>
+                        <td><input ng-model="transportFields.destination"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Transport Firm</th>
-                        <td><input class = "text" ng-model="transportFields.transportFirm"></td>
+                        <td></td>
+                        <td><input ng-model="transportFields.transportFirm"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Type of Transport</th>
+                        <td></td>
                         <td>
                             <select ng-model="transportFields.transportType">
                                 <option ng-repeat = "transport in transportTypes">{{transport}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Price per gram </th>
-                        <td>$<input class = "text" ng-model="transportFields.pricePerGram"></td>
+                        <td>$</td>
+                        <td><input class = "text" ng-model="transportFields.pricePerGram"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Price per cubic cm </th>
-                        <td>$<input class = "text" ng-model="transportFields.pricePerCC"></td>
+                        <td>$</td>
+                        <td><input class = "text" ng-model="transportFields.pricePerCC"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Departure Day</th>
+                        <td></td>
                         <td>
                             <select ng-model="transportFields.departureDay">
                                 <option ng-repeat = "day in days">{{day}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Departs Every</th>
-                        <td><input class = "text" ng-model="transportFields.departsEvery"> hours</td>
+                        <td></td>
+                        <td><input ng-model="transportFields.departsEvery"></td>
+                        <td>hours</td>
                     </tr>
                     <tr>
                         <th>Trip Duration</th>
-                        <td><input class = "text" ng-model="transportFields.duration"> hours</td>
+                        <td></td>
+                        <td><input ng-model="transportFields.duration"></td>
+                        <td>hours</td>
                     </tr>
                 </table>
                 <div id="button">
@@ -78,6 +98,8 @@
                 </div>
             </div>
         </div>
+
+        <div w3-include-html="footer.html"></div>
 
         <script>
             w3.includeHTML();

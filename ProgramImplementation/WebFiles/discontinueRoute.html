@@ -8,7 +8,8 @@
     <script src="app.js"></script>
     <script src="client.js"></script>
     <script src="events.js"></script>
-    <!-- W3Schools Lib-->
+
+    <!-- W3Schools JS Lib-->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +18,9 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Styles-->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!--Media-->
+    <link rel="stylesheet" href="styles/media.css" />
 </head>
 <body ng-controller="MainCtrl">
     <div w3-include-html="header.html"></div>
@@ -30,15 +33,15 @@
             <table>
                 <tr>
                     <th>Origin</th>
-                    <td><input class = "text" ng-model="discontinueRouteFields.origin"></td>
+                    <td><input ng-model="discontinueRouteFields.origin"></td>
                 </tr>
                 <tr>
                     <th>Destination</th>
-                    <td><input class = "text" ng-model="discontinueRouteFields.destination"></td>
+                    <td><input ng-model="discontinueRouteFields.destination"></td>
                 </tr>
                 <tr>
                     <th>Transport Firm</th>
-                    <td><input class = "text" ng-model="discontinueRouteFields.transportFirm"></td>
+                    <td><input ng-model="discontinueRouteFields.transportFirm"></td>
                 </tr>
                 <tr>
                     <th>Type of Transport</th>
@@ -54,6 +57,8 @@
             </div>
         </div>
     </div>
+
+    <div w3-include-html="footer.html"></div>
 
     <script>
         w3.includeHTML();

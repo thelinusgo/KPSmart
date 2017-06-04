@@ -17,7 +17,9 @@
         <!-- Bootstrap JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!--Styles-->
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles/styles.css" />
+        <!--Media-->
+        <link rel="stylesheet" href="styles/media.css" />
     </head>
     <body ng-controller="MainCtrl">
         <div w3-include-html="header.html"></div>
@@ -26,25 +28,30 @@
                 <h2>Update Customer Price</h2>
             </div>
             <div id="container2">
-                <table>
+                <table class="updateTable">
                     <tr>
                         <th>Origin</th>
-                        <td><input class = "text" ng-model="customerPriceFields.origin"></td>
+                        <td></td>
+                        <td><input ng-model="customerPriceFields.origin"></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><input class = "text" ng-model="customerPriceFields.destination"></td>
+                        <td></td>
+                        <td><input ng-model="customerPriceFields.destination"></td>
                     </tr>
                     <tr>
                         <th>New Price per gram:</th>
-                        <td><input class = "text" ng-model="customerPriceFields.pricePerGram"></td>
+                        <td>$</td>
+                        <td><input ng-model="customerPriceFields.pricePerGram"></td>
                     </tr>
                     <tr>
                         <th>New Price per cubic cm:</th>
-                        <td><input class = "text" ng-model="customerPriceFields.pricePerCubic"></td>
+                        <td>$</td>
+                        <td><input ng-model="customerPriceFields.pricePerCubic"></td>
                     </tr>
-                        <tr>
+                    <tr>
                         <th>Mail Priority</th>
+                        <td></td>
                         <td>
                             <select ng-model="customerPriceFields.mailPriority">
                                 <option ng-repeat = "prior in priority">{{prior}}</option>
@@ -57,6 +64,9 @@
                 </div>
             </div>
         </div>
+
+        <div w3-include-html="footer.html"></div>
+
         <script>
             w3.includeHTML();
         </script>

@@ -1,20 +1,28 @@
 /*Fonts*/
 @font-face {
-    font-family: CoffeeAndTea;
-    src: url("fonts/coffee+teademo-Regular.woff") format('woff'),
-    url("fonts/coffee+teademo-Regular.ttf")  format('truetype');
+    font-family: CoveredByYourGrace;
+    src: url("../fonts/CoveredByYourGrace.woff") format('woff'),
+    url("../fonts/CoveredByYourGrace.ttf")  format('truetype'),
+    url("../fonts/CoveredByYourGrace.otf") format('opentype');
+}
+
+@font-face {
+    font-family: LemonTuesday;
+    src: url("../fonts/LemonTuesday.woff") format('woff'),
+    url("../fonts/LemonTuesday.ttf")  format('truetype'),
+    url("../fonts/LemonTuesday.otf") format('opentype');
 }
 
 html, body{
+    font-size: 30px;
     height: 100%;
-    font-size: 25px;
 }
 
 /*Body*/
 body{
     margin: 0;
-    padding:0;
-    font-family: CoffeeAndTea;
+    padding: 0;
+    font-family: CoveredByYourGrace;
     color: black;
 }
 
@@ -51,7 +59,7 @@ nav{
 }
 
 nav ul{
-    font-size: 18px;
+    font-size: 20px;
     padding: 0px;
     list-style-type: none;
     float: right;
@@ -140,7 +148,7 @@ nav ul li:hover ul{
 .dropdown-menu{
     border: none;
     padding: 0;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .navbar-inverse .navbar-nav > li > a{
@@ -166,7 +174,7 @@ nav ul li:hover ul{
 /*Login*/
 #loginMain{
     font-size: 30px;
-    background-image: url(images/background.jpg);
+    background-image: url(../images/background.jpg);
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -234,7 +242,7 @@ nav ul li:hover ul{
 }
 
 #container1 h2{
-    font-size: 4em;
+    font-size: 3em;
     color: white;
     vertical-align: middle;
     line-height: 20vw;
@@ -242,34 +250,35 @@ nav ul li:hover ul{
 }
 
 .business{
-    background-image: url(images/business.jpg);
+    background-image: url(../images/business.jpg);
 }
 
 .request{
-    background-image: url(images/requestDelivery.jpg);
+    background-image: url(../images/requestDelivery.jpg);
 }
 
 .updateCP{
-    background-image: url(images/updateCP.jpg);
+    background-image: url(../images/updateCP.jpg);
 }
 
 .updateTC{
-    background-image: url(images/updateTC.jpg);
+    background-image: url(../images/updateTC.jpg);
 }
 
 .view{
-    background-image: url(images/viewEvents.jpg);
+    background-image: url(../images/viewEvents.jpg);
 }
 
 .route{
-    background-image: url(images/route.jpg);
+    background-image: url(../images/route.jpg);
 }
 
 /*Container2*/
 #container2{
-     width: 50%;
+     width: 45%;
      margin: 0 auto;
-     margin-top: 30px;
+     margin-top: 50px;
+     margin-bottom: 30px;
 }
 
 #container2 table tr td, #container2 table tr th{
@@ -291,10 +300,40 @@ nav ul li:hover ul{
     width: 10%;
 }
 
+#container2 .updateTable tr td:nth-child(2), #container2 .updateTable tr td:nth-child(4){
+    width: 0.01%;
+    text-align: right;
+}
+
+/*Footer*/
+footer{
+    width: 100%;
+    background-color: #8f89a9;
+    text-align: center;
+    height: 100px;
+    position: relative;
+}
+
+footer p{
+    font-size: 25px;
+    line-height: 97px;
+    color: white;
+    margin: 0;
+}
+
+footer p .signature{
+    font-family: LemonTuesday;
+}
+
 /*Form*/
 input, select, textarea, option{
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     font-size: 25px;
+    width: 100%;
+}
+
+select{
+    padding: 5px;
 }
 
 /*Button*/
@@ -304,7 +343,7 @@ input, select, textarea, option{
     text-decoration: none;
     background-color: #f2f2f2;
     border: 2px solid #f2f2f2;
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     transition: all 0.5s ease;
 }
 
@@ -315,6 +354,11 @@ input, select, textarea, option{
 }
 
 #button{
-    margin-top: 10px;
+    margin-top: 25px;
     text-align: center;
+}
+
+#button .button{
+    font-size: 20px;
+    padding: 5px;
 }

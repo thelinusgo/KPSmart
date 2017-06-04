@@ -17,7 +17,9 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Styles-->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!--Media-->
+    <link rel="stylesheet" href="styles/media.css" />
 
 </head>
 <body ng-controller="MainCtrl">
@@ -30,11 +32,11 @@
                 <table>
                     <tr>
                         <th>Origin</th>
-                        <td><input class = "text" ng-model="deliveryFields.origin"></td>
+                        <td><input ng-model="deliveryFields.origin"></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
-                        <td><input class = "text" ng-model="deliveryFields.destination"></td>
+                        <td><input ng-model="deliveryFields.destination"></td>
                     </tr>
                     <tr>
                         <th>Mail Priority</th>
@@ -46,11 +48,11 @@
                     </tr>
                     <tr>
                         <th>Weight of Package</th>
-                        <td><input class = "text" ng-model="deliveryFields.weight"></td>
+                        <td><input ng-model="deliveryFields.weight"></td>
                     </tr>
                     <tr>
                         <th>Volume of Package:</th>
-                        <td><input class = "text" ng-model="deliveryFields.volume"></td>
+                        <td><input ng-model="deliveryFields.volume"></td>
                     </tr>
                 </table>
                 <div id="button">
@@ -58,6 +60,8 @@
                 </div>
             </div>
         </div>
+
+        <div w3-include-html="footer.html"></div>
 
         <script>
             w3.includeHTML();
