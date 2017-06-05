@@ -32,6 +32,8 @@ function receiveData(message){
     }
     message = JSON.parse(message);
 
+    // Event message JSON format example: {"messageType":"event","event":{"eventType":"Delivery Request","origin":"a","destination":"b",
+    // "mailPriority":"InternAir","weight":"1","volume":"2","date":{"day":"1","month":"2","year":"2017"}}}
     if (message.messageType == "event"){
         addNewEvent(message.event);
     }

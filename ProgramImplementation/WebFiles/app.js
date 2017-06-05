@@ -43,6 +43,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.processedEvents = JSON.parse(sessionStorage.getItem("events")); // all the events to be displayed in View Events
 
+    // selectedEvent object format: {"eventType":"Delivery Request","origin":"a","destination":"b","mailPriority":"InternAir",
+    // "weight":"1","volume":"2","date":{"day":"1","month":"2","year":"2017"}}
     $scope.selectedEvent = JSON.parse(sessionStorage.getItem("selectedEvent")); // used for displaying a single event when "View" is clicked
 
     //dummy values.. please change this later.

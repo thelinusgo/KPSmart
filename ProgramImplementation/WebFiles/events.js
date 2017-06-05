@@ -3,8 +3,8 @@
  */
 
 
-/** example event: {"messageType":"event","event":{"eventType":"delivery","origin":"a","destination":"b","mailPriority":"InternAir",
-* "weight":"1","volume":"2","date":{"day":"1","month":"2","year":"2017"}}}
+/** Example event JSON format: {"eventType":"Delivery Request","origin":"a","destination":"b",
+* "mailPriority":"InternAir","weight":"1","volume":"2","date":{"day":"1","month":"2","year":"2017"}}
 */
 
 /**
@@ -21,5 +21,5 @@ function addNewEvent(event){
  * Imports events from server
  */
 function importEvents(){
-    //TODO: implement once intergrated with server
+    //TODO: implement once integrated with server
 }
