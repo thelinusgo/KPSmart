@@ -40,8 +40,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         //no events variable created yet, occurs only when system opened for first time of session
         sessionStorage.setItem("events",'[]');
     }
-    $scope.processedEvents = JSON.parse(sessionStorage.getItem("events"));
 
+    $scope.processedEvents = JSON.parse(sessionStorage.getItem("events")); // all the events to be displayed in View Events
+
+    $scope.selectedEvent = JSON.parse(sessionStorage.getItem("selectedEvent")); // used for displaying a single event when "View" is clicked
 
     //dummy values.. please change this later.
 
@@ -95,6 +97,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.cancelLogin = function(){
         $scope.username = "";
         $scope.password = "";
+    }
+
+    $scope.setSelectedEvent = function(index){
+        sessionStorage.setItem("selectedEvent", JSON.stringify($scope.processedEvents[index]));
     }
 
     /**
