@@ -17,6 +17,7 @@ function addNewEvent(event){
     sessionStorage.setItem("events",JSON.stringify(events))
 }
 
+
 /**
  * Imports events from server
  */
