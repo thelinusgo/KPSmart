@@ -23,7 +23,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.priority = ['InternAir', 'InternStd', 'DomestAir', 'DomestStd']; //define the different types of priority
     $scope.userTypes = ['CEO', 'Manager' ,'Regular User']; //define the different types of User that can access the system.
-    $scope.transportTypes = ['Land', 'Sea', 'Air']; //define the different users
+    $scope.transportTypes = ['Land' , 'Sea', 'Air']; //define the different users
     $scope.days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
     $scope.deliveryFields = {origin:"",destination:"",mailPriority:'InternAir',weight:"",volume:""}
@@ -46,7 +46,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     // selectedEvent object format: {"eventType":"Delivery Request","origin":"a","destination":"b","mailPriority":"InternAir",
     // "weight":"1","volume":"2","date":{"day":"1","month":"2","year":"2017"}}
     $scope.selectedEvent = JSON.parse(sessionStorage.getItem("selectedEvent")); // used for displaying a single event when "View" is clicked
-
+    $scope.selectedEventFields = JSON.parse(sessionStorage.getItem("selectedEventFields"));
     //dummy values.. please change this later.
 
 
@@ -104,6 +104,16 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.setSelectedEvent = function(index){
         sessionStorage.setItem("selectedEvent", JSON.stringify($scope.processedEvents[index]));
         location.href='singleEventsView.html';
+        $scope.selectedEvent = JSON.parse(sessionStorage.getItem("selectedEvent"));
+        var eventFields = [];
+        for (var key in $scope.selectedEvent){
+            if ($scope.selectedEvent.hasOwnProperty(key)){
+                var field = {"label":key, "value":$scope.selectedEvent[key]};
+                eventFields.push(field);
+            }
+        }
+        sessionStorage.setItem("selectedEventFields", JSON.stringify(eventFields));
+        $scope.selectedEventFields = eventFields;
     }
 
     /**
