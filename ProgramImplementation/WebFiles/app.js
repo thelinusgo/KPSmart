@@ -103,6 +103,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
     $scope.setSelectedEvent = function(index){
         sessionStorage.setItem("selectedEvent", JSON.stringify($scope.processedEvents[index]));
+        location.href='singleEventsView.html';
     }
 
     /**
