@@ -108,8 +108,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         var eventFields = [];
         for (var key in $scope.selectedEvent){
             if ($scope.selectedEvent.hasOwnProperty(key)){
-                var field = {"label":key, "value":$scope.selectedEvent[key]};
-                eventFields.push(field);
+                if(key != "date"){
+                    var field = {"label": key.toUpperCase(), "value": $scope.selectedEvent[key]};
+                    eventFields.push(field);
+                }
             }
         }
         sessionStorage.setItem("selectedEventFields", JSON.stringify(eventFields));
@@ -263,6 +265,14 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.buisinessFigs.totalRevenue = jsonobject.totalRevenue;
         
     };
+
+    $scope.goBack = function(){
+        location.href='viewEvents.html';
+    }
+
+
+
+
 
 
 });

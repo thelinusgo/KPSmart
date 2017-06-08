@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="kps">
 <head>>
     <meta charset="UTF-8" />
     <title>Viewing Event - KPSmart System</title>
@@ -25,27 +25,20 @@
 
 <div id="mainContainer">
     <div id="container1" class="view">
-        <h2>Viewing Event:</h2>
-        <p ng-bind="selectedEvent"></p>
+        <h2>Viewing "{{selectedEvent.eventType}}"</h2>
     </div>
     <div id="container2">
-
-        <h2>Event Details:</h2>
             <table class="eventTable">
                 <tr>
-                    <th>Label:</th>
-                    <th>Values:</th>
+                    <button class="button" ng-click="goBack()">Back to View Events</button>
                 </tr>
-                <tbody ng-repeat = "label in selectedEvent.fields">
-                    <tr ng-repeat = "<values in blahblah">
-                        <td>{{label}}</td>
-                        <!--Label for the various values: -->
-                        <td>{{values}}</td>
-                    </tr>
-                </tbody>
+                <tr ng-repeat = 'field in selectedEventFields track by $index'>
+                    <td>{{$index+1}}</td>
+                    <td>{{field.label}}</td>
+                    <!--Label for the various values: -->
+                    <td>{{field.value}}</td>
+                </tr>
             </table>
-
-
     </div>
 </div>
 
