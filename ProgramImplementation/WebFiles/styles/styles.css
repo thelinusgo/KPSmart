@@ -117,11 +117,6 @@ nav ul li:hover ul{
 }
 
 /*Navbar-BootStrap*/
-.navbar-inverse{
-    background-color: transparent;
-    border: none;
-}
-
 .navbar{
     min-height: 100px;
 }
@@ -136,13 +131,35 @@ nav ul li:hover ul{
     margin-top: 30px;
 }
 
-.dropdown p{
-    margin: 0 10px;
-    margin-top: 12px;
+.navbar-default{
+    background-color: white;
+    border: none;
+	font-size: 20px;
 }
 
-.dropdown p:hover{
-    color: #6bbaa7;
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: black;
+}
+
+.navbar-default .navbar-toggle{
+    border: none;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus{
+    background-color: #ffc766;
+    transition: all 0.5s ease;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
+	background-color: transparent;
+	color: #77bbbb;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    border: none;
 }
 
 .dropdown-menu{
@@ -151,12 +168,12 @@ nav ul li:hover ul{
     font-size: 15px;
 }
 
-.navbar-inverse .navbar-nav > li > a{
+.navbar-default .navbar-nav > li > a{
     color: black;
     transition: all 0.5s ease;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover{
+.navbar-default .navbar-nav > li > a:hover{
     color: #6bbaa7;
 }
 
@@ -312,6 +329,7 @@ footer{
     text-align: center;
     height: 100px;
     position: relative;
+    box-shadow: 0px 500px 0px 500px #8f89a9;
 }
 
 footer p{

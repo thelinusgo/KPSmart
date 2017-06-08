@@ -1,19 +1,20 @@
 <header>
     <div id="header">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><img src="images/logo.png"/></a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="viewEvents.html">View Events</a></li>
-                        <li class="dropdown"><p class="dropdown-toggle link" data-toggle="dropdown" style="cursor:pointer;">Process Events</p>
+                        <li class="open"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Process Events <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="updateCustomerPrice.html">Update Customer Price</a></li>
                                 <li><a href="updateTransportCost.html">Update Transport Cost</a></li>
@@ -26,6 +27,6 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
     </div>
 </header>
