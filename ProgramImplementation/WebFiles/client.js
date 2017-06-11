@@ -2,15 +2,17 @@
  * Created by linus on 31/05/17.
  */
 /**
- * This JS file is responsible for sending and recieving data from the server as JS files.
+ * This JS file is responsible for sending and receiving data from the server as JS files.
  */
+
+var JSONObj = null; //initialize an empty JSONObj that can be accessed. It is set once a message is being passed in.
 
 /**
  * Sends data from the website and converts it into a Json file.
  * @param message
  */
 function sendData(json_message){
-    if(message == null){
+    if(json_message == null){
         alert("There must be a message to pass in");
     }
 
@@ -28,11 +30,26 @@ function receiveData(message){
     if(message == null){
         alert("There must be a message to pass in");
     }
+    message = JSON.parse(message);
+
+    alert("message: " + message.toString());
+
+    this.JSONObj = message;
+
 
     //TODO need to implement the rest of this part.
+}
+
+function addNewEvent(event){
 
 }
 
-
+/**
+ * Returns the JSON object that is stored from receiveData.
+ * @returns {*}
+ */
+function getJSONObject(){
+    return this.JSONObj;
+}
 
 

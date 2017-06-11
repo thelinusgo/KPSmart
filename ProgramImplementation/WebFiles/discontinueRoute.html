@@ -6,47 +6,62 @@
     <script>document.write('<base href="' + document.location + '" />');</script>
     <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
     <script src="app.js"></script>
-    <!-- W3Schools Lib-->
+    <script src="client.js"></script>
+    <!-- W3Schools JS Lib-->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Bootstrap jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Styles-->
     <link rel="stylesheet" href="styles.css" />
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("header.html");
+        });
+    </script>
 </head>
 <body ng-controller="MainCtrl">
-    <div w3-include-html="header.html"></div>
+    <div w3-include-html="header.html" id="header"></div>
 
     <div id="mainContainer">
-        <h2>Discontinue Route</h2>
-
-        <table class="updatePriceTable">
-            <tr>
-                <th>Origin</th>
-                <td><input class = "text"></td>
-            </tr>
-            <tr>
-                <th>Destination</th>
-                <td><input class = "text"></td>
-            </tr>
-            <tr>
-                <th>Transport Firm</th>
-                <td><input class = "text"></td>
-            </tr>
-            <tr>
-                <th>Type of Transport</th>
-                <td>
-                    <select>
-                        <option ng-repeat = "transport in transportTypes">{{transport}}</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <button class="button" ng-click="">Discontinue</button>
+        <div id="container1" class="route">
+            <h2>Discontinue Route</h2>
+        </div>
+        <div id="container2">
+            <table>
+                <tr>
+                    <th>Origin</th>
+                    <td><input ng-model="discontinueRouteFields.origin"></td>
+                </tr>
+                <tr>
+                    <th>Destination</th>
+                    <td><input ng-model="discontinueRouteFields.destination"></td>
+                </tr>
+                <tr>
+                    <th>Transport Firm</th>
+                    <td><input ng-model="discontinueRouteFields.transportFirm"></td>
+                </tr>
+                <tr>
+                    <th>Type of Transport</th>
+                    <td>
+                        <select ng-model="discontinueRouteFields.transportType">
+                            <option ng-repeat = "transport in transportTypes" >{{transport}}</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div id="button">
+                <button class="button" ng-click="sendDiscontinueRoute()">Discontinue Route</button>
+            </div>
+        </div>
     </div>
+
+    <div w3-include-html="footer.html"></div>
 
     <script>
         w3.includeHTML();

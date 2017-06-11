@@ -6,10 +6,11 @@
         <script>document.write('<base href="' + document.location + '" />');</script>
         <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
         <script src="app.js"></script>
+        <script src="client.js"></script>
         <!-- W3Schools Lib-->
         <script src="https://www.w3schools.com/lib/w3.js"></script>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Bootstrap jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
@@ -19,39 +20,44 @@
     </head>
     <body ng-controller="MainCtrl">
         <div w3-include-html="header.html"></div>
-
         <div id="mainContainer">
-            <h2>Update Customer Price:</h2>
-
-            <table class="updatePriceTable">
-                <tr>
-                    <th>Origin</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>Destination</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>New Price per gram:</th>
-                    <td><input class = "text"></td>
-                </tr>
-                <tr>
-                    <th>New Price per cubic cm:</th>
-                    <td><input class = "text"></td>
-                </tr>
+            <div id="container1" class="updateCP">
+                <h2>Update Customer Price</h2>
+            </div>
+            <div id="container2">
+                <table>
                     <tr>
-                    <th>Mail Priority</th>
-                    <td>
-                        <select>
-                            <option ng-repeat = "prior in priority">{{prior}}</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-
-            <button class="button" ng-click="">Update</button>
+                        <th>Origin</th>
+                        <td><input ng-model="customerPriceFields.origin"></td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td><input ng-model="customerPriceFields.destination"></td>
+                    </tr>
+                    <tr>
+                        <th>New Price per gram:</th>
+                        <td><input ng-model="customerPriceFields.pricePerGram"></td>
+                    </tr>
+                    <tr>
+                        <th>New Price per cubic cm:</th>
+                        <td><input ng-model="customerPriceFields.pricePerCubic"></td>
+                    </tr>
+                        <tr>
+                        <th>Mail Priority</th>
+                        <td>
+                            <select ng-model="customerPriceFields.mailPriority">
+                                <option ng-repeat = "prior in priority">{{prior}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <div id="button">
+                    <button class="button" ng-click="sendUpdatedCustomerPrice()">Update</button>
+                </div>
+            </div>
         </div>
+
+        <div w3-include-html="footer.html"></div>
 
         <script>
             w3.includeHTML();

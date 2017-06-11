@@ -1,20 +1,28 @@
 /*Fonts*/
 @font-face {
-    font-family: CoffeeAndTea;
-    src: url("fonts/coffee+teademo-Regular.woff") format('woff'),
-    url("fonts/coffee+teademo-Regular.ttf")  format('truetype');
+    font-family: CoveredByYourGrace;
+    src: url("fonts/CoveredByYourGrace.woff") format('woff'),
+    url("fonts/CoveredByYourGrace.ttf")  format('truetype'),
+    url("fonts/CoveredByYourGrace.otf") format('opentype');
+}
+
+@font-face {
+    font-family: LemonTuesday;
+    src: url("fonts/LemonTuesday.woff") format('woff'),
+    url("fonts/LemonTuesday.ttf")  format('truetype'),
+    url("fonts/LemonTuesday.otf") format('opentype');
 }
 
 html, body{
-    height: 100%;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 /*Body*/
 body{
     margin: 0;
-    padding:0;
-    font-family: CoffeeAndTea;
+    padding: 0;
+    font-family: CoveredByYourGrace;
+    color: black;
 }
 
 /*Header*/
@@ -32,7 +40,7 @@ header{
 
 header img{
     float: left;
-    height: 110px;
+    height: 120px;
     margin: 0px;
 }
 
@@ -40,16 +48,17 @@ header img{
 #header{
     width: 80%;
     margin: 0 auto;
+    background-color: transparent;
+    padding-left: 50px;
 }
 
 /*Navigation*/
 nav{
-    display: inline-block;
-    float: right;
+    margin: 0 auto;
 }
 
 nav ul{
-    font-size: 18px;
+    font-size: 20px;
     padding: 0px;
     list-style-type: none;
     float: right;
@@ -93,8 +102,8 @@ nav ul li ul {
 }
 
 nav ul li ul li {
-    background: #d9d9d9;
     display: block;
+    margin: 0;
 }
 
 nav ul li ul li:hover {
@@ -106,11 +115,60 @@ nav ul li:hover ul{
     display: block;
 }
 
+/*Navbar-BootStrap*/
+.navbar-inverse{
+    background-color: transparent;
+    border: none;
+}
+
+.navbar{
+    min-height: 100px;
+}
+
+.navbar-brand{
+    height: 100px;
+    padding: 0;
+}
+
+.navbar-nav{
+    float: right;
+    margin-top: 30px;
+}
+
+.dropdown p{
+    margin: 0 10px;
+    margin-top: 12px;
+}
+
+.dropdown p:hover{
+    color: #6bbaa7;
+}
+
+.dropdown-menu{
+    border: none;
+    padding: 0;
+    font-size: 15px;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+    color: black;
+    transition: all 0.5s ease;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #6bbaa7;
+}
+
+.dropdown-menu > li > a{
+    padding: 10px 20px;
+}
+
 /*Main Container*/
 #mainContainer{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 100px;
+    height: 100%;
 }
 
 /*Login*/
@@ -134,10 +192,6 @@ nav ul li:hover ul{
 #login #header{
     text-align: center;
     padding: 20px;
-}
-
-#login #header .logo{
-    /*! width: 95%; */
 }
 
 /*Login Container*/
@@ -178,10 +232,104 @@ nav ul li:hover ul{
     margin-left: 10px;
 }
 
+/*Container1*/
+#container1{
+    width: 100%;
+    height: 20vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+#container1 h2{
+    font-size: 3em;
+    color: white;
+    vertical-align: middle;
+    line-height: 20vw;
+    text-transform: uppercase;
+}
+
+.business{
+    background-image: url(images/business.jpg);
+}
+
+.request{
+    background-image: url(images/requestDelivery.jpg);
+}
+
+.updateCP{
+    background-image: url(images/updateCP.jpg);
+}
+
+.updateTC{
+    background-image: url(images/updateTC.jpg);
+}
+
+.view{
+    background-image: url(images/viewEvents.jpg);
+}
+
+.route{
+    background-image: url(images/route.jpg);
+}
+
+/*Container2*/
+#container2{
+     width: 50%;
+     margin: 0 auto;
+     margin-top: 30px;
+     margin-bottom: 30px;
+}
+
+#container2 table tr td, #container2 table tr th{
+    width: 5%;
+    padding: 2px;
+}
+
+#container2 .eventTable{
+    table-layout: fixed;
+    text-align: center;
+}
+
+#container2 .eventTable th{
+    text-align: center;
+    font-size: 30px;
+}
+
+#container2 .eventTable tr td{
+    width: 10%;
+}
+
+/*Footer*/
+footer{
+    width: 100%;
+    background-color: #8f89a9;
+    text-align: center;
+    height: 100px;
+    position: relative;
+    box-shadow: 0px 500px 0px 500px #8f89a9;
+}
+
+footer p{
+    font-size: 25px;
+    line-height: 97px;
+    color: white;
+    margin: 0;
+}
+
+footer p .signature{
+    font-family: LemonTuesday;
+}
+
 /*Form*/
 input, select, textarea, option{
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     font-size: 25px;
+    width: 100%;
+}
+
+select{
+    padding: 5px;
 }
 
 /*Button*/
@@ -191,7 +339,7 @@ input, select, textarea, option{
     text-decoration: none;
     background-color: #f2f2f2;
     border: 2px solid #f2f2f2;
-    font-family: CoffeeAndTea;
+    font-family: CoveredByYourGrace;
     transition: all 0.5s ease;
 }
 
@@ -199,4 +347,9 @@ input, select, textarea, option{
     border: 2px solid #6bbaa7;
     color: #6bbaa7;
     transition: all 0.5s ease;
+}
+
+#button{
+    margin-top: 10px;
+    text-align: center;
 }
