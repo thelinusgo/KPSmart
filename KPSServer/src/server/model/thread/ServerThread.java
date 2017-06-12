@@ -36,4 +36,11 @@ public class ServerThread implements Runnable {
 		}
 	}
 
+	public void stop() {
+		try {
+			server.stop();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

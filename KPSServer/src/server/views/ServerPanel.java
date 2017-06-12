@@ -20,6 +20,7 @@ import javax.swing.JTextArea;
 public class ServerPanel extends JPanel {
 
 	protected JButton startButton = new JButton("Start");
+	protected JButton stopButton = new JButton("Stop");
 	protected JTextArea portField = new JTextArea(1, 4);
 	private JLabel portLabel = new JLabel("Port Number:");
 
@@ -36,6 +37,8 @@ public class ServerPanel extends JPanel {
 		portLabel.setFont(font);
 		// Create containers
 		JPanel startPanel = new JPanel();
+		JPanel stopPanel = new JPanel();
+		JPanel buttonPanel = new JPanel();
 		JPanel portFldPanel = new JPanel(); // port field panel
 		JPanel portLblPanel = new JPanel(); // port label panel
 		JPanel portInfo = new JPanel();
@@ -44,14 +47,18 @@ public class ServerPanel extends JPanel {
 		portLblPanel.setOpaque(false);
 		portInfo.setBackground(new Color(40, 40, 40));
 		portInfo.setLayout(new GridLayout(0, 2));
+		buttonPanel.setLayout(new GridLayout(0, 2));
 		// Add components into containers
 		startPanel.add(startButton);
+		stopPanel.add(stopButton);
 		portFldPanel.add(portField);
 		portLblPanel.add(portLabel);
+		buttonPanel.add(startPanel);
+		buttonPanel.add(stopPanel);
 		portInfo.add(portLblPanel);
 		portInfo.add(portFldPanel);
 		// Add panels to main panel
-		this.add(startPanel);
+		this.add(buttonPanel);
 		this.add(portInfo);
 		// Set up panel attributes
 		this.setPreferredSize(new Dimension(450, 100));

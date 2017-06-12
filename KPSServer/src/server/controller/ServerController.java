@@ -22,5 +22,8 @@ public class ServerController extends ServerPanel {
 		startButton.addActionListener(e -> {
 			manager.start(portField.getText());
 		});
+		stopButton.addActionListener(e -> {
+			manager.stop();
+		});
 	}
 }
