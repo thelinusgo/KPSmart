@@ -3,13 +3,16 @@
  */
 
 
-if (sessionStorage.getItem("nodes") == null){
-    var jsonFile = require('./data.json');
-    sessionStorage.setItem("nodes", jsonFile);
-}
-var jsonNodes = JSON.parse(sessionStorage.getItem("nodes"));
+// if (JSON.parse(sessionStorage.getItem("nodes")) == null){
+//     var jsonFile = require('./cities.json');
+//     sessionStorage.setItem("nodes", jsonFile);
+// }
+// var jsonNodes = JSON.parse(sessionStorage.getItem("nodes"));
 
+var jsonFile = require('./cities.json');
+var jsonNodes = JSON.parse(jsonFile);
 
+addVertices();
 
 function PriorityQueue () {
     this.nodes = [];
@@ -45,6 +48,6 @@ function Map() {
 function addVertices(){
     var map = new Map();
     for (var city in jsonNodes){
-        g.addVertex(city.cityName, city.neighbouringCities);
+        g.addVertex(city.CityName, city.NeighbouringCities);
     }
 }
