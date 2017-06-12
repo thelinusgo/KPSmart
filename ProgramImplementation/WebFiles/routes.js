@@ -2,32 +2,49 @@
  * Created by Edward on 6/06/2017.
  */
 
-if (sessionStorage.getItem("routes") == null)sessionStorage.setItem("routes", []);
-var routes = sessionStorage.getItem("routes");
 
-/**
-* Object that represents a Route object, used for calculating the shortest routes.
-*
-*/
-function Route(origin, destination, transportFirm, transportType, pricePerGram, pricePerCC, departureDay, departsEvery, tripDuration){
-    this.origin = origin;
-    this.destination = destination;
-    this.transportFirm = transportFirm;
-    this.transportType = transportType;
-    this.pricePerGram = pricePerGram;
-    this.pricePerCC = pricePerCC;
-    this.departureDay = departureDay;
-    this.departsEvery = departsEvery;
-    this.tripDuration = tripDuration;
-};
+if (sessionStorage.getItem("nodes") == null){
+    var jsonFile = require('./data.json');
+    sessionStorage.setItem("nodes", jsonFile);
+}
+var jsonNodes = JSON.parse(sessionStorage.getItem("nodes"));
 
-function DijkstraNode(city, fromNode, costToHere){
-    this.city = city;
-    this.fromNode = fromNode;
-    this.costToHere = costToHere;
+
+
+function PriorityQueue () {
+    this.nodes = [];
+
+    this.enqueue = function (priority, key) {
+        this.nodes.push({key: key, priority: priority });
+        this.sort();
+    };
+    this.dequeue = function () {
+        return this.nodes.shift().key;
+    };
+    this.sort = function () {
+        this.nodes.sort(function (a, b) {
+            return a.priority - b.priority;
+        });
+    };
+    this.isEmpty = function () {
+        return !this.nodes.length;
+    };
 }
 
-function startSearch(origin, destination){
-    startNode = new DijkstraNode(origin, null, 0);
-    endNode = new DijkstraNode(destination, null, null);
+function Map() {
+    this.vertices = {}
+
+    this.addVertex = function(cityName, edges){
+        this.vertices[cityName] = edges;
+    }
+}
+
+/**
+ * adds routes from JSON object to vertices in graph
+ */
+function addVertices(){
+    var map = new Map();
+    for (var city in jsonNodes){
+        g.addVertex(city.cityName, city.neighbouringCities);
+    }
 }
