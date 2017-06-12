@@ -10,21 +10,17 @@
 }
 
 @media (max-width: 767px) {
-  /*.dropdown p{
-    margin-top: 0;
-  }*/
-
-  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+  .navbar-default .navbar-collapse, .navbar-inverse .navbar-form{
     background-color: white;
     z-index: -99;
+  }
+  
+  #container1{
+    font-size: 0.5em;
   }
 }
 
 @media (max-width: 980px) and (min-width: 750px) {
-  nav ul {
-    font-size: 15px;
-  }
-
   .navbar-nav {
     margin-top: 30px;
   }
@@ -35,11 +31,8 @@
   }
 
   .nav > li > a {
+    font-size: 15px;
     padding-left: 10px;
     padding-right: 10px;
   }
-
-  /*.dropdown p {
-    margin-top: 15px;
-  }*/
 }
