@@ -1,4 +1,4 @@
-package server.handlers.operations;
+package server.model.handlers.operations;
 
 /**
  * Handles all the messages received by the web socket
@@ -6,9 +6,9 @@ package server.handlers.operations;
  * @author Chris
  *
  */
-public class MessageHandler extends OperationHandler {
+public class MessageHandler {
 
 	public void handle(String message) {
-		printLog(message);
+		System.out.println(message);
 	}
 }

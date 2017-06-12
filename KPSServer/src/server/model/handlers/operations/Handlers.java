@@ -1,14 +1,12 @@
-package server.handlers.operations;
-
-import javax.swing.JTextArea;
+package server.model.handlers.operations;
 
 /**
- * This class contains the handlers for the web socket operations.
+ * This class is a singleton of all the handlers for the web socket.
  * 
  * @author Chris
  *
  */
-public class Operations {
+public class Handlers {
 
 	private static ConnectHandler connectHandler = new ConnectHandler();
 	private static CloseHandler closeHandler = new CloseHandler();
@@ -29,12 +27,5 @@ public class Operations {
 
 	public static MessageHandler getMessageHandler() {
 		return messageHandler;
-	}
-
-	public static void setLogPanel(JTextArea logPanel) {
-		messageHandler.setLogPanel(logPanel);
-		errorHandler.setLogPanel(logPanel);
-		closeHandler.setLogPanel(logPanel);
-		connectHandler.setLogPanel(logPanel);
 	}
 }
