@@ -91,7 +91,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             $scope.cancelLogin();
 
         }else{
-            $scope.print = "Incorrect userame or password";
+            $scope.print = "Incorrect username or password";
         }
         }
     };
@@ -145,6 +145,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
+        location.href='viewEvents.html'; //redirect them to the view events page.
         //receiveData(JSON.stringify(JSONObject)); // for testing only
 
     };
@@ -186,6 +187,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
+        location.href='viewEvents.html'; //redirect them to the view events page.
+
     };
 
     $scope.sendDiscontinueRoute = function(){
@@ -212,6 +215,8 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
+        location.href='viewEvents.html'; //redirect them to the view events page.
+
     };
 
 
@@ -243,6 +248,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
+        location.href='viewEvents.html'; //redirect them to the view events page.
     }
 
     /**
@@ -269,11 +275,6 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.goBack = function(){
         location.href='viewEvents.html';
     }
-
-
-
-
-
 
 });
 
