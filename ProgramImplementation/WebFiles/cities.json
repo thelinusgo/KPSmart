@@ -1,5 +1,5 @@
 {"cities": [
-
+  //international cities
   {"CityName": "Sydney", "NeighbouringCities":{"CityName": "Auckland", "Distance": "3"}},
   { "CityName": "Melbourne", "NeighbouringCities":{"CityName": "Auckland", "Distance": "4"}},
   { "CityName": "Perth", "NeighbouringCities":{"CityName": "Auckland", "Distance": "6"}},
@@ -17,9 +17,7 @@
   { "CityName": "Johanessburg", "NeighbouringCities":{"CityName": "Singapore", "Distance": "7"}},
   { "CityName": "Delhi", "NeighbouringCities":{"CityName": "HongKong", "Distance": "3"}},
 
-
-
-
+  //local cities
   { "CityName": "Auckland", "NeighbouringCities":{"CityName": "Hamilton", "Distance": "1", "CityName": "Wellington", "Distance": "1"}},
   { "CityName": "Hamilton", "NeighbouringCities":{"CityName": "Auckland", "Distance": "1", "CityName": "Wellington", "Distance": "1"}},
   { "CityName": "Wellington", "NeighbouringCities":{"CityName": "Auckland", "Distance": "1", "CityName": "Hamilton", "Distance": "1","CityName": "Christchurch", "Distance": "1"}},
