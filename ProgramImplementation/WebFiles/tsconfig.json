@@ -1,0 +1,14 @@
+{"cities": [
+
+  {"CityName": "Sydney", "Distance": "3"},
+  { "CityName": "Melbourne", "Distance": "4"},
+  { "CityName": "Perth", "Distance": "6"},
+  { "CityName": "Singapore", "Distance": "7"},
+  { "CityName": "HongKong", "Distance": "8"},
+  { "CityName": "Manila", "Distance": "7"},
+  { "CityName": "Tokyo", "Distance": "9"},
+  { "CityName": "Seoul", "Distance": "9"},
+  { "CityName": "LosAngeles", "Distance": "13"},
+  { "CityName": "Vancouver", "Distance": "15"},
+]
+}
