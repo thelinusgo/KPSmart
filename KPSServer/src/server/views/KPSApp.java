@@ -10,6 +10,7 @@ public class KPSApp extends JFrame {
 	public KPSApp() {
 		super("KPS Server Panel");
 		this.add(new ServerController());
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
