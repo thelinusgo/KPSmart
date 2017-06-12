@@ -31,7 +31,6 @@ public class ServerPanel extends JPanel {
 		this.setLayout(new GridLayout(2, 0));
 		// Set up components
 		Font font = new Font("Arial", Font.PLAIN, 20);
-		portField.setForeground(Color.WHITE);
 		portLabel.setForeground(Color.WHITE);
 		portField.setFont(font);
 		portLabel.setFont(font);

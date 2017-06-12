@@ -1,5 +1,6 @@
 package server.controller;
 
+import server.model.manager.ServerManager;
 import server.views.ServerPanel;
 
 /**
@@ -10,13 +11,16 @@ import server.views.ServerPanel;
 @SuppressWarnings("serial")
 public class ServerController extends ServerPanel {
 
+	private ServerManager manager;
+
 	public ServerController() {
+		manager = new ServerManager();
 		addActionListeners();
 	}
 
 	private void addActionListeners() {
 		startButton.addActionListener(e -> {
-			// TODO create server and start it
+			manager.start(portField.getText());
 		});
 	}
 }
