@@ -2,17 +2,16 @@
  * Created by Edward on 6/06/2017.
  */
 
-
+// will need later when running from HTML files
 // if (JSON.parse(sessionStorage.getItem("nodes")) == null){
 //     var jsonFile = require('./cities.json');
 //     sessionStorage.setItem("nodes", jsonFile);
 // }
 // var jsonNodes = JSON.parse(sessionStorage.getItem("nodes"));
 
-var jsonFile = require('./cities.json');
-var jsonNodes = JSON.parse(jsonFile);
+var jsonNodes = require('./cities.json'); // reads json cities.json into JSON object
 
-addVertices();
+addVertices(); // for testing
 
 function PriorityQueue () {
     this.nodes = [];
@@ -35,8 +34,13 @@ function PriorityQueue () {
 }
 
 function Map() {
-    this.vertices = {}
+    this.vertices = {}; // city edges pairs e.g. Manila: [ { CityName: 'Auckland', Distance: '7' } ]
 
+    /**
+     * Adds a vertex to vertices
+     * @param cityName name of city e.g. Manila
+     * @param edges array of connecting cities and costs e.g. [ { CityName: 'Auckland', Distance: '7' } ]
+     */
     this.addVertex = function(cityName, edges){
         this.vertices[cityName] = edges;
     }
@@ -46,8 +50,11 @@ function Map() {
  * adds routes from JSON object to vertices in graph
  */
 function addVertices(){
+    // console.log(jsonNodes);
     var map = new Map();
-    for (var city in jsonNodes){
-        g.addVertex(city.CityName, city.NeighbouringCities);
+    for (var i in jsonNodes.cities){
+        var city  = jsonNodes.cities[i];
+        map.addVertex(city.CityName, city.NeighbouringCities);
     }
+    console.log(map.vertices);
 }
