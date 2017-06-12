@@ -3,6 +3,12 @@ package server.model.initialisers;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * 
+ * 
+ * @author Chris
+ *
+ */
 public class ConsoleDBInitialiser extends DatabaseInitialiser {
 
 	private final String DATABASE_PATH = "./database";
@@ -18,24 +24,33 @@ public class ConsoleDBInitialiser extends DatabaseInitialiser {
 		fixErrors(status);
 	}
 
+	/**
+	 * Automatically creates the files needed for the server. Note that this is
+	 * hard coded. Cannot be reused.
+	 * 
+	 * @param status
+	 */
 	private void fixErrors(String status) {
 		if (status.contains("[ERROR]")) {
 			System.out.println("Fixing errors...");
 			Scanner sc = new Scanner(status);
-			String line = sc.nextLine();
-			// First line always directory
-			if (line.contains("[ERROR]")) {
-				if (createDatabase(DATABASE_PATH)) {
-					System.out.println("[FIX] Created database at " + new File(DATABASE_PATH).getAbsolutePath());
-				} else {
-					System.out.println("[ERROR] Failed creating database");
-				}
-			}
+			// First line always directory (hardcoded)
+			fixDatabase(sc.nextLine(), DATABASE_PATH);
 			// Fix the files inside directory
 			fixFile(sc.nextLine(), USER_LIST);
 			fixFile(sc.nextLine(), KPS_DATA);
 			fixFile(sc.nextLine(), EVENT_LOGS);
 			sc.close();
+		}
+	}
+
+	private void fixDatabase(String line, String path) {
+		if (line.contains("[ERROR]")) {
+			if (createDatabase(path)) {
+				System.out.println("[FIX] Created database at " + new File(path).getAbsolutePath());
+			} else {
+				System.out.println("[ERROR] Failed creating database");
+			}
 		}
 	}
 
@@ -48,5 +63,4 @@ public class ConsoleDBInitialiser extends DatabaseInitialiser {
 			}
 		}
 	}
-
 }
