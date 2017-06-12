@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"  ng-app="kps">
-<head>>
+<head>
     <meta charset="UTF-8" />
     <title>Viewing Event - KPSmart System</title>
     <script>document.write('<base href="' + document.location + '" />');</script>
@@ -21,31 +21,31 @@
     <link rel="stylesheet" href="styles/media.css" />
 </head>
 <body ng-controller="MainCtrl">
-<div w3-include-html="header.html"></div>
+    <div w3-include-html="header.html"></div>
 
-<div id="mainContainer">
-    <div id="container1" class="viewE">
-        <h2>Viewing event: "{{selectedEvent.eventType}}"</h2>
-    </div>
-    <div id="container2">
-        <table class="eventTable">
-            <tr ng-repeat = 'field in selectedEventFields track by $index'>
-                <td>{{$index+1}}</td>
-                <td>{{field.label}}</td>
-                <!--Label for the various values: -->
-                <td>{{field.value}}</td>
-            </tr>
-        </table>
-        <div id="button">
-            <button class="button" ng-click="goBack()">Back to View Events</button>
+    <div id="mainContainer">
+        <div id="container1" class="viewE">
+            <h2>Viewing event: "{{selectedEvent.eventType}}"</h2>
+        </div>
+        <div id="container2">
+            <table class="eventTable">
+                <tr ng-repeat = 'field in selectedEventFields track by $index'>
+                    <td>{{$index+1}}</td>
+                    <td>{{field.label}}</td>
+                    <!--Label for the various values: -->
+                    <td>{{field.value}}</td>
+                </tr>
+            </table>
+            <div id="button">
+                <button class="button" ng-click="goBack()">Back to View Events</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div w3-include-html="footer.html"></div>
+    <div w3-include-html="footer.html"></div>
 
-<script>
-    w3.includeHTML();
-</script>
+    <script>
+        w3.includeHTML();
+    </script>
 </body>
 </html>
