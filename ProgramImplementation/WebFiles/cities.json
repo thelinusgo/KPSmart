@@ -20,5 +20,10 @@
 
 
 
+  { "CityName": "Auckland", "NeighbouringCities":{"CityName": "Hamilton", "Distance": "1", "CityName": "Wellington", "Distance": "1"}},
+  { "CityName": "Hamilton", "NeighbouringCities":{"CityName": "Auckland", "Distance": "1", "CityName": "Wellington", "Distance": "1"}},
+  { "CityName": "Wellington", "NeighbouringCities":{"CityName": "Auckland", "Distance": "1", "CityName": "Hamilton", "Distance": "1","CityName": "Christchurch", "Distance": "1"}},
+  { "CityName": "Christchurch", "NeighbouringCities":{"CityName": "Wellington", "Distance": "1", "CityName": "Dunedin", "Distance": "1"}},
+  { "CityName": "Dunedin", "NeighbouringCities":{"CityName": "Christchurch", "Distance": "1"}}
 ]
 }
