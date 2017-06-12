@@ -1,4 +1,4 @@
-package server.model.handlers;
+package server.model.handlers.operations;
 
 /**
  * Handles all the errors of the web socket.

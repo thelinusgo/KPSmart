@@ -1,4 +1,4 @@
-package server.model.handlers;
+package server.model.handlers.operations;
 
 /**
  * Handles all the messages received by the web socket

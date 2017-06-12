@@ -1,4 +1,4 @@
-package server.model.handlers;
+package server.model.handlers.operations;
 
 /**
  * This class is a singleton of all the handlers for the web socket.

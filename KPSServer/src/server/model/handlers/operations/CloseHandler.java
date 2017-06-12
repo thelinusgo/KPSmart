@@ -1,4 +1,4 @@
-package server.model.handlers;
+package server.model.handlers.operations;
 
 /**
  * The handle method should be called when for the web socket close operation.
