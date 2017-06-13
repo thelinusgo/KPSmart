@@ -65,25 +65,30 @@ function Map() {
         for(vertex in this.vertices){
             if(vertex === startCity){
              distances[vertex] = 0; //the distance of the start node is 0.
-             console.log("adding :" + vertex);
+             console.log("initialising start :" + vertex);
              nodes.enqueue(0, vertex);
             }else{
                 distances[vertex] = INFINITY; //set the distance of the vertext to infinity
-                console.log("adding :" + vertex);
+                console.log("initializing others :" + vertex);
                 nodes.enqueue(INFINITY, vertex); //push it onto the stack
             }
             previous[vertex] = null; //set the previous vertex to null.
         }
 
         while(!nodes.isEmpty()) {
+            smallest = nodes.dequeue();
             console.log("removing :" + smallest);
 
-            smallest = nodes.dequeue();
+            if(smallest == "Melbourne"){
+                console.log("endcity "+endCity);
 
+            }
             if(smallest === endCity) {
+                console.log("Found end");
                 path = [];
 
                 while(previous[smallest]) {
+                    console.log("adding to path");
                     path.push(smallest);
                     smallest = previous[smallest];
                 }
@@ -92,12 +97,13 @@ function Map() {
             }
 
             if(!smallest || distances[smallest] === INFINITY){
+
                 continue;
             }
 
             for(neighbor in this.vertices[smallest]) {
                 alt = distances[smallest] + this.vertices[smallest][neighbor];
-
+                console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor]);
                 if(alt < distances[neighbor]) {
                     distances[neighbor] = alt;
                     previous[neighbor] = smallest;
@@ -123,7 +129,10 @@ function addVertices(){
     console.log(map.vertices);
 
     console.log("shortest path: ");
-    var array = map.calculateShortestPath((jsonNodes.cities[0], jsonNodes.cities[1]));
+    var city1 = jsonNodes.cities[0].CityName;
+    var city2 = jsonNodes.cities[1].CityName;
+    console.log(map.vertices[city1]);
+    var array = map.calculateShortestPath(city1, city2);
     console.log("length: " + array.length);
 
     for(i in array){
