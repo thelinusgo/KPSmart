@@ -33,21 +33,25 @@
                         <th>Origin</th>
                         <td></td>
                         <td><input ng-model="customerPriceFields.origin"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
                         <td></td>
                         <td><input ng-model="customerPriceFields.destination"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>New Price per gram:</th>
                         <td>$</td>
                         <td><input ng-model="customerPriceFields.pricePerGram"></td>
+                        <td>/gram</td>
                     </tr>
                     <tr>
                         <th>New Price per cubic cm:</th>
                         <td>$</td>
                         <td><input ng-model="customerPriceFields.pricePerCubic"></td>
+                        <td>/cm<sup>3</sup></td>
                     </tr>
                     <tr>
                         <th>Mail Priority</th>
@@ -57,6 +61,7 @@
                                 <option ng-repeat = "prior in priority">{{prior}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                 </table>
                 <div id="button">
