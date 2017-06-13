@@ -35,6 +35,8 @@ function PriorityQueue () {
 
 function Map() {
     this.vertices = {}; // city edges pairs e.g. Manila: [ { CityName: 'Auckland', Distance: '7' } ]
+    var INFINITY = 1/0; //constant variable for calculating infinity
+
 
     /**
      * Adds a vertex to vertices
@@ -43,6 +45,33 @@ function Map() {
      */
     this.addVertex = function(cityName, edges){
         this.vertices[cityName] = edges;
+    }
+
+    /**
+     * Calculates the shortest path between two cities.
+     * Uses the priorityQueue in the above implementation
+     * @param startCity
+     * @param endCity
+     */
+    this.calculateShortestPath = function(startCity, endCity){
+        var nodes = new PriorityQueue(); //a priority queue full of nodes.
+        var distances = {};
+        var previous = {}; //previously visited nodes.
+        var path = []; //store the path being currently traversed.
+        var smallest, vertex, neighbor, alt;
+
+        for(vertex in this.vertices){
+            if(vertex === start){
+             distances[vertex] = 0; //the distance of the start node is 0.
+             nodes.enqueue(0, vertex);
+            }else{
+                distances[vertex] = INFINITY; //set the distance of the vertext to infinity
+                nodes.enqueue(INFINITY, vertex); //push it onto the stack
+            }
+            previous[vertex] = null; //set the previous vertex to null.
+        }
+
+
     }
 }
 
