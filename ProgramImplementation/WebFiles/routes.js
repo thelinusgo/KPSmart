@@ -54,6 +54,8 @@ function Map() {
      * @param endCity
      */
     this.calculateShortestPath = function(startCity, endCity){
+
+
         var nodes = new PriorityQueue(); //a priority queue full of nodes.
         var distances = {};
         var previous = {}; //previously visited nodes.
@@ -61,20 +63,24 @@ function Map() {
         var smallest, vertex, neighbor, alt;
 
         for(vertex in this.vertices){
-            if(vertex === start){
+            if(vertex === startCity){
              distances[vertex] = 0; //the distance of the start node is 0.
+             console.log("adding :" + vertex);
              nodes.enqueue(0, vertex);
             }else{
                 distances[vertex] = INFINITY; //set the distance of the vertext to infinity
+                console.log("adding :" + vertex);
                 nodes.enqueue(INFINITY, vertex); //push it onto the stack
             }
             previous[vertex] = null; //set the previous vertex to null.
         }
 
         while(!nodes.isEmpty()) {
+            console.log("removing :" + smallest);
+
             smallest = nodes.dequeue();
 
-            if(smallest === finish) {
+            if(smallest === endCity) {
                 path = [];
 
                 while(previous[smallest]) {
@@ -95,7 +101,7 @@ function Map() {
                 if(alt < distances[neighbor]) {
                     distances[neighbor] = alt;
                     previous[neighbor] = smallest;
-
+                    console.log("adding :" + neighbor);
                     nodes.enqueue(alt, neighbor);
                 }
             }
@@ -115,4 +121,15 @@ function addVertices(){
         map.addVertex(city.CityName, city.NeighbouringCities);
     }
     console.log(map.vertices);
+
+    console.log("shortest path: ");
+    var array = map.calculateShortestPath((jsonNodes.cities[0], jsonNodes.cities[1]));
+    console.log("length: " + array.length);
+
+    for(i in array){
+        console.log(array[i]);
+    }
+
+
+
 }
