@@ -212,7 +212,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
              "transport firm": $scope.discontinueRouteFields.transportFirm, "transport type": $scope.discontinueRouteFields.transportType,
              "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
         }}
-
+        addVertices(); // for testing
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
         location.href='viewEvents.html'; //redirect them to the view events page.

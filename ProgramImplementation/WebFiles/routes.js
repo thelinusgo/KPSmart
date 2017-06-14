@@ -2,16 +2,27 @@
  * Created by Edward on 6/06/2017.
  */
 
-// will need later when running from HTML files
-// if (JSON.parse(sessionStorage.getItem("nodes")) == null){
-//     var jsonFile = require('./cities.json');
-//     sessionStorage.setItem("nodes", jsonFile);
-// }
-// var jsonNodes = JSON.parse(sessionStorage.getItem("nodes"));
+var testing = true;
 
-var jsonNodes = require('./cities.json'); // reads json cities.json into JSON object
-
-addVertices(); // for testing
+// setup discontinued routes
+var jsonNodes;
+var discontinuedRoutes;
+if (testing){
+    jsonNodes = require('./cities.json'); // reads json cities.json into JSON object
+    discontinuedRoutes = {"routes":[]};
+    discontinueRoute("Sydney", "Auckland");//for testing
+    addVertices(); // for testing
+}
+else{
+    if (JSON.parse(sessionStorage.getItem("discontinuedRoutes")) == null){
+        console.log("null discontinue")
+        sessionStorage.setItem("discontinuedRoutes", '{"routes":[]}');
+    }
+    discontinuedRoutes = JSON.parse(sessionStorage.getItem("discontinuedRoutes"));var jsonNodes;
+    $.getJSON('./cities.json', function(response){
+        jsonNodes = response;
+    })
+}
 
 function PriorityQueue () {
     this.nodes = [];
@@ -54,7 +65,28 @@ function addVertices(){
     var map = new Map();
     for (var i in jsonNodes.cities){
         var city  = jsonNodes.cities[i];
+        // delete discontinued routes
+        for (var j in discontinuedRoutes.routes){
+            var discontinuedRoute = discontinuedRoutes.routes[j];
+            if (discontinuedRoute.origin == city.CityName){
+                for (var k in city.NeighbouringCities){
+                    if (discontinuedRoute.destination == city.NeighbouringCities[k].CityName){
+                        city.NeighbouringCities.splice(k,1);
+                    }
+                }
+            }
+        }
+        if (city.NeighbouringCities.length==0)continue;
+        //add vertex
         map.addVertex(city.CityName, city.NeighbouringCities);
     }
     console.log(map.vertices);
+}
+
+
+function discontinueRoute(origin, destination){
+    console.log("routes 1"+JSON.stringify(discontinuedRoutes));
+    discontinuedRoutes.routes.push({"origin":origin,"destination":destination});
+    if (!testing)sessionStorage.setItem("discontinuedRoutes", JSON.stringify(discontinuedRoutes));
+    console.log("routes "+JSON.stringify(discontinuedRoutes));
 }
