@@ -15,6 +15,14 @@ function addNewEvent(event){
     var events = JSON.parse(sessionStorage.getItem("events"));
     events.push(event);
     sessionStorage.setItem("events",JSON.stringify(events))
+
+    // add route to discontinuedRoutes
+    if (event.eventType=="Discontinue Route"){
+        discontinueRoute(event.origin, event.destination);
+    }
+    else if (event.eventType == "Request Delivery"){
+        findShortestRoute(event.origin, event.destination);
+    }
 }
 
 
