@@ -66,11 +66,11 @@ function Map() {
             //console.log(vertex);
             if(vertex === startCity){
              distances[vertex] = 0; //the distance of the start node is 0.
-             console.log("initialising start :" + vertex);
+             //console.log("initialising start :" + vertex);
              nodes.enqueue(0, vertex);
             }else{
                 distances[vertex] = INFINITY; //set the distance of the vertext to infinity
-                console.log("initializing others :" + vertex);
+              //  console.log("initializing others :" + vertex);
                 nodes.enqueue(INFINITY, vertex); //push it onto the stack
             }
             previous[vertex] = null; //set the previous vertex to null.
@@ -78,18 +78,14 @@ function Map() {
 
         while(!nodes.isEmpty()) {
             smallest = nodes.dequeue();
-            console.log("removing :" + smallest);
+          //  console.log("removing :" + smallest);
 
-            if(smallest == "Melbourne"){
-                console.log("endcity "+endCity);
-
-            }
             if(smallest === endCity) {
-                console.log("Found end");
+            //    console.log("Found end");
                 path = [];
 
                 while(previous[smallest]) {
-                    console.log("adding to path");
+                  //  console.log("adding to path");
                     path.push(smallest);
                     smallest = previous[smallest];
                 }
@@ -105,13 +101,13 @@ function Map() {
             for(neighbor in this.vertices[smallest]) {
                 alt = parseInt(distances[smallest]) + parseInt(this.vertices[smallest][neighbor].Distance);
                // console.log(neighbor);
-                console.log(alt);
-                console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor].Distance);
+               // console.log(alt);
+                //console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor].Distance);
                 //console.log(distances[this.vertices[smallest][neighbor].CityName]);
                 if(alt < distances[this.vertices[smallest][neighbor].CityName]) {
                     distances[this.vertices[smallest][neighbor].CityName] = alt;
                     previous[this.vertices[smallest][neighbor].CityName] = smallest;
-                    console.log("adding :" + neighbor);
+                   // console.log("adding :" + neighbor);
                     nodes.enqueue(alt, this.vertices[smallest][neighbor].CityName);
                 }
             }
@@ -130,14 +126,40 @@ function addVertices(){
         var city  = jsonNodes.cities[i];
         map.addVertex(city.CityName, city.NeighbouringCities);
     }
-    console.log(map.vertices);
+    //console.log(map.vertices);
 
     console.log("shortest path: ");
     var city1 = jsonNodes.cities[0].CityName;
     var city2 = jsonNodes.cities[1].CityName;
-    console.log(map.vertices[city1]);
-    var array = map.calculateShortestPath(city1, city2);
-    console.log("length: " + array.length);
+   // console.log(map.vertices[city1]);
+    var array = map.calculateShortestPath(city1, city2).concat(city1).reverse();
+
+    var c1;
+    var totalDistance=0;
+    for (c2 in array){
+
+        c2 = array[c2];
+        //console.log(c2);
+        if(c2 == city1){
+            c1=city1;
+           // console.log("Found first");
+            continue;
+        }
+        for(neighbour in map.vertices[c2]){
+         //   console.log(map.vertices[c2][neighbour].CityName);
+            if(map.vertices[c2][neighbour].CityName == c1){
+                totalDistance = parseInt(totalDistance)+ parseInt(map.vertices[c2][neighbour].Distance);
+                //console.log("adding to total distance "+c1+ " to "+c2+ " ("+parseInt(map.vertices[c2][neighbour].Distance)+")");
+
+            }
+        }
+
+        c1=c2;
+    }
+    console.log("Path = "+array);
+    console.log("Distance "+totalDistance);
+
+   // console.log("length: " + array.length);
 
     for(i in array){
         console.log(array[i]);
