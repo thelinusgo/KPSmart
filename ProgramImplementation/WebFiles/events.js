@@ -23,6 +23,9 @@ function addNewEvent(event){
     else if (event.eventType == "Request Delivery"){
         findShortestRoute(event.origin, event.destination);
     }
+    else if (event.eventType == "Transport Cost Update"){
+        addRoute(event);
+    }
 }
 
 
