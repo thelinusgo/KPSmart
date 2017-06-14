@@ -2,7 +2,7 @@
  * Created by Edward on 6/06/2017.
  */
 
-var testing = true;
+var testing = false;
 
 // setup discontinued routes
 var jsonNodes;
@@ -10,15 +10,14 @@ var discontinuedRoutes;
 if (testing){
     jsonNodes = require('./cities.json'); // reads json cities.json into JSON object
     discontinuedRoutes = {"routes":[]};
-    discontinueRoute("Sydney", "Auckland");//for testing
-    addVertices(); // for testing
-}
-else{
+    var map = createMap(); // for testing
+    findShortestRoute(map);
+} else{
     if (JSON.parse(sessionStorage.getItem("discontinuedRoutes")) == null){
         console.log("null discontinue")
         sessionStorage.setItem("discontinuedRoutes", '{"routes":[]}');
     }
-    discontinuedRoutes = JSON.parse(sessionStorage.getItem("discontinuedRoutes"));var jsonNodes;
+    discontinuedRoutes = JSON.parse(sessionStorage.getItem("discontinuedRoutes"));
     $.getJSON('./cities.json', function(response){
         jsonNodes = response;
     })
@@ -128,9 +127,9 @@ function Map() {
 }
 
 /**
- * adds routes from JSON object to vertices in graph
+ * Creates a map from cities in cities.json
  */
-function addVertices(){
+function createMap(){
     // console.log(jsonNodes);
     var map = new Map();
     for (var i in jsonNodes.cities){
@@ -150,12 +149,16 @@ function addVertices(){
         //add vertex
         map.addVertex(city.CityName, city.NeighbouringCities);
     }
+    return map;
+}
+
+function findShortestRoute(map){
     //console.log(map.vertices);
 
     console.log("shortest path: ");
     var city1 = jsonNodes.cities[0].CityName;
     var city2 = jsonNodes.cities[1].CityName;
-   // console.log(map.vertices[city1]);
+    // console.log(map.vertices[city1]);
     var array = map.calculateShortestPath(city1, city2).concat(city1).reverse();
 
     var c1;
@@ -166,11 +169,11 @@ function addVertices(){
         //console.log(c2);
         if(c2 == city1){
             c1=city1;
-           // console.log("Found first");
+            // console.log("Found first");
             continue;
         }
         for(neighbour in map.vertices[c2]){
-         //   console.log(map.vertices[c2][neighbour].CityName);
+            //   console.log(map.vertices[c2][neighbour].CityName);
             if(map.vertices[c2][neighbour].CityName == c1){
                 totalDistance = parseInt(totalDistance)+ parseInt(map.vertices[c2][neighbour].Distance);
                 //console.log("adding to total distance "+c1+ " to "+c2+ " ("+parseInt(map.vertices[c2][neighbour].Distance)+")");
@@ -183,20 +186,17 @@ function addVertices(){
     console.log("Path = "+array);
     console.log("Distance "+totalDistance);
 
-   // console.log("length: " + array.length);
+    // console.log("length: " + array.length);
 
     for(i in array){
         console.log(array[i]);
     }
-
-
-
 }
 
 
 function discontinueRoute(origin, destination){
     console.log("routes 1"+JSON.stringify(discontinuedRoutes));
     discontinuedRoutes.routes.push({"origin":origin,"destination":destination});
-    if (!testing)sessionStorage.setItem("discontinuedRoutes", JSON.stringify(discontinuedRoutes));
-    console.log("routes "+JSON.stringify(discontinuedRoutes));
+    if (!testing){sessionStorage.setItem("discontinuedRoutes", JSON.stringify(discontinuedRoutes));}
+    alert("routes "+JSON.stringify(discontinuedRoutes));
 }
