@@ -8,24 +8,31 @@ package server.model.handlers.operations;
  */
 public class Handlers {
 
-	private static ConnectHandler connectHandler = new ConnectHandler();
-	private static CloseHandler closeHandler = new CloseHandler();
-	private static MessageHandler messageHandler = new MessageHandler();
-	private static ErrorHandler errorHandler = new ErrorHandler();
+	private ConnectHandler connectHandler;
+	private CloseHandler closeHandler;
+	private MessageHandler messageHandler;
+	private ErrorHandler errorHandler;
 
-	public static ConnectHandler getConnectHandler() {
+	public Handlers() {
+		connectHandler = new ConnectHandler();
+		closeHandler = new CloseHandler();
+		messageHandler = new MessageHandler();
+		errorHandler = new ErrorHandler();
+	}
+
+	public ConnectHandler getConnectHandler() {
 		return connectHandler;
 	}
 
-	public static CloseHandler getCloseHandler() {
+	public CloseHandler getCloseHandler() {
 		return closeHandler;
 	}
 
-	public static ErrorHandler getErrorHandler() {
+	public ErrorHandler getErrorHandler() {
 		return errorHandler;
 	}
 
-	public static MessageHandler getMessageHandler() {
+	public MessageHandler getMessageHandler() {
 		return messageHandler;
 	}
 }

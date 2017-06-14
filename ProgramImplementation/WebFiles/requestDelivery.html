@@ -29,30 +29,40 @@
                 <h2>Request Delivery</h2>
             </div>
             <div id="container2">
-                <table>
+                <table class="updateTable">
                     <tr>
                         <th>Origin</th>
+                        <td></td>
                         <td><input ng-model="deliveryFields.origin"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Destination</th>
+                        <td></td>
                         <td><input ng-model="deliveryFields.destination"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Mail Priority</th>
+                        <td></td>
                         <td>
                             <select ng-model="deliveryFields.mailPriority">
                                 <option ng-repeat = "prior in priority" >{{prior}}</option>
                             </select>
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Weight of Package</th>
+                        <td></td>
                         <td><input ng-model="deliveryFields.weight"></td>
+                        <td>/gram</td>
                     </tr>
                     <tr>
                         <th>Volume of Package:</th>
+                        <td></td>
                         <td><input ng-model="deliveryFields.volume"></td>
+                        <td>/cm<sup>3</sup></td>
                     </tr>
                 </table>
                 <div id="button">

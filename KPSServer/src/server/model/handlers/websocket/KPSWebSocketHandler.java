@@ -10,12 +10,10 @@ import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import server.model.handlers.operations.Handlers;
 
 /**
- * Handles all the web socket operations. This class supports the following operations:
+ * Handles all the web socket operations. This class supports the following
+ * operations:
  * 
- * - close
- * - error
- * - message
- * - connect
+ * - close - error - message - connect
  * 
  * @author Chris
  *
@@ -23,23 +21,25 @@ import server.model.handlers.operations.Handlers;
 @WebSocket
 public class KPSWebSocketHandler {
 
+	private Handlers handlers = new Handlers();
+
 	@OnWebSocketClose
 	public void onClose(int statusCode, String reason) {
-		Handlers.getCloseHandler().handle(statusCode, reason);
+		handlers.getCloseHandler().handle(statusCode, reason);
 	}
 
 	@OnWebSocketError
 	public void onError(Throwable t) {
-		Handlers.getErrorHandler().handle(t);
+		handlers.getErrorHandler().handle(t);
 	}
 
 	@OnWebSocketConnect
 	public void onConnect(Session session) {
-		Handlers.getConnectHandler().handle(session);
+		handlers.getConnectHandler().handle(session);
 	}
 
 	@OnWebSocketMessage
 	public void onMessage(String message) {
-		Handlers.getMessageHandler().handle(message);
+		handlers.getMessageHandler().handle(message);
 	}
 }
