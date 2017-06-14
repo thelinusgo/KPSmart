@@ -2,7 +2,7 @@
  * Created by Edward on 6/06/2017.
  */
 
-var testing = true;
+var testing = false;
 
 // setup discontinued routes
 var jsonNodes;
@@ -13,14 +13,19 @@ if (testing){
     var map = createMap(); // for testing
     findShortestRoute(map);
 } else{
+    var cityData;
+    $.getJSON('./cities.json', function(data){
+        cityData = data;
+        alert(JSON.stringify(cityData));
+    })
+    alert(JSON.stringify(cityData));
     // read cities.json into cityNodes variable in sessionStorage
     if (JSON.parse(sessionStorage.getItem("cityNodes")) == null){
-        $.getJSON('./cities.json', function(data){
-            sessionStorage.setItem("cityNodes", JSON.stringify(data));
-        })
+
+        sessionStorage.setItem("cityNodes", JSON.stringify(cityData));
     }
     jsonNodes = JSON.parse(sessionStorage.getItem("cityNodes"));
-
+    alert(sessionStorage.getItem("cityNodes"));
     // set up discontinued routes
     if (JSON.parse(sessionStorage.getItem("discontinuedRoutes")) == null){
         sessionStorage.setItem("discontinuedRoutes", '{"routes":[]}');
