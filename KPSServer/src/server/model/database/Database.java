@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class stores a list of entries.
  * 
  * @author Chris
  *
@@ -31,4 +32,5 @@ public class Database {
 	public List<DBEntry> getEntries() {
 		return entries;
 	}
+
 }

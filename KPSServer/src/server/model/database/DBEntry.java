@@ -32,4 +32,5 @@ public class DBEntry {
 	public List<DBValue> getValues() {
 		return values;
 	}
+
 }

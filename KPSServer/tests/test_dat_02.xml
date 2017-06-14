@@ -4,10 +4,9 @@
 		<username>manager</username>
 		<password>manager</password>
 		<usertype>manager</usertype>
-	</user>
-	<user>
-		<username>clerk</username>
-		<password>clerk</password>
-		<usertype>clerk</usertype>
+		<tasks>
+			<task>view events</task>
+			<task>edit events</task>
+		</tasks>
 	</user>
 </users>
