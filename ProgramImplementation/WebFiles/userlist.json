@@ -1,5 +1,5 @@
 {"users": [
-  { "LoginName": "aaaa", "UPassword": "1111"},
-  { "LoginName": "bbbb", "UPassword": "2222"},
-  { "LoginName": "cccc", "UPassword": "3333"}
+  { "LoginName": "aaaa", "UPassword": "1111", "UserType":"manager"},
+  { "LoginName": "bbbb", "UPassword": "2222", "UserType":"clerk"},
+  { "LoginName": "cccc", "UPassword": "3333", "UserType":"clerk"}
 ]}
