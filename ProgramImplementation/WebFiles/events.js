@@ -25,7 +25,7 @@ function addNewEvent(event){
     }
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);
-        alert(sessionStorage.getItem("cityNodes"));
+        console.log(sessionStorage.getItem("cityNodes"));
     }
 }
 

@@ -13,19 +13,17 @@ if (testing){
     var map = createMap(); // for testing
     findShortestRoute(map);
 } else{
-    var cityData;
-    $.getJSON('./cities.json', function(data){
-        cityData = data;
-        alert(JSON.stringify(cityData));
+    $.getJSON('./cities.json', function(response){
+        jsonNodes = response;
+        // read cities.json into cityNodes variable in sessionStorage
+        if (JSON.parse(sessionStorage.getItem("cityNodes")) == null){
+            sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
+        }
+        else {
+            jsonNodes = JSON.parse(sessionStorage.getItem("cityNodes"));
+        }
     })
-    alert(JSON.stringify(cityData));
-    // read cities.json into cityNodes variable in sessionStorage
-    if (JSON.parse(sessionStorage.getItem("cityNodes")) == null){
 
-        sessionStorage.setItem("cityNodes", JSON.stringify(cityData));
-    }
-    jsonNodes = JSON.parse(sessionStorage.getItem("cityNodes"));
-    alert(sessionStorage.getItem("cityNodes"));
     // set up discontinued routes
     if (JSON.parse(sessionStorage.getItem("discontinuedRoutes")) == null){
         sessionStorage.setItem("discontinuedRoutes", '{"routes":[]}');
@@ -141,7 +139,6 @@ function Map() {
  * Creates a map from cities in cities.json
  */
 function createMap(){
-    // console.log(jsonNodes);
     var map = new Map();
     for (var i in jsonNodes.cities){
         var city  = jsonNodes.cities[i];
@@ -227,12 +224,12 @@ function discontinueRoute(origin, destination){
  */
 function addRoute (event){
     var map = createMap();
-    if (routeExists(event.origin, event.destination))return;
+    if (routeExists(event))return;
     // add route
     //check if origin node already exists
-    for (var i in jsonNodes) {
+    for (var i in jsonNodes.cities) {
         var city = jsonNodes.cities[i];
-        if (city.CityName == origin) {
+        if (city.CityName == event.origin) {
             //origin node already exists, add to neighbour nodes
             city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration});
             sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
@@ -250,13 +247,15 @@ function addRoute (event){
  * @param destination
  * @returns {boolean}
  */
-function routeExists(origin, destination){
-    for (var i in jsonNodes){
+function routeExists(event){
+    for (var i in jsonNodes.cities){
         var city = jsonNodes.cities[i];
-        if (city.CityName == origin){
+        if (city.CityName == event.origin){
             for (var j in city.NeighbouringCities){
                 var neighbour = city.NeighbouringCities[j];
-                if (neighbour.CityName == destination){
+                if (neighbour.CityName == event.destination){
+                    jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                    sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
                     return true;
                 }
             }
