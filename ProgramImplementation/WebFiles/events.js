@@ -20,6 +20,9 @@ function addNewEvent(event){
     if (event.eventType=="Discontinue Route"){
         discontinueRoute(event.origin, event.destination);
     }
+    else if (event.eventType == "Request Delivery"){
+        
+    }
 }
 
 
