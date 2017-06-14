@@ -102,9 +102,11 @@ function Map() {
             }
 
             for(neighbor in this.vertices[smallest]) {
-                alt = distances[smallest] + this.vertices[smallest][neighbor];
-                console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor]);
-                if(alt < distances[neighbor]) {
+                alt = parseInt(distances[smallest]) + parseInt(this.vertices[smallest][neighbor].Distance);
+                console.log(alt);
+                console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor].Distance);
+                console.log("")
+                if(alt < parseInt(distances[neighbor])) {
                     distances[neighbor] = alt;
                     previous[neighbor] = smallest;
                     console.log("adding :" + neighbor);
