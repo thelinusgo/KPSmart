@@ -21,7 +21,7 @@ function addNewEvent(event){
         discontinueRoute(event.origin, event.destination);
     }
     else if (event.eventType == "Request Delivery"){
-        
+        findShortestRoute(event.origin, event.destination);
     }
 }
 

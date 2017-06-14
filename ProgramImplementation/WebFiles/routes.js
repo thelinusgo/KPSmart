@@ -152,12 +152,19 @@ function createMap(){
     return map;
 }
 
-function findShortestRoute(map){
+function  findShortestRoute(origin, destination) {
+    var map = createMap();
+    findShortestRoute(map, origin, destination);
+
+}
+
+
+function findShortestRoute(map, origin, destination){
     //console.log(map.vertices);
 
     console.log("shortest path: ");
-    var city1 = jsonNodes.cities[0].CityName;
-    var city2 = jsonNodes.cities[1].CityName;
+    var city1 = origin;
+    var city2 = destination;
     // console.log(map.vertices[city1]);
     var array = map.calculateShortestPath(city1, city2).concat(city1).reverse();
 
