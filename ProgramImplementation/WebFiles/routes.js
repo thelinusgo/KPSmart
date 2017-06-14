@@ -63,6 +63,7 @@ function Map() {
         var smallest, vertex, neighbor, alt;
 
         for(vertex in this.vertices){
+            //console.log(vertex);
             if(vertex === startCity){
              distances[vertex] = 0; //the distance of the start node is 0.
              console.log("initialising start :" + vertex);
@@ -103,14 +104,15 @@ function Map() {
 
             for(neighbor in this.vertices[smallest]) {
                 alt = parseInt(distances[smallest]) + parseInt(this.vertices[smallest][neighbor].Distance);
+               // console.log(neighbor);
                 console.log(alt);
                 console.log(smallest + " neighbour : "+ neighbor + " distance " + this.vertices[smallest][neighbor].Distance);
-                console.log("")
-                if(alt < parseInt(distances[neighbor])) {
-                    distances[neighbor] = alt;
-                    previous[neighbor] = smallest;
+                //console.log(distances[this.vertices[smallest][neighbor].CityName]);
+                if(alt < distances[this.vertices[smallest][neighbor].CityName]) {
+                    distances[this.vertices[smallest][neighbor].CityName] = alt;
+                    previous[this.vertices[smallest][neighbor].CityName] = smallest;
                     console.log("adding :" + neighbor);
-                    nodes.enqueue(alt, neighbor);
+                    nodes.enqueue(alt, this.vertices[smallest][neighbor].CityName);
                 }
             }
         }
