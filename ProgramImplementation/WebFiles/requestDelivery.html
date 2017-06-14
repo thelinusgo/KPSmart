@@ -8,8 +8,6 @@
     <script src="app.js"></script>
     <script src="client.js"></script>
     <script src="events.js"></script>
-    <!-- W3Schools Lib-->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Bootstrap jQuery library -->
@@ -23,7 +21,8 @@
 
 </head>
 <body ng-controller="MainCtrl">
-        <div w3-include-html="header.html"></div>
+        <div ng-include="'header.html'"></div>
+
         <div id="mainContainer">
             <div id="container1" class="request">
                 <h2>Request Delivery</h2>
@@ -71,10 +70,6 @@
             </div>
         </div>
 
-        <div w3-include-html="footer.html"></div>
-
-        <script>
-            w3.includeHTML();
-        </script>
+        <div ng-include="'footer.html'"></div>
     </body>
 </html>
