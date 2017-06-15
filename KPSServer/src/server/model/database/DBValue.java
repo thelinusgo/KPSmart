@@ -49,7 +49,7 @@ public class DBValue {
 	// Getters
 
 	public Object getValue() {
-		return isComposite ? value : fields;
+		return isComposite ? fields : value;
 	}
 
 	public boolean isComposite() {

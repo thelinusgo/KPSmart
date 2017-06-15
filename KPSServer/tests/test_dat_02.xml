@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<users>
+<root>
 	<user>
 		<username>manager</username>
 		<password>manager</password>
@@ -9,4 +9,4 @@
 			<task>edit events</task>
 		</tasks>
 	</user>
-</users>
+</root>

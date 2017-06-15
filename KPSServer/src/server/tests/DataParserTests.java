@@ -12,15 +12,24 @@ public class DataParserTests {
 		DataHandler handler = new DataHandler();
 		handler.read(parser, "./tests/test_dat_01.xml");
 	}
-	
-	public static void test02_xml_read_compositeValues(){
+
+	public static void test02_xml_read_compositeValues() {
 		DataParser parser = new DataParser(new XMLReader(), new XMLWriter());
 		DataHandler handler = new DataHandler();
 		handler.read(parser, "./tests/test_dat_02.xml");
 	}
 
+	public static void test03_xml_write_database() {
+		DataParser parser = new DataParser(new XMLReader(), new XMLWriter());
+		DataHandler handler = new DataHandler();
+		handler.read(parser, "./tests/test_dat_02.xml");
+		String output = handler.write(parser);
+		System.out.println(output);
+	}
+
 	public static void main(String[] args) {
-		//test01_xml_read_rawValuesOnly();
-		test02_xml_read_compositeValues();
+		// test01_xml_read_rawValuesOnly();
+		//test02_xml_read_compositeValues();
+		test03_xml_write_database();
 	}
 }
