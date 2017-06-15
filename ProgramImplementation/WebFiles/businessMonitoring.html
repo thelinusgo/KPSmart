@@ -4,11 +4,9 @@
         <meta charset="UTF-8" />
         <title>Buisiness Monitoring - KPSmart System</title>
         <script>document.write('<base href="' + document.location + '" />');</script>
-        <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.12/angular.js" data-semver="1.4.9"></script>
+        <script data-require="angular.js@1.5.x" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js" data-semver="1.5.11"></script>
         <script src="app.js"></script>
         <script src="client.js"></script>
-        <!-- W3Schools Lib-->
-        <script src="https://www.w3schools.com/lib/w3.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Bootstrap jQuery library -->
@@ -23,7 +21,7 @@
     </head>
     <body ng-controller="MainCtrl">
 
-        <div w3-include-html="header.html"></div>
+        <div ng-include="'header.html'"></div>
 
         <div id="mainContainer">
             <div id="container1" class="business">
@@ -75,10 +73,6 @@
             </div>
         </div>
 
-        <div w3-include-html="footer.html"></div>
-
-        <script>
-            w3.includeHTML();
-        </script>
+        <div ng-include="'footer.html'"></div>
     </body>
 </html>

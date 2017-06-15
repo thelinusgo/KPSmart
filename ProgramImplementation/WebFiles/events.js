@@ -26,6 +26,10 @@ function addNewEvent(event){
         else if (event.eventType == "Delivery Request"){
         findShortestRoute(event.origin, event.destination);
     }
+    else if (event.eventType == "Transport Cost Update"){
+        addRoute(event);
+        console.log(sessionStorage.getItem("cityNodes"));
+    }
 }
 
 

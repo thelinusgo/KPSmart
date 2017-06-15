@@ -13,14 +13,23 @@ if (testing){
     var map = createMap(); // for testing
     findShortestRoute(map);
 } else{
+    $.getJSON('./cities.json', function(response){
+        jsonNodes = response;
+        // read cities.json into cityNodes variable in sessionStorage
+        if (JSON.parse(sessionStorage.getItem("cityNodes")) == null){
+            sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
+        }
+        else {
+            jsonNodes = JSON.parse(sessionStorage.getItem("cityNodes"));
+        }
+    })
+
+    // set up discontinued routes
     if (JSON.parse(sessionStorage.getItem("discontinuedRoutes")) == null){
-        console.log("null discontinue")
         sessionStorage.setItem("discontinuedRoutes", '{"routes":[]}');
     }
     discontinuedRoutes = JSON.parse(sessionStorage.getItem("discontinuedRoutes"));
-    $.getJSON('./cities.json', function(response){
-        jsonNodes = response;
-    })
+
 }
 
 function PriorityQueue () {
@@ -130,7 +139,6 @@ function Map() {
  * Creates a map from cities in cities.json
  */
 function createMap(){
-    // console.log(jsonNodes);
     var map = new Map();
     for (var i in jsonNodes.cities){
         var city  = jsonNodes.cities[i];
@@ -202,10 +210,58 @@ function findShortestRoute(map, origin, destination){
     }
 }
 
-
+/**
+ * Adds route to list of discontinuedRoutes
+ * @param origin
+ * @param destination
+ */
 function discontinueRoute(origin, destination){
-    console.log("routes 1"+JSON.stringify(discontinuedRoutes));
     discontinuedRoutes.routes.push({"origin":origin,"destination":destination});
     if (!testing){sessionStorage.setItem("discontinuedRoutes", JSON.stringify(discontinuedRoutes));}
-    alert("routes "+JSON.stringify(discontinuedRoutes));
+}
+
+/**
+ * Adds route to map
+ * @param event
+ */
+function addRoute (event){
+    var map = createMap();
+    if (routeExists(event))return;
+    // add route
+    //check if origin node already exists
+    for (var i in jsonNodes.cities) {
+        var city = jsonNodes.cities[i];
+        if (city.CityName == event.origin) {
+            //origin node already exists, add to neighbour nodes
+            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration});
+            sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
+            return;
+        }
+    }
+    // origin node does not already exist
+    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration}]});
+    sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
+}
+
+/**
+ * Checks if a route already exists
+ * @param origin
+ * @param destination
+ * @returns {boolean}
+ */
+function routeExists(event){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == event.origin){
+            for (var j in city.NeighbouringCities){
+                var neighbour = city.NeighbouringCities[j];
+                if (neighbour.CityName == event.destination){
+                    jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                    sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }

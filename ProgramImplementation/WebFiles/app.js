@@ -58,13 +58,10 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             }
         );
 
-
     $scope.checkLogin = function(){
-
+        var userIndex = -1;
         var userInput = $scope.username;
         var passwordInput = $scope.password;
-        $scope.currentUser = userInput; //Used to Store the Current Users Information
-
 
         if(userInput == "" && passwordInput == ""){
             $scope.print="Please input a valid username and password";
@@ -76,30 +73,44 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             $scope.validUserName = false;
             $scope.validPassword = false;
 
-            for(i = 0; i < $scope.userlist.length; i++){
-                if($scope.userlist[i].LoginName == userInput){
+            for (i = 0; i < $scope.userlist.length; i++) {
+                if ($scope.userlist[i].LoginName == userInput) {
                     $scope.validUserName = true;
-                }
-
-                if($scope.userlist[i].UPassword == passwordInput){
-                    $scope.validPassword = true;
+                    sessionStorage.setItem("currentUserType", $scope.userlist[i].UserType);
+                    userIndex = i;
+                    break;
                 }
             }
-        if($scope.validUserName && $scope.validPassword){
-            alert("Welcome " + userInput +", you have logged in successfully.");
-            location.href='viewEvents.html';
-            $scope.cancelLogin();
 
-        }else{
+            if ($scope.userlist[userIndex].UPassword == passwordInput) {
+                $scope.validPassword = true;
+            }
+
+            if ($scope.validUserName && $scope.validPassword) {
+                alert("Welcome " + userInput + ", you have logged in successfully.");
+                if(sessionStorage.getItem("currentUserType") == "manager"){
+                    location.href = 'viewEvents.html';
+                }else{
+                    location.href = 'businessMonitoring.html';
+                }
+                $scope.cancelLogin();
+            } else{
             $scope.print = "Incorrect username or password";
+            }
         }
+    };
+
+    $scope.isManager=function(){
+        if(sessionStorage.getItem("currentUserType") == "manager"){
+            return true;
         }
+        return false;
     };
 
     $scope.cancelLogin = function(){
         $scope.username = "";
         $scope.password = "";
-    }
+    };
 
     $scope.setSelectedEvent = function(index){
         sessionStorage.setItem("selectedEvent", JSON.stringify($scope.processedEvents[index]));
@@ -116,7 +127,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         }
         sessionStorage.setItem("selectedEventFields", JSON.stringify(eventFields));
         $scope.selectedEventFields = eventFields;
-    }
+    };
 
     /**
      * Sends delivery request info to client.js in JSON format
@@ -141,7 +152,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             "messageType":"event", "event":{"eventType":"Delivery Request","origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
             "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume,
             "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
-        }}
+        }};
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
