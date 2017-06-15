@@ -160,14 +160,14 @@ function createMap(){
     return map;
 }
 
-function  findShortestPath(origin, destination) {
+function  findShortestPath(origin, destination, weight, volume) {
     var map = createMap();
-    findShortestRoute(map, origin, destination);
+    findShortestRoute(map, origin, destination, weight, volume);
 
 }
 
 
-function findShortestRoute(map, origin, destination){
+function findShortestRoute(map, origin, destination, weight, volume){
     //console.log(map.vertices);
 
     console.log("shortest path: ");
@@ -178,6 +178,8 @@ function findShortestRoute(map, origin, destination){
 
     var c1;
     sessionStorage.setItem("totalDistance", 0);
+    sessionStorage.setItem("totalPricePerGram",0);
+    sessionStorage.setItem("totalPricePerCC",0);
     for (c2 in array){
 
         c2 = array[c2];
@@ -187,11 +189,15 @@ function findShortestRoute(map, origin, destination){
             // console.log("Found first");
             continue;
         }
+        sessionStorage.setItem("totalPricePerGram", parseInt(sessionStorage.getItem("totalPricePerGram"))+parseInt(getPricePerGram(c1,c2)));
+        sessionStorage.setItem("totalPricePerCC", parseInt(sessionStorage.getItem("totalPricePerCC"))+parseInt(getPricePerCC(c1,c2)));
         for(neighbour in map.vertices[c2]){
             //   console.log(map.vertices[c2][neighbour].CityName);
             if(map.vertices[c2][neighbour].CityName == c1){
                 sessionStorage.setItem("totalDistance", parseInt(sessionStorage.getItem("totalDistance"))+ parseInt(map.vertices[c2][neighbour].Distance));
+
                 //console.log("adding to total distance "+c1+ " to "+c2+ " ("+parseInt(map.vertices[c2][neighbour].Distance)+")");
+
             }
         }
 
@@ -199,7 +205,9 @@ function findShortestRoute(map, origin, destination){
     }
     console.log("Path = "+array);
     console.log("Distance "+ sessionStorage.getItem("totalDistance"));
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance"));
+    var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
+    var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Weight price: "+totalPricePerGram + " Volume price: "+totalPricePerCC);
     // console.log("length: " + array.length);
 
     for(i in array){
@@ -292,6 +300,31 @@ function getDuration(origin, destination){
             for (var j in city.NeighbouringCities){
                 if (city.NeighbouringCities[j]==destination){
                     return city.NeighbouringCities[i].Distance;
+                }
+            }
+        }
+    }
+}
+
+function getPricePerGram(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].PricePerGram;
+                }
+            }
+        }
+    }
+}
+function getPricePerCC(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].PricePerCC;
                 }
             }
         }
