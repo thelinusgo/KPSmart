@@ -18,11 +18,9 @@ function updateBusinessFigures(){
 
         if (event.eventType == "Delivery Request"){
             // Calculate totalRevenue
-            // totalRevenue += event.customerPrice; //TODO: use this when customerPrice exists
-            totalRevenue++;
+            totalRevenue += event.customerPrice; //TODO: use this when customerPrice exists
             // Calculate totalExpenditure
-            // totalExpenditure += event.transportCost; //TODO: use this when transportCost exists
-            totalExpenditure++;
+            totalExpenditure += event.transportCost; //TODO: use this when transportCost exists
             // Calculate totalMail
             totalMail++;
             // Average delivery times TODO: implement if have time

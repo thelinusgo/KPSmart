@@ -230,13 +230,15 @@ function addRoute (event){
         var city = jsonNodes.cities[i];
         if (city.CityName == event.origin) {
             //origin node already exists, add to neighbour nodes
-            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC});
+            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration,
+                "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC, "CustomerPricePerGram":event.pricePerGram+5, "CustomerPricePerCC":event.pricePerCC+5});
             sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
             return;
         }
     }
     // origin node does not already exist
-    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC}]});
+    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration,
+        "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC, "CustomerPricePerGram":event.pricePerGram+5, "CustomerPricePerCC":event.pricePerCC+5}]});
     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
 }
 
@@ -253,9 +255,14 @@ function routeExists(event){
             for (var j in city.NeighbouringCities){
                 var neighbour = city.NeighbouringCities[j];
                 if (neighbour.CityName == event.destination){
-                    jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
-                    jsonNodes.cities[i].NeighbouringCities[j].PricePerGram = event.pricePerGram;
-                    jsonNodes.cities[i].NeighbouringCities[j].PricePerCC = event.pricePerCC;
+                    if (event.eventType == "Transport Cost Update") {
+                        jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                        jsonNodes.cities[i].NeighbouringCities[j].PricePerGram = event.pricePerGram;
+                        jsonNodes.cities[i].NeighbouringCities[j].PricePerCC = event.pricePerCC;
+                    } else if (event.eventType == "Customer Price Update"){
+                        jsonNodes.cities[i].NeighbouringCities[j].CustomerPricePerGram = event.pricePerGram;
+                        jsonNodes.cities[i].NeighbouringCities[j].CustomerPricePerCC = event.pricePerCubic;
+                    }
                     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
                     return true;
                 }
@@ -270,7 +277,12 @@ function routeExists(event){
  * @param event
  */
 function addCustomerPriceToRoute(event) {
-
+    if (routeExists(event)){
+        alert("Customer Price updated successfully");
+        alert(JSON.stringify(jsonNodes));
+    } else {
+        alert("Invalid origin or destination, route does not exist");
+    }
 }
 
 function getDuration(origin, destination){
