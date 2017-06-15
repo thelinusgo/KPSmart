@@ -13,23 +13,25 @@
  */
 function addNewEvent(event){
     var events = JSON.parse(sessionStorage.getItem("events"));
-    events.push(event);
-    sessionStorage.setItem("events",JSON.stringify(events))
 
     alert("the event type:" + event.eventType);
-
 
     // add route to discontinuedRoutes
     if (event.eventType=="Discontinue Route"){
         discontinueRoute(event.origin, event.destination);
     }
-        else if (event.eventType == "Delivery Request"){
+    else if (event.eventType == "Delivery Request"){
         findShortestPath(event.origin, event.destination);
+        if(sessionStorage.getItem("totalDistance") == 0){
+            return;
+        }
     }
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);
     }
-
+    events.push(event);
+    sessionStorage.setItem("events",JSON.stringify(events));
+    
     updateBusinessFigures();
 }
 

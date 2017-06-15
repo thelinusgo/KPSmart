@@ -177,7 +177,7 @@ function findShortestRoute(map, origin, destination){
     var array = map.calculateShortestPath(city1, city2).concat(city1).reverse();
 
     var c1;
-    var totalDistance=0;
+    sessionStorage.setItem("totalDistance", 0);
     for (c2 in array){
 
         c2 = array[c2];
@@ -190,7 +190,7 @@ function findShortestRoute(map, origin, destination){
         for(neighbour in map.vertices[c2]){
             //   console.log(map.vertices[c2][neighbour].CityName);
             if(map.vertices[c2][neighbour].CityName == c1){
-                totalDistance = parseInt(totalDistance)+ parseInt(map.vertices[c2][neighbour].Distance);
+                sessionStorage.setItem("totalDistance", parseInt(sessionStorage.getItem("totalDistance"))+ parseInt(map.vertices[c2][neighbour].Distance));
                 //console.log("adding to total distance "+c1+ " to "+c2+ " ("+parseInt(map.vertices[c2][neighbour].Distance)+")");
             }
         }
@@ -198,8 +198,8 @@ function findShortestRoute(map, origin, destination){
         c1=c2;
     }
     console.log("Path = "+array);
-    console.log("Distance "+totalDistance);
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + totalDistance);
+    console.log("Distance "+ sessionStorage.getItem("totalDistance"));
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance"));
     // console.log("length: " + array.length);
 
     for(i in array){
