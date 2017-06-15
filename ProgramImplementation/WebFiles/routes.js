@@ -162,7 +162,6 @@ function createMap(){
 
 function  findShortestPath(origin, destination) {
     var map = createMap();
-    alert("aaa in routes.js line 157");
     findShortestRoute(map, origin, destination);
 
 }
@@ -200,9 +199,7 @@ function findShortestRoute(map, origin, destination){
     }
     console.log("Path = "+array);
     console.log("Distance "+totalDistance);
-    alert("Congratulations, you just successfully requested a delivery \n");
-    alert("Path taken: " + array);
-    alert("\n Total Distance: " + totalDistance);
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + totalDistance);
     // console.log("length: " + array.length);
 
     for(i in array){
