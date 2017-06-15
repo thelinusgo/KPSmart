@@ -21,7 +21,7 @@ function addNewEvent(event){
         discontinueRoute(event.origin, event.destination);
     }
     else if (event.eventType == "Delivery Request"){
-        findShortestPath(event.origin, event.destination);
+        findShortestPath(event.origin, event.destination, event.weight, event.volume);
         if(sessionStorage.getItem("totalDistance") == 0){
             return;
         }
