@@ -16,11 +16,14 @@ function addNewEvent(event){
     events.push(event);
     sessionStorage.setItem("events",JSON.stringify(events))
 
+    alert("the event type:" + event.eventType);
+
+
     // add route to discontinuedRoutes
     if (event.eventType=="Discontinue Route"){
         discontinueRoute(event.origin, event.destination);
     }
-    else if (event.eventType == "Request Delivery"){
+        else if (event.eventType == "Delivery Request"){
         findShortestRoute(event.origin, event.destination);
     }
 }

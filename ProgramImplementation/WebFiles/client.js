@@ -18,7 +18,7 @@ function sendData(json_message){
 
     /*Returns the message being passed in as a String. */
     var stringObj =  JSON.stringify(json_message);
-    alert("String object: " + stringObj);
+    //alert("String object: " + stringObj);
     //TODO need to send stringObj to server??
 
 }
