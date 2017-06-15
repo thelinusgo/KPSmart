@@ -160,7 +160,7 @@ function createMap(){
     return map;
 }
 
-function  findShortestRoute(origin, destination) {
+function  findShortestPath(origin, destination) {
     var map = createMap();
     alert("aaa in routes.js line 157");
     findShortestRoute(map, origin, destination);
