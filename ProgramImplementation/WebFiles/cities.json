@@ -6,6 +6,7 @@
   { "CityName": "HongKong", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "8"}, {"CityName": "London", "Distance": "10"}, {"CityName": "Moscow", "Distance": "10"}, {"CityName": "Dubai", "Distance": "4"}, {"CityName": "Delhi", "Distance":"3"}]},
   { "CityName": "Manila", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "7"}]},
   { "CityName": "Tokyo", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "9"}]},
+<<<<<<< HEAD
   { "CityName": "Seoul", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "9"}]},
   { "CityName": "LosAngeles", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "13"}, {"CityName": "Paris", "Distance": "6"}, {"CityName": "NewYork", "Distance": "5"}]},
   { "CityName": "Vancouver", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "15"}]},
@@ -20,5 +21,19 @@
   { "CityName": "Wellington", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"}, {"CityName": "Hamilton", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"},{"CityName": "Christchurch", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"}]},
   { "CityName": "Christchurch", "NeighbouringCities":[{"CityName": "Wellington", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"}, {"CityName": "Dunedin", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"}]},
   { "CityName": "Dunedin", "NeighbouringCities":[{"CityName": "Christchurch", "Distance": "1", "PricePerGram": "2", "PricePerCC": "2"}]}
+  { "CityName": "Seoul", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "9", "PricePerGram": "18", "PricePerCC": "10" }]},
+  { "CityName": "LosAngeles", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "13",  "PricePerGram": "26", "PricePerCC": "11" }, {"CityName": "Paris", "Distance": "6", "PricePerGram": "12", "PricePerCC": "7"  }, {"CityName": "NewYork", "Distance": "5", "PricePerGram": "10", "PricePerCC": "6" }]},
+  { "CityName": "Vancouver", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "15", "PricePerGram": "30", "PricePerCC": "16" }]},
+  { "CityName": "Paris", "NeighbouringCities":[{"CityName": "LosAngeles", "Distance": "6", "PricePerGram": "12", "PricePerCC": "7" }]},
+  { "CityName": "London", "NeighbouringCities":[{"CityName": "LosAngeles", "Distance": "7", "PricePerGram": "14", "PricePerCC": "8" }, {"CityName": "HongKong", "Distance": "10", "PricePerGram": "20", "PricePerCC": "11" }]},
+  { "CityName": "Moscow", "NeighbouringCities":[{"CityName": "HongKong", "Distance": "7", "PricePerGram": "18", "PricePerCC": "10" }]},
+  { "CityName": "Dubai", "NeighbouringCities":[{"CityName": "HongKong", "Distance": "4", "PricePerGram": "8", "PricePerCC": "5" }]},
+  { "CityName": "Johanessburg", "NeighbouringCities":[{"CityName": "Singapore", "Distance": "7"}]},
+  { "CityName": "Delhi", "NeighbouringCities":[{"CityName": "HongKong", "Distance": "3"}]},
+  { "CityName": "Auckland", "NeighbouringCities":[{"CityName": "Hamilton", "Distance": "1"}, {"CityName": "Wellington", "Distance": "1"}, {"CityName": "Sydney", "Distance": "3"}, {"CityName": "Melbourne", "Distance": "4"}, {"CityName": "Perth", "Distance": "6"}, {"CityName": "Singapore", "Distance": "7"}, {"CityName": "Manila", "Distance": "7"}, {"CityName": "HongKong", "Distance": "8"}, {"CityName": "Tokyo", "Distance": "9"}, {"CityName": "Seoul", "Distance": "9"}, {"CityName": "LosAngeles", "Distance": "13"}, {"CityName": "Vancouver", "Distance": "15"}]},
+  { "CityName": "Hamilton", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "1"}, {"CityName": "Wellington", "Distance": "1"}]},
+  { "CityName": "Wellington", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "1"}, {"CityName": "Hamilton", "Distance": "1"},{"CityName": "Christchurch", "Distance": "1"}]},
+  { "CityName": "Christchurch", "NeighbouringCities":[{"CityName": "Wellington", "Distance": "1"}, {"CityName": "Dunedin", "Distance": "1"}]},
+  { "CityName": "Dunedin", "NeighbouringCities":[{"CityName": "Christchurch", "Distance": "1"}]}
 ]
 }

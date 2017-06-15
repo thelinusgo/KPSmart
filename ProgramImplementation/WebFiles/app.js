@@ -32,9 +32,13 @@ app.controller('MainCtrl', function($scope, $http, $location) {
     $scope.customerPriceFields = {origin: "", destination: "", pricePerGram:"", pricePerCubic: "", mailPriority: 'InternAir'};
     $scope.discontinueRouteFields = {origin:"", destination:"", transportFirm:"", transportType:'Land' };
 
-    $scope.buisinessFigs = {totalRevenue: "", totalExpenditure:"",eventCount: "",
-        mailDelivered: "", avgDeliveryTimes:"", criticalRoutes: ""};
-    $scope.stringBuisinessFigs = '{"totalRevenue": "435,545", "totalExpenditure" :"82,304,503","eventCount" : "3333", "mailDelivered" : "9876", "avgDeliveryTimes":"3984", "criticalRoutes" : "Auckland -> Incheon"}';
+
+    if (JSON.parse(sessionStorage.getItem("businessFigs")==null)){
+        //no events variable created yet, occurs only when system opened for first time of session
+        sessionStorage.setItem("businessFigs",JSON.stringify({"totalRevenue": "", "totalExpenditure":"","eventCount": "",
+        "mailDelivered": "", "avgDeliveryTimes":"", "criticalRoutes": ""}));
+    }
+    $scope.buisinessFigs = JSON.parse(sessionStorage.getItem("businessFigs"));
 
     if (JSON.parse(sessionStorage.getItem("events")==null)){
         //no events variable created yet, occurs only when system opened for first time of session
@@ -266,21 +270,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
      * Method that sets the business figures data from the file.
      */
     $scope.setBusinessFigs = function(){
-        receiveData($scope.stringBuisinessFigs);
-        var jsonobject = getJSONObject();
-
-        if(jsonobject == null){
-            alert("The JSON object being passed in from getJSONObject is null");
-            return;
-        }
-
-        $scope.buisinessFigs.avgDeliveryTimes = jsonobject.avgDeliveryTimes;
-        $scope.buisinessFigs.criticalRoutes = jsonobject.criticalRoutes;
-        $scope.buisinessFigs.eventCount = jsonobject.eventCount;
-        $scope.buisinessFigs.mailDelivered = jsonobject.mailDelivered;
-        $scope.buisinessFigs.totalExpenditure = jsonobject.totalExpenditure;
-        $scope.buisinessFigs.totalRevenue = jsonobject.totalRevenue;
-        
+        updateBusinessFigures();
     };
 
     $scope.goBack = function(){
