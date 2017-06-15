@@ -10,19 +10,19 @@ public class DataParserTests {
 	public static void test01_xml_read_rawValuesOnly() {
 		DataParser parser = new DataParser(new XMLReader(), new XMLWriter());
 		DataHandler handler = new DataHandler();
-		handler.read(parser, "./tests/test_dat_01.xml");
+		handler.read(parser, "./tests/test_dat_01.xml", true);
 	}
 
 	public static void test02_xml_read_compositeValues() {
 		DataParser parser = new DataParser(new XMLReader(), new XMLWriter());
 		DataHandler handler = new DataHandler();
-		handler.read(parser, "./tests/test_dat_02.xml");
+		handler.read(parser, "./tests/test_dat_02.xml", true);
 	}
 
 	public static void test03_xml_write_database() {
 		DataParser parser = new DataParser(new XMLReader(), new XMLWriter());
 		DataHandler handler = new DataHandler();
-		handler.read(parser, "./tests/test_dat_02.xml");
+		handler.read(parser, "./tests/test_dat_02.xml", true);
 		String output = handler.write(parser);
 		System.out.println(output);
 	}

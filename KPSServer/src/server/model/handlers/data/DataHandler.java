@@ -12,8 +12,12 @@ public class DataHandler {
 		this.database = new Database(); // create empty database
 	}
 
-	public void read(DataParser parser, String file) {
-		this.database = parser.read(new File(file));
+	public Database getDatabase() {
+		return database;
+	}
+
+	public void read(DataParser parser, String text, boolean isFile) {
+		this.database = isFile ? parser.read(new File(text)) : parser.read(text);
 	}
 
 	public String write(DataParser parser) {

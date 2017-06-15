@@ -20,4 +20,12 @@ public abstract class DataReader {
 	 * @return
 	 */
 	public abstract Database read(File file);
+
+	/**
+	 * Reads the text parameter and returns the database object representation.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public abstract Database read(String text);
 }

@@ -12,4 +12,10 @@ public class JSONReader extends DataReader {
 		return null;
 	}
 
+	@Override
+	public Database read(String text) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

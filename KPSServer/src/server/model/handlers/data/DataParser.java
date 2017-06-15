@@ -34,6 +34,16 @@ public class DataParser {
 	}
 
 	/**
+	 * Reads the text parameter and creates a database object from it.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public Database read(String text) {
+		return reader.read(text);
+	}
+
+	/**
 	 * Reads the database paramter and then returns a string representation of
 	 * the database.
 	 * 

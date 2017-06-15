@@ -2,6 +2,7 @@ package server.model.handlers.data;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import server.model.database.DBEntry;
@@ -34,6 +36,24 @@ public class XMLReader extends DataReader {
 			// Get root node of the xml file
 			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document root = dBuilder.parse(file);
+			// Parse existing children as database entries
+			if (root.hasChildNodes()) {
+				database = new Database(parseEntries(root.getChildNodes(), 0));
+			}
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			e.printStackTrace();
+		}
+
+		return database;
+	}
+
+	@Override
+	public Database read(String text) {
+		Database database = null;
+		try {
+			// Get root node of the xml file
+			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			Document root = dBuilder.parse(new InputSource(new StringReader(text)));
 			// Parse existing children as database entries
 			if (root.hasChildNodes()) {
 				database = new Database(parseEntries(root.getChildNodes(), 0));
