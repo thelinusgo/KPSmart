@@ -9,7 +9,7 @@
   { "CityName": "Dubai", "NeighbouringCities":[{"CityName": "HongKong", "Distance": "4", "PricePerGram": "8", "PricePerCC": "5"}]},
   { "CityName": "Johanessburg", "NeighbouringCities":[{"CityName": "Singapore", "Distance": "7", "PricePerGram": "14", "PricePerCC": "8"}]},
   { "CityName": "Delhi", "NeighbouringCities":[{"CityName": "HongKong", "Distance": "3", "PricePerGram": "6", "PricePerCC": "4"}]},
-   { "CityName": "Seoul", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "9", "PricePerGram": "18", "PricePerCC": "10" }]},
+  { "CityName": "Seoul", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "9", "PricePerGram": "18", "PricePerCC": "10" }]},
   { "CityName": "LosAngeles", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "13",  "PricePerGram": "26", "PricePerCC": "11" }, {"CityName": "Paris", "Distance": "6", "PricePerGram": "12", "PricePerCC": "7"  }, {"CityName": "NewYork", "Distance": "5", "PricePerGram": "10", "PricePerCC": "6" }]},
   { "CityName": "Vancouver", "NeighbouringCities":[{"CityName": "Auckland", "Distance": "15", "PricePerGram": "30", "PricePerCC": "16" }]},
   { "CityName": "Paris", "NeighbouringCities":[{"CityName": "LosAngeles", "Distance": "6", "PricePerGram": "12", "PricePerCC": "7" }]},
