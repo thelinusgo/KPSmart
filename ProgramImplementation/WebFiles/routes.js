@@ -230,13 +230,13 @@ function addRoute (event){
         var city = jsonNodes.cities[i];
         if (city.CityName == event.origin) {
             //origin node already exists, add to neighbour nodes
-            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration});
+            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC});
             sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
             return;
         }
     }
     // origin node does not already exist
-    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration}]});
+    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC}]});
     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
 }
 
