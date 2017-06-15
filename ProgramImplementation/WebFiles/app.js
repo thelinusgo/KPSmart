@@ -157,12 +157,16 @@ app.controller('MainCtrl', function($scope, $http, $location) {
             "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume,
             "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear()}
         }};
-
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
-        location.href='viewEvents.html'; //redirect them to the view events page.
-        //receiveData(JSON.stringify(JSONObject)); // for testing only
-
+        if(sessionStorage.getItem("totalDistance") > 0) {
+            alert("Successful");
+            location.href = 'viewEvents.html'; //redirect them to the view events page.
+            //receiveData(JSON.stringify(JSONObject)); // for testing only
+        }else{
+            alert("Please enter a valid origin location or destination");
+            return;
+        }
     };
     /**
      * Sends updated transport cost info to client.js in JSON format
