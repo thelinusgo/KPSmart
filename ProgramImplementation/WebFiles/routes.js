@@ -160,7 +160,7 @@ function createMap(){
     return map;
 }
 
-function  findShortestRoute(origin, destination) {
+function  findShortestPath(origin, destination) {
     var map = createMap();
     findShortestRoute(map, origin, destination);
 
@@ -192,7 +192,6 @@ function findShortestRoute(map, origin, destination){
             if(map.vertices[c2][neighbour].CityName == c1){
                 totalDistance = parseInt(totalDistance)+ parseInt(map.vertices[c2][neighbour].Distance);
                 //console.log("adding to total distance "+c1+ " to "+c2+ " ("+parseInt(map.vertices[c2][neighbour].Distance)+")");
-
             }
         }
 
@@ -200,7 +199,7 @@ function findShortestRoute(map, origin, destination){
     }
     console.log("Path = "+array);
     console.log("Distance "+totalDistance);
-
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + totalDistance);
     // console.log("length: " + array.length);
 
     for(i in array){

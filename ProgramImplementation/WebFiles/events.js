@@ -16,12 +16,15 @@ function addNewEvent(event){
     events.push(event);
     sessionStorage.setItem("events",JSON.stringify(events))
 
+    alert("the event type:" + event.eventType);
+
+
     // add route to discontinuedRoutes
     if (event.eventType=="Discontinue Route"){
         discontinueRoute(event.origin, event.destination);
     }
-    else if (event.eventType == "Request Delivery"){
-        findShortestRoute(event.origin, event.destination);
+        else if (event.eventType == "Delivery Request"){
+        findShortestPath(event.origin, event.destination);
     }
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);

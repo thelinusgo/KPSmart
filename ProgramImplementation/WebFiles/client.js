@@ -20,6 +20,7 @@ function sendData(json_message){
     // attach id
     json_message = {"id":sessionStorage.getItem("id"), data:json_message};
     var stringObj =  JSON.stringify(json_message);
+
     //TODO need to send stringObj to server??
 
 }
