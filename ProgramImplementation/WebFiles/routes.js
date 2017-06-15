@@ -263,3 +263,16 @@ function routeExists(event){
     }
     return false;
 }
+
+function getDuration(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]){
+                    return city.NeighbouringCities[i].Distance;
+                }
+            }
+        }
+    }
+}
