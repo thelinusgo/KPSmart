@@ -29,6 +29,9 @@ function addNewEvent(event){
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);
     }
+    else if (event.eventType == "Customer Price Update"){
+        addCustomerPriceToRoute(event);
+    }
     events.push(event);
     sessionStorage.setItem("events",JSON.stringify(events));
     

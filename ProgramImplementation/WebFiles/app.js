@@ -155,7 +155,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         var JSONObject = {
             "messageType":"event", "event":{"eventType":"Delivery Request","origin": $scope.deliveryFields.origin, "destination": $scope.deliveryFields.destination,
             "priority": $scope.deliveryFields.mailPriority, "weight": $scope.deliveryFields.weight, "volume":$scope.deliveryFields.volume,
-            "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear(), "transportCost":"", "customerPrice":""}
+            "date":{"day":d.getDate(), "month":d.getMonth()+1, "year":d.getFullYear(), "transportCost":0, "customerPrice":0}
         }};
         sendData(JSONObject);
         addNewEvent(JSONObject.event);

@@ -241,7 +241,7 @@ function addRoute (event){
 }
 
 /**
- * Checks if a route already exists
+ * Checks if a route already exists and updates prices
  * @param origin
  * @param destination
  * @returns {boolean}
@@ -254,6 +254,8 @@ function routeExists(event){
                 var neighbour = city.NeighbouringCities[j];
                 if (neighbour.CityName == event.destination){
                     jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                    jsonNodes.cities[i].NeighbouringCities[j].PricePerGram = event.pricePerGram;
+                    jsonNodes.cities[i].NeighbouringCities[j].PricePerCC = event.pricePerCC;
                     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
                     return true;
                 }
@@ -261,6 +263,14 @@ function routeExists(event){
         }
     }
     return false;
+}
+
+/**
+ * Adds price for customer to ship on a route
+ * @param event
+ */
+function addCustomerPriceToRoute(event) {
+
 }
 
 function getDuration(origin, destination){
