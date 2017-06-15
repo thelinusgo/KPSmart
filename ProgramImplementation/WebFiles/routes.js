@@ -268,7 +268,7 @@ function getDuration(origin, destination){
         var city = jsonNodes.cities[i];
         if (city.CityName == origin){
             for (var j in city.NeighbouringCities){
-                if (city.NeighbouringCities[j]){
+                if (city.NeighbouringCities[j]==destination){
                     return city.NeighbouringCities[i].Distance;
                 }
             }
