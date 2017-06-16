@@ -42,8 +42,8 @@ function updateBusinessFigures(){
         var city = cityNodes.cities[i];
         for (var j in city.NeighbouringCities){
             var neighbour = city.NeighbouringCities[j];
-            var transportCost = neighbour.pricePerGram+neighbour.pricePerCC;
-            var customerPrice = neighbour.CustomerPricePerGram+neighbour.CustomerPricePerCC;
+            var transportCost = parseFloat(neighbour.PricePerGram)+parseFloat(neighbour.PricePerCC);
+            var customerPrice = parseFloat(neighbour.CustomerPricePerGram)+parseFloat(neighbour.CustomerPricePerCC);
             if (transportCost>customerPrice){
                 criticalRoutes.push({"origin":city.CityName, "destination":neighbour.CityName})
             }

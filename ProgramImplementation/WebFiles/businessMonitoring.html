@@ -5,9 +5,11 @@
         <title>Buisiness Monitoring - KPSmart System</title>
         <script>document.write('<base href="' + document.location + '" />');</script>
         <script data-require="angular.js@1.5.x" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js" data-semver="1.5.11"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="app.js"></script>
         <script src="client.js"></script>
         <script src="businessFigures.js"></script>
+        <script src="routes.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Bootstrap jQuery library -->
@@ -34,37 +36,37 @@
                     <tr>
                         <th>Total Revenue</th>
                         <td>$</td>
-                        <td><input ng-model="buisinessFigs.totalRevenue" readonly></td>
+                        <td><input ng-model="businessFigs.totalRevenue" readonly></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>Total Expenditure</th>
                         <td>$</td>
-                        <td><input ng-model="buisinessFigs.totalExpenditure" readonly></td>
+                        <td><input ng-model="businessFigs.totalExpenditure" readonly></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>Total Count of Events</th>
                         <td></td>
-                        <td><input ng-model="buisinessFigs.eventCount" readonly></td>
+                        <td><input ng-model="businessFigs.eventCount" readonly></td>
                         <td>events</td>
                     </tr>
                     <tr>
                         <th>Amount of Mail Delivered:</th>
                         <td></td>
-                        <td><input ng-model="buisinessFigs.mailDelivered" readonly></td>
+                        <td><input ng-model="businessFigs.mailDelivered" readonly></td>
                         <td>delivered</td>
                     </tr>
                     <tr>
                         <th>Average Delivery Time:</th>
                         <td></td>
-                        <td><input ng-model="buisinessFigs.avgDeliveryTimes" readonly></td>
+                        <td><input ng-model="businessFigs.avgDeliveryTimes" readonly></td>
                         <td>hours</td>
                     </tr>
                     <tr>
                         <th>Critical Routes:</th>
                         <td></td>
-                        <td><input ng-model="buisinessFigs.criticalRoutes" readonly></td>
+                        <td><input ng-model="businessFigs.criticalRoutes" readonly></td>
                         <td></td>
                     </tr>
                 </table>

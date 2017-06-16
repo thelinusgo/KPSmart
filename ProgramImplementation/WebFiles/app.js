@@ -38,7 +38,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sessionStorage.setItem("businessFigs",JSON.stringify({"totalRevenue": 0, "totalExpenditure":0,"eventCount": 0,
         "mailDelivered": 0, "avgDeliveryTimes":0, "criticalRoutes": 0}));
     }
-    $scope.buisinessFigs = JSON.parse(sessionStorage.getItem("businessFigs"));
+    $scope.businessFigs = JSON.parse(sessionStorage.getItem("businessFigs"));
 
     if (JSON.parse(sessionStorage.getItem("events")==null)){
         //no events variable created yet, occurs only when system opened for first time of session
