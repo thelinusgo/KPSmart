@@ -337,6 +337,26 @@ nav ul li:hover ul{
     text-align: left;
 }
 
+#container2 .routesTable{
+    margin-top: 20px;
+}
+
+#container2 .routesTable .h2{
+    font-style: italic;
+    font-weight: bold;
+}
+#container2 .routesTable tr:first-child, #container2 .routesTable tr:nth-child(2){
+    background-color: #d3c7c5;
+}
+
+#container2 .routesTable tr:nth-child(2n+3) {
+    background-color: #e9e3e2;
+}
+
+#container2 .routesTable tr:nth-child(even) {
+    background-color: white;
+}
+
 /*Footer*/
 footer{
     width: 100%;
