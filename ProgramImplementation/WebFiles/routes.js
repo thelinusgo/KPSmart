@@ -220,10 +220,11 @@ function findShortestRoute(map, origin, destination, weight, volume){
     console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     console.log("Cust Per Gram = "+sessionStorage.getItem("totalCustomerPricePerGram"));
     console.log("Cust Per Cubic = "+sessionStorage.getItem("totalCustomerPricePerCC"));
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total trip duration is " + sessionStorage.getItem("totalDistance")+" hours");
+    // alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total trip duration is " + sessionStorage.getItem("totalDistance")+" hours");
 
     // console.log("length: " + array.length);
 
+    sessionStorage.setItem("array", array.toString());
     sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
     sessionStorage.setItem("totalCustomerPrice",parseInt(totalCustomerPricePerGram)+parseInt(totalCustomerPricePerCC));
     for(i in array){

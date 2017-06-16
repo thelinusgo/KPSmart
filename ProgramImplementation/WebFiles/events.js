@@ -21,7 +21,11 @@ function addNewEvent(event){
     else if (event.eventType == "Delivery Request"){
         findShortestPath(event.origin, event.destination, event.weight, event.volume);
         if(sessionStorage.getItem("totalDistance") == 0){
+            alert("Route does not exist")
             return;
+        } else {
+
+            alert("Successfully requested a delivery. \n The path taken is: " + sessionStorage.getItem("array") + " \n The total trip duration is " + sessionStorage.getItem("totalDistance")+" hours");
         }
         console.log("Total transport cost = "+ sessionStorage.getItem("totalTransportCost"));
         event.transportCost = sessionStorage.getItem("totalTransportCost");
