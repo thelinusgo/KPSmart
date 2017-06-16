@@ -13,6 +13,8 @@ public class DataHandler {
 	}
 
 	public Database getDatabase() {
+		if (this.database == null)
+			this.database = new Database();
 		return database;
 	}
 
