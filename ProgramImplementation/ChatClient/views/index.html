@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <title>ChatClient</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="../js/chat.js"></script>
     <script>
         var ws = new WebSocket("ws://10.140.76.130:8080/");
-        function send() {
-            document.getElementById("submitmsg").onclick = function () {
-                if (document.getElementById("usermsg").value != "" || document.getElementById("usermsg").value != null) {
-                    alert(document.getElementById("usermsg").value);
-                    ws.send(document.getElementById("usermsg").value);
-                    document.getElementById('chatBox').innerHTML = document.getElementById('usermsg').value;
-                } else {
-                    alert("message not sent");
-                }
+        document.getElementById("submitmsg").onclick = function () {
+            if (document.getElementById("usermsg").value != "" || document.getElementById("usermsg").value != null) {
+                alert(document.getElementById("usermsg").value);
+                ws.send(document.getElementById("usermsg").value);
+                document.getElementById('chatBox').innerHTML += document.getElementById('usermsg').value;
+            } else {
+                alert("message not sent");
             }
         }
     </script>
@@ -27,7 +24,7 @@
         </div>
         <form name="message" action="">
             <input name="usermsg" type="text" id="usermsg" size="63" />
-            <input name="submitmsg" type="submit"  id="submitmsg" value="Send" onclick="send()" />
+            <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
         </form>
         <div id="chatBox"></div>
     </div>
