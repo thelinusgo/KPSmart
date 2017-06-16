@@ -14,8 +14,6 @@
 function addNewEvent(event){
     var events = JSON.parse(sessionStorage.getItem("events"));
 
-    alert("the event type:" + event.eventType);
-
     // add route to discontinuedRoutes
     if (event.eventType=="Discontinue Route"){
         discontinueRoute(event.origin, event.destination);

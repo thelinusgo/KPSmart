@@ -10,29 +10,17 @@ function updateBusinessFigures(){
     var totalEvents = 0;
     var totalMail = 0;
     var avgDeliveryTimes = 0;
-    var criticalRoutes = []; // TODO implement if have time
-
-
+    var criticalRoutes = [];
 
     for (var i in events){
         var event = events[i];
         if (event.eventType == "Delivery Request"){
             // Calculate totalRevenue
-            totalRevenue += parseFloat(event.customerPrice); //TODO: use this when customerPrice exists
+            totalRevenue += parseFloat(event.customerPrice);
             // Calculate totalExpenditure
-            totalExpenditure += parseFloat(event.transportCost); //TODO: use this when transportCost exists
+            totalExpenditure += parseFloat(event.transportCost);
             // Calculate totalMail
             totalMail++;
-            // Average delivery times TODO: implement if have time
-            if (event.priority == "InternAir"){
-
-            } else if (event.priority == "InternStd"){
-
-            } else if (event.priority == "DomestAir"){
-
-            } else if (event.priority == "DomestStd"){
-
-            }
         }
         // Calculate totalEvents
         totalEvents++;
