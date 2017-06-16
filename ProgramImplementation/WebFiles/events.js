@@ -27,6 +27,7 @@ function addNewEvent(event){
         }
         console.log("Total transport cost = "+ sessionStorage.getItem("totalTransportCost"));
         event.transportCost = sessionStorage.getItem("totalTransportCost");
+        event.customerPrice = sessionStorage.getItem("totalCustomerPrice");
     }
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);

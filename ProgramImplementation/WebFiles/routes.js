@@ -212,10 +212,10 @@ function findShortestRoute(map, origin, destination, weight, volume){
     }
     console.log("Path = "+array);
     console.log("Distance "+ sessionStorage.getItem("totalDistance"))
+    var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
     var totalCustomerPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalCustomerPricePerGram"));
     var totalCustomerPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalCustomerPricePerCC"));
-    var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     console.log("Per Gram = "+sessionStorage.getItem("totalPricePerGram"));
     console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     console.log("Cust Per Gram = "+sessionStorage.getItem("totalCustomerPricePerGram"));
@@ -225,6 +225,7 @@ function findShortestRoute(map, origin, destination, weight, volume){
     // console.log("length: " + array.length);
 
     sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
+    sessionStorage.setItem("totalCustomerPrice",parseInt(totalCustomerPricePerGram)+parseInt(totalCustomerPricePerCC));
     for(i in array){
         console.log(array[i]);
     }
