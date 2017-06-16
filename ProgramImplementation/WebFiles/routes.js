@@ -243,18 +243,20 @@ function addRoute (event){
         var city = jsonNodes.cities[i];
         if (city.CityName == event.origin) {
             //origin node already exists, add to neighbour nodes
-            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC});
+            city.NeighbouringCities.push({"CityName":event.destination, "Distance":event.duration,
+                "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC, "CustomerPricePerGram":event.pricePerGram+5, "CustomerPricePerCC":event.pricePerCC+5});
             sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
             return;
         }
     }
     // origin node does not already exist
-    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration, "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC}]});
+    jsonNodes.cities.push({"CityName":event.origin,"NeighbouringCities":[{"CityName":event.destination, "Distance":event.duration,
+        "PricePerGram":event.pricePerGram, "PricePerCC":event.pricePerCC, "CustomerPricePerGram":event.pricePerGram+5, "CustomerPricePerCC":event.pricePerCC+5}]});
     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
 }
 
 /**
- * Checks if a route already exists
+ * Checks if a route already exists and updates prices
  * @param origin
  * @param destination
  * @returns {boolean}
@@ -266,7 +268,14 @@ function routeExists(event){
             for (var j in city.NeighbouringCities){
                 var neighbour = city.NeighbouringCities[j];
                 if (neighbour.CityName == event.destination){
-                    jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                    if (event.eventType == "Transport Cost Update") {
+                        jsonNodes.cities[i].NeighbouringCities[j].Distance = event.duration;
+                        jsonNodes.cities[i].NeighbouringCities[j].PricePerGram = event.pricePerGram;
+                        jsonNodes.cities[i].NeighbouringCities[j].PricePerCC = event.pricePerCC;
+                    } else if (event.eventType == "Customer Price Update"){
+                        jsonNodes.cities[i].NeighbouringCities[j].CustomerPricePerGram = event.pricePerGram;
+                        jsonNodes.cities[i].NeighbouringCities[j].CustomerPricePerCC = event.pricePerCubic;
+                    }
                     sessionStorage.setItem("cityNodes", JSON.stringify(jsonNodes));
                     return true;
                 }
@@ -274,6 +283,19 @@ function routeExists(event){
         }
     }
     return false;
+}
+
+/**
+ * Adds price for customer to ship on a route
+ * @param event
+ */
+function addCustomerPriceToRoute(event) {
+    if (routeExists(event)){
+        alert("Customer Price updated successfully");
+        alert(JSON.stringify(jsonNodes));
+    } else {
+        alert("Invalid origin or destination, route does not exist");
+    }
 }
 
 function getDuration(origin, destination){
@@ -311,6 +333,31 @@ function getPricePerCC(origin, destination){
                 if (city.NeighbouringCities[j].CityName==destination){
                     console.log("getPricePerCC returns = "+city.NeighbouringCities[j].PricePerCC);
                     return city.NeighbouringCities[j].PricePerCC;
+                }
+            }
+        }
+    }
+}
+
+function getCustomerPricePerGram(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].CustomerPricePerGram;
+                }
+            }
+        }
+    }
+}
+function getCustomerPricePerCC(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].CustomerPricePerCC;
                 }
             }
         }
