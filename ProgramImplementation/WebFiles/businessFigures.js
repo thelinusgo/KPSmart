@@ -4,18 +4,18 @@
 
 function updateBusinessFigures(){
     var events = JSON.parse(sessionStorage.getItem("events"));
+    var cityNodes = JSON.parse(sessionStorage.getItem("cityNodes"));
     var totalRevenue = 0;
     var totalExpenditure = 0;
     var totalEvents = 0;
     var totalMail = 0;
     var avgDeliveryTimes = 0;
-    var criticalRoutes = 0; // TODO implement if have time
+    var criticalRoutes = []; // TODO implement if have time
 
 
 
     for (var i in events){
         var event = events[i];
-
         if (event.eventType == "Delivery Request"){
             // Calculate totalRevenue
             totalRevenue += parseFloat(event.customerPrice); //TODO: use this when customerPrice exists
@@ -36,6 +36,18 @@ function updateBusinessFigures(){
         }
         // Calculate totalEvents
         totalEvents++;
+    }
+
+    for (var i in cityNodes.cities){
+        var city = cityNodes.cities[i];
+        for (var j in city.NeighbouringCities){
+            var neighbour = city.NeighbouringCities[j];
+            var transportCost = neighbour.pricePerGram+neighbour.pricePerCC;
+            var customerPrice = neighbour.CustomerPricePerGram+neighbour.CustomerPricePerCC;
+            if (transportCost>customerPrice){
+                criticalRoutes.push({"origin":city.CityName, "destination":neighbour.CityName})
+            }
+        }
     }
 
     var businessFigs = JSON.parse(sessionStorage.getItem("businessFigs"));
