@@ -4,7 +4,7 @@
 		<username>manager</username>
 		<password>manager</password>
 		<usertype>manager</usertype>
-		<tasks>
+		<tasks array="true">
 			<task>view events</task>
 			<task>edit events</task>
 		</tasks>

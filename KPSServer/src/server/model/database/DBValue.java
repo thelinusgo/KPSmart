@@ -15,6 +15,7 @@ public class DBValue {
 	private String name;
 	private String value;
 	private boolean isComposite;
+	private boolean isArray = false;
 	private List<DBValue> fields;
 
 	private DBValue(String name, boolean isComposite) {
@@ -48,15 +49,25 @@ public class DBValue {
 
 	// Getters
 
-	public Object getValue() {
-		return isComposite ? fields : value;
+	public boolean isArray() {
+		return isArray;
 	}
 
 	public boolean isComposite() {
 		return isComposite;
 	}
 
+	public Object getValue() {
+		return isComposite ? fields : value;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	// Setters
+
+	public void setArray(boolean isArray) {
+		this.isArray = isArray;
 	}
 }

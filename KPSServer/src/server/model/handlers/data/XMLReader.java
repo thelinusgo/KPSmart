@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -109,13 +110,22 @@ public class XMLReader extends DataReader {
 			if (value.getNodeType() == Node.ELEMENT_NODE) {
 				String name = value.getNodeName();
 				NodeList children = value.getChildNodes();
+				DBValue newVal = null;
 				if (value.hasChildNodes() && children.getLength() > 1) {
 					List<DBValue> nested = new ArrayList<DBValue>();
 					nested.addAll(parseValues(value.getChildNodes()));
-					result.add(new DBValue(name, nested));
+					newVal = new DBValue(name, nested);
+					if (value.hasAttributes()) {
+						NamedNodeMap nodeMap = value.getAttributes();
+						for (int j = 0; j < nodeMap.getLength(); j++) {
+							Node node = nodeMap.item(j);
+							newVal.setArray(node.getNodeValue().equals("true") ? true : false);
+						}
+					}
 				} else {
-					result.add(new DBValue(name, value.getTextContent()));
+					newVal = new DBValue(name, value.getTextContent());
 				}
+				result.add(newVal);
 			}
 		}
 		return result;

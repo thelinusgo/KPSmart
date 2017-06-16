@@ -71,6 +71,9 @@ public class XMLWriter extends DataWriter {
 	private void parseEntry(Element entryEle, Document doc, DBEntry entry) {
 		for (DBValue value : entry.getValues()) {
 			Element e = doc.createElement(value.getName());
+			if (value.isArray()) {
+				e.setAttribute("array", "true");
+			}
 			parseValue(e, doc, value);
 			entryEle.appendChild(e);
 		}
