@@ -25,6 +25,8 @@ function addNewEvent(event){
         if(sessionStorage.getItem("totalDistance") == 0){
             return;
         }
+        console.log("Total transport cost = "+ sessionStorage.getItem("totalTransportCost"));
+        event.transportCost = sessionStorage.getItem("totalTransportCost");
     }
     else if (event.eventType == "Transport Cost Update"){
         addRoute(event);

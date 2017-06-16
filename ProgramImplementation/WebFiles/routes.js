@@ -211,18 +211,20 @@ function findShortestRoute(map, origin, destination, weight, volume){
         c1=c2;
     }
     console.log("Path = "+array);
-    console.log("Distance "+ sessionStorage.getItem("totalDistance"));
+    console.log("Distance "+ sessionStorage.getItem("totalDistance"))
+    var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
+    var totalCustomerPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalCustomerPricePerGram"));
+    var totalCustomerPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalCustomerPricePerCC"));
+    var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     console.log("Per Gram = "+sessionStorage.getItem("totalPricePerGram"));
     console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     console.log("Cust Per Gram = "+sessionStorage.getItem("totalCustomerPricePerGram"));
     console.log("Cust Per Cubic = "+sessionStorage.getItem("totalCustomerPricePerCC"));
-    var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
-    var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
-    var totalCustomerPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalCustomerPricePerGram"));
-    var totalCustomerPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalCustomerPricePerCC"));
     alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Transport Weight price: "+totalPricePerGram + "Transport Volume price: "+totalPricePerCC + "Customer Weight price: "+totalCustomerPricePerGram + "Customer Volume price: "+totalCustomerPricePerCC);
+
     // console.log("length: " + array.length);
 
+    sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
     for(i in array){
         console.log(array[i]);
     }
