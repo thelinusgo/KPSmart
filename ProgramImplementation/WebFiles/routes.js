@@ -207,14 +207,14 @@ function findShortestRoute(map, origin, destination, weight, volume){
     }
     console.log("Path = "+array);
     console.log("Distance "+ sessionStorage.getItem("totalDistance"));
-    console.log("Per Gram = "+sessionStorage.getItem("totalPricePerGram"));
-    console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Weight price: "+totalPricePerGram + " Volume price: "+totalPricePerCC);
+    console.log("Per Gram = "+totalPricePerGram);
+    console.log("Per Cubic = "+totalPricePerCC);
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance"));
     // console.log("length: " + array.length);
 
-    sessionStorage.setItem("TotalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
+    sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
     for(i in array){
         console.log(array[i]);
     }
