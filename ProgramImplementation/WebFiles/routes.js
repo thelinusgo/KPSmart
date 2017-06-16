@@ -180,6 +180,9 @@ function findShortestRoute(map, origin, destination, weight, volume){
     sessionStorage.setItem("totalDistance", 0);
     sessionStorage.setItem("totalPricePerGram",0);
     sessionStorage.setItem("totalPricePerCC",0);
+    sessionStorage.setItem("totalCustomerPricePerGram",0);
+    sessionStorage.setItem("totalCustomerPricePerCC",0);
+
     for (c2 in array){
 
         c2 = array[c2];
@@ -193,6 +196,8 @@ function findShortestRoute(map, origin, destination, weight, volume){
         //console.log(getPricePerGram(c1,c2));
         sessionStorage.setItem("totalPricePerGram", parseInt(sessionStorage.getItem("totalPricePerGram"))+parseInt(getPricePerGram(c1,c2)));
         sessionStorage.setItem("totalPricePerCC", parseInt(sessionStorage.getItem("totalPricePerCC"))+parseInt(getPricePerCC(c1,c2)));
+        sessionStorage.setItem("totalCustomerPricePerGram", parseInt(sessionStorage.getItem("totalCustomerPricePerGram"))+parseInt(getCustomerPricePerGram(c1,c2)));
+        sessionStorage.setItem("totalCustomerPricePerCC", parseInt(sessionStorage.getItem("totalCustomerPricePerCC"))+parseInt(getCustomerPricePerCC(c1,c2)));
         for(neighbour in map.vertices[c2]){
             //   console.log(map.vertices[c2][neighbour].CityName);
             if(map.vertices[c2][neighbour].CityName == c1){
@@ -206,15 +211,21 @@ function findShortestRoute(map, origin, destination, weight, volume){
         c1=c2;
     }
     console.log("Path = "+array);
-    console.log("Distance "+ sessionStorage.getItem("totalDistance"));
+    console.log("Distance "+ sessionStorage.getItem("totalDistance"))
     var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
-    console.log("Per Gram = "+totalPricePerGram);
-    console.log("Per Cubic = "+totalPricePerCC);
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance"));
+    var totalCustomerPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalCustomerPricePerGram"));
+    var totalCustomerPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalCustomerPricePerCC"));
+    console.log("Per Gram = "+sessionStorage.getItem("totalPricePerGram"));
+    console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
+    console.log("Cust Per Gram = "+sessionStorage.getItem("totalCustomerPricePerGram"));
+    console.log("Cust Per Cubic = "+sessionStorage.getItem("totalCustomerPricePerCC"));
+    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Transport Weight price: "+totalPricePerGram + "Transport Volume price: "+totalPricePerCC + "Customer Weight price: "+totalCustomerPricePerGram + "Customer Volume price: "+totalCustomerPricePerCC);
+
     // console.log("length: " + array.length);
 
     sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
+    sessionStorage.setItem("totalCustomerPrice",parseInt(totalCustomerPricePerGram)+parseInt(totalCustomerPricePerCC));
     for(i in array){
         console.log(array[i]);
     }
@@ -344,8 +355,8 @@ function getCustomerPricePerGram(origin, destination){
         var city = jsonNodes.cities[i];
         if (city.CityName == origin){
             for (var j in city.NeighbouringCities){
-                if (city.NeighbouringCities[j]==destination){
-                    return city.NeighbouringCities[i].CustomerPricePerGram;
+                if (city.NeighbouringCities[j].CityName==destination){
+                    return city.NeighbouringCities[j].CustomerPricePerGram;
                 }
             }
         }
@@ -356,8 +367,8 @@ function getCustomerPricePerCC(origin, destination){
         var city = jsonNodes.cities[i];
         if (city.CityName == origin){
             for (var j in city.NeighbouringCities){
-                if (city.NeighbouringCities[j]==destination){
-                    return city.NeighbouringCities[i].CustomerPricePerCC;
+                if (city.NeighbouringCities[j].CityName==destination){
+                    return city.NeighbouringCities[j].CustomerPricePerCC;
                 }
             }
         }
