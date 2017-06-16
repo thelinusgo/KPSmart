@@ -175,9 +175,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
         if(sessionStorage.getItem("totalDistance") > 0) {
-            alert("Successful");
             location.href = 'viewEvents.html'; //redirect them to the view events page.
-            //receiveData(JSON.stringify(JSONObject)); // for testing only
         }else{
             alert("Please enter a valid origin location or destination");
             return;
