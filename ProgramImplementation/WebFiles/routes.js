@@ -330,3 +330,28 @@ function getPricePerCC(origin, destination){
         }
     }
 }
+
+function getCustomerPricePerGram(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].CustomerPricePerGram;
+                }
+            }
+        }
+    }
+}
+function getCustomerPricePerCC(origin, destination){
+    for (var i in jsonNodes.cities){
+        var city = jsonNodes.cities[i];
+        if (city.CityName == origin){
+            for (var j in city.NeighbouringCities){
+                if (city.NeighbouringCities[j]==destination){
+                    return city.NeighbouringCities[i].CustomerPricePerCC;
+                }
+            }
+        }
+    }
+}
