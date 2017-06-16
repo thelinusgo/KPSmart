@@ -214,6 +214,7 @@ function findShortestRoute(map, origin, destination, weight, volume){
     alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Weight price: "+totalPricePerGram + " Volume price: "+totalPricePerCC);
     // console.log("length: " + array.length);
 
+    sessionStorage.setItem("TotalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
     for(i in array){
         console.log(array[i]);
     }
