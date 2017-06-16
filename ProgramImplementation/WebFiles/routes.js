@@ -189,6 +189,8 @@ function findShortestRoute(map, origin, destination, weight, volume){
             // console.log("Found first");
             continue;
         }
+        //console.log(getPricePerCC(c1,c2));
+        //console.log(getPricePerGram(c1,c2));
         sessionStorage.setItem("totalPricePerGram", parseInt(sessionStorage.getItem("totalPricePerGram"))+parseInt(getPricePerGram(c1,c2)));
         sessionStorage.setItem("totalPricePerCC", parseInt(sessionStorage.getItem("totalPricePerCC"))+parseInt(getPricePerCC(c1,c2)));
         for(neighbour in map.vertices[c2]){
@@ -205,6 +207,8 @@ function findShortestRoute(map, origin, destination, weight, volume){
     }
     console.log("Path = "+array);
     console.log("Distance "+ sessionStorage.getItem("totalDistance"));
+    console.log("Per Gram = "+sessionStorage.getItem("totalPricePerGram"));
+    console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     var totalPricePerGram = parseInt(weight)*parseInt(sessionStorage.getItem("totalPricePerGram"));
     var totalPricePerCC = parseInt(volume) * parseInt(sessionStorage.getItem("totalPricePerCC"));
     alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Weight price: "+totalPricePerGram + " Volume price: "+totalPricePerCC);
@@ -311,8 +315,9 @@ function getPricePerGram(origin, destination){
         var city = jsonNodes.cities[i];
         if (city.CityName == origin){
             for (var j in city.NeighbouringCities){
-                if (city.NeighbouringCities[j]==destination){
-                    return city.NeighbouringCities[i].PricePerGram;
+                if (city.NeighbouringCities[j].CityName==destination){
+                    console.log("getPricePerGram returns = "+city.NeighbouringCities[j].PricePerGram);
+                    return city.NeighbouringCities[j].PricePerGram;
                 }
             }
         }
@@ -322,9 +327,11 @@ function getPricePerCC(origin, destination){
     for (var i in jsonNodes.cities){
         var city = jsonNodes.cities[i];
         if (city.CityName == origin){
+          //  console.log(city);
             for (var j in city.NeighbouringCities){
-                if (city.NeighbouringCities[j]==destination){
-                    return city.NeighbouringCities[i].PricePerCC;
+                if (city.NeighbouringCities[j].CityName==destination){
+                    console.log("getPricePerCC returns = "+city.NeighbouringCities[j].PricePerCC);
+                    return city.NeighbouringCities[j].PricePerCC;
                 }
             }
         }
