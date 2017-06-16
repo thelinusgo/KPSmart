@@ -74,6 +74,7 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         }else if(passwordInput == ""){
             $scope.print="Please input a valid password";
         }else{
+
             $scope.validUserName = false;
             $scope.validPassword = false;
 
@@ -86,11 +87,18 @@ app.controller('MainCtrl', function($scope, $http, $location) {
                 }
             }
 
+            if(!($scope.validUserName)){
+                $scope.print = "Incorrect username or password";
+                $scope.cancelLogin();
+                return;
+            }
+
             if ($scope.userlist[userIndex].UPassword == passwordInput) {
                 $scope.validPassword = true;
             }
 
-            if ($scope.validUserName && $scope.validPassword) {
+
+            if($scope.validUserName && $scope.validPassword) {
                 alert("Welcome " + userInput + ", you have logged in successfully.");
                 if(sessionStorage.getItem("currentUserType") == "manager"){
                     location.href = 'viewEvents.html';
@@ -98,8 +106,9 @@ app.controller('MainCtrl', function($scope, $http, $location) {
                     location.href = 'businessMonitoring.html';
                 }
                 $scope.cancelLogin();
-            } else{
+            }else{
             $scope.print = "Incorrect username or password";
+                $scope.cancelLogin();
             }
         }
     };
@@ -115,6 +124,12 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         $scope.username = "";
         $scope.password = "";
     };
+
+    $scope.clearLoginForm = function(){
+        $scope.print = "";
+        $scope.username = "";
+        $scope.password = "";
+    }
 
     $scope.setSelectedEvent = function(index){
         sessionStorage.setItem("selectedEvent", JSON.stringify($scope.processedEvents[index]));
