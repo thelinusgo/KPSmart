@@ -63,11 +63,18 @@
                         <td><input ng-model="businessFigs.avgDeliveryTimes" readonly></td>
                         <td>hours</td>
                     </tr>
+                </table>
+                <table class="routesTable">
                     <tr>
-                        <th>Critical Routes:</th>
-                        <td></td>
-                        <td><input ng-model="businessFigs.criticalRoutes" readonly></td>
-                        <td></td>
+                        <th colspan="2">Critical Routes</th>
+                    </tr>
+                    <tr>
+                        <td class="h2">From</td>
+                        <td class="h2">To</td>
+                    </tr>
+                    <tr ng-repeat="routes in businessFigs.criticalRoutes">
+                        <td>{{routes.origin.toString()}}</td>
+                        <td>{{routes.destination.toString()}}</td>
                     </tr>
                 </table>
                 <div id="button">
