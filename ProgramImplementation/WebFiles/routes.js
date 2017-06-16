@@ -305,7 +305,7 @@ function addCustomerPriceToRoute(event) {
         alert("Customer Price updated successfully");
         alert(JSON.stringify(jsonNodes));
     } else {
-        alert("Invalid origin or destination, route does not exist");
+        alert("Invalid origin or destination, you can only update a direct route");
     }
 }
 
