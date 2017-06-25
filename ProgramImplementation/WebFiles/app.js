@@ -174,15 +174,13 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         }};
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
-        if(sessionStorage.getItem("totalDistance") > 0) {
 
-        alert("manager status: " + isManager());
-
+        if(sessionStorage.getItem("totalDistance") > 0 ){
             if($scope.isManager()){
                 location.href = 'viewEvents.html'; //redirect them to the view events page.
+            }else{
+                location.href = 'businessMonitoring.html';
             }
-                location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
-
         }else{
             alert("Please enter a valid origin location or destination");
             return;
@@ -227,10 +225,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
 
-        if($scope.isManager()){
+        if($scope.isManager()) {
             location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }else{
+            location.href = 'businessMonitoring.html';
         }
-            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
 
     };
 
@@ -259,11 +258,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
 
-        if($scope.isManager()){
+        if($scope.isManager()) {
             location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }else{
+            location.href = 'businessMonitoring.html';
         }
-            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
-
     };
 
 
@@ -296,11 +295,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
 
-        if($scope.isManager()){
+        if($scope.isManager()) {
             location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }else{
+            location.href = 'businessMonitoring.html'
         }
-            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
-
     }
 
     /**

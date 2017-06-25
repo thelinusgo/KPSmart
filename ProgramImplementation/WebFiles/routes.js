@@ -220,10 +220,11 @@ function findShortestRoute(map, origin, destination, weight, volume){
     console.log("Per Cubic = "+sessionStorage.getItem("totalPricePerCC"));
     console.log("Cust Per Gram = "+sessionStorage.getItem("totalCustomerPricePerGram"));
     console.log("Cust Per Cubic = "+sessionStorage.getItem("totalCustomerPricePerCC"));
-    alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total distance travelled is " + sessionStorage.getItem("totalDistance") + "Transport Weight price: "+totalPricePerGram + "Transport Volume price: "+totalPricePerCC + "Customer Weight price: "+totalCustomerPricePerGram + "Customer Volume price: "+totalCustomerPricePerCC);
+    // alert("Successfully requested a delivery. \n The path taken is: " + array + " \n The total trip duration is " + sessionStorage.getItem("totalDistance")+" hours");
 
     // console.log("length: " + array.length);
 
+    sessionStorage.setItem("array", array.toString());
     sessionStorage.setItem("totalTransportCost",parseInt(totalPricePerGram)+parseInt(totalPricePerCC));
     sessionStorage.setItem("totalCustomerPrice",parseInt(totalCustomerPricePerGram)+parseInt(totalCustomerPricePerCC));
     for(i in array){
@@ -303,7 +304,6 @@ function routeExists(event){
 function addCustomerPriceToRoute(event) {
     if (routeExists(event)){
         alert("Customer Price updated successfully");
-        alert(JSON.stringify(jsonNodes));
     } else {
         alert("Invalid origin or destination, you can only update a direct route");
     }
