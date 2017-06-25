@@ -175,7 +175,14 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
         if(sessionStorage.getItem("totalDistance") > 0) {
-            location.href = 'viewEvents.html'; //redirect them to the view events page.
+
+        alert("manager status: " + isManager());
+
+            if($scope.isManager()){
+                location.href = 'viewEvents.html'; //redirect them to the view events page.
+            }
+                location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
+
         }else{
             alert("Please enter a valid origin location or destination");
             return;
@@ -219,7 +226,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
-        location.href='viewEvents.html'; //redirect them to the view events page.
+
+        if($scope.isManager()){
+            location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }
+            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
 
     };
 
@@ -247,7 +258,11 @@ app.controller('MainCtrl', function($scope, $http, $location) {
         createMap(); // for testing
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
-        location.href='viewEvents.html'; //redirect them to the view events page.
+
+        if($scope.isManager()){
+            location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }
+            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
 
     };
 
@@ -280,7 +295,12 @@ app.controller('MainCtrl', function($scope, $http, $location) {
 
         sendData(JSONObject);
         addNewEvent(JSONObject.event);
-        location.href='viewEvents.html'; //redirect them to the view events page.
+
+        if($scope.isManager()){
+            location.href = 'viewEvents.html'; //redirect them to the view events page.
+        }
+            location.href = 'businessMonitoring.html'; //if not manager, do buisiness monitoring.
+
     }
 
     /**
